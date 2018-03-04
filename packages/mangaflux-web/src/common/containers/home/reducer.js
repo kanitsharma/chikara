@@ -1,11 +1,11 @@
-import createReducer from '../../futils/createReducer'
+import createReducer from '../../futils/createreducer';
 
 const initialState = {
-  showText: true
-}
+  latest: [],
+};
 
 const actionHandlers = {
-  TOGGLE_TEXT: (s, a) => ({ ...s, showText: !s.showText }),
-}
+  LATEST: (s, a) => ({ ...s, latest: a.payload }),
+};
 
-export default createReducer(initialState, actionHandlers)
+export default createReducer(initialState, actionHandlers);

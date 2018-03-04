@@ -1,29 +1,28 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Flex, Text } from '@elementary/components'
 import actionSpreader from '../../futils/actionSpreader';
 
-type Action = () => void
-
-const Home = (props: { toggleText: Action, showText: boolean, latest: Object }) => (
-  <div>
-    <div onClick={props.toggleText}>Toggle Text</div>
-    {
-      props.showText &&
-      <div> Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum</div>
-    }
-    {
-      JSON.stringify(props.latest)
-    }
-  </div>
-)
+const Home = (props) => {
+  props.fetchLatest()
+  return (
+    <Flex flexDirection="column" height="100%" alignItems="center" bg="#1B192C">
+      <Text f="30px" color="#FD315B">Latest Mangas</Text>
+      {
+        JSON.stringify(props.latest)
+      }
+    </Flex>
+  )
+}
 
 const mapStateToProps = state => ({
-  showText: state.home.showText,
-  latest: state.latest,
+  latest: state.home.latest
 });
 
 const mapDispatchToProps = dispatch => ({
-  toggleText: () => dispatch(actionSpreader('TOGGLE_TEXT')),
+  fetchLatest: () => fetch('https://mangaflux-api.herokuapp.com/latest/0/20')
+    .then(x => x.json())
+    .then(x => dispatch(actionSpreader('LATEST', x))),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);

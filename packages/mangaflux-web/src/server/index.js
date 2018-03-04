@@ -1,12 +1,13 @@
-import App from '../common/containers/home';
 import { Provider } from 'react-redux';
 import React from 'react';
-import configureStore from '../common/store/configureStore';
 import express from 'express';
-
-// import qs from 'qs';
 import { renderToString } from 'react-dom/server';
 import serialize from 'serialize-javascript';
+import { StaticRouter } from 'react-router-dom';
+
+import App from '../common/containers/layout';
+import configureStore from '../common/store/configureStore';
+// import qs from 'qs';
 import './polyfill';
 
 const assets = require(process.env.RAZZLE_ASSETS_MANIFEST);
@@ -29,8 +30,10 @@ server
     // Render the component to a string
     const markup = renderToString(
       <Provider store={store}>
-        <App />
-      </Provider>
+        <StaticRouter>
+          <App />
+        </StaticRouter>
+      </Provider>,
     );
 
     // Grab the initial state from our Redux store
@@ -44,11 +47,11 @@ server
         <title>Mangaflux</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         ${assets.client.css
-        ? `<link rel="stylesheet" href="${assets.client.css}">`
-        : ''}
+    ? `<link rel="stylesheet" href="${assets.client.css}">`
+    : ''}
           ${process.env.NODE_ENV === 'production'
-        ? `<script src="${assets.client.js}" defer></script>`
-        : `<script src="${assets.client.js}" defer crossorigin></script>`}
+    ? `<script src="${assets.client.js}" defer></script>`
+    : `<script src="${assets.client.js}" defer crossorigin></script>`}
     </head>
     <body>
         <div id="root">${markup}</div>
