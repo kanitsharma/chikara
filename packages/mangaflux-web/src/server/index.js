@@ -3,10 +3,12 @@ import { Provider } from 'react-redux';
 import React from 'react';
 import configureStore from '../common/store/configureStore';
 import express from 'express';
+
 import { fetchLatest } from '../common/api/getlatest';
 // import qs from 'qs';
 import { renderToString } from 'react-dom/server';
 import serialize from 'serialize-javascript';
+import './polyfill';
 
 const assets = require(process.env.RAZZLE_ASSETS_MANIFEST);
 

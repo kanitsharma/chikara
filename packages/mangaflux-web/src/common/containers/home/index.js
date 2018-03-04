@@ -1,8 +1,10 @@
-import React from 'react'
-import { connect } from 'react-redux'
-import actionSpreader from '../../futils/actionSpreader'
+import React from 'react';
+import { connect } from 'react-redux';
+import actionSpreader from '../../futils/actionSpreader';
 
-const Home = props => (
+type Action = () => void
+
+const Home = (props: { toggleText: Action, showText: boolean, latest: Object }) => (
   <div>
     <div onClick={props.toggleText}>Toggle Text</div>
     {
@@ -17,11 +19,11 @@ const Home = props => (
 
 const mapStateToProps = state => ({
   showText: state.home.showText,
-  latest: state.latest
-})
+  latest: state.latest,
+});
 
 const mapDispatchToProps = dispatch => ({
-  toggleText: () => dispatch(actionSpreader('TOGGLE_TEXT'))
-})
+  toggleText: () => dispatch(actionSpreader('TOGGLE_TEXT')),
+});
 
-export default connect(mapStateToProps, mapDispatchToProps)(Home)
+export default connect(mapStateToProps, mapDispatchToProps)(Home);
