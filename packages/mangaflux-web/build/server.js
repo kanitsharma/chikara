@@ -20,7 +20,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "02c5ed9842b8b9c91a84"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "109cf711aa3767c97e69"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -823,29 +823,6 @@ if(true) {
 
 /***/ }),
 
-/***/ "./src/common/api/getlatest.js":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return fetchLatest; });
-var getRandomInt = function getRandomInt(min, max) {
-  return Math.floor(Math.random() * (max - min)) + min;
-};
-
-var fetchLatest = function fetchLatest(callback) {
-  // Rather than immediately returning, we delay our code with a timeout to simulate asynchronous behavior
-  fetch('https://mangaflux-api.herokuapp.com/latest/0/20').then(function (res) {
-    return res.json();
-  }).then(function (res) {
-    return callback(res);
-  });
-
-  // In the case of a real world API call, you'll normally run into a Promise like this:
-  // API.getUser().then(user => callback(user))
-};
-
-/***/ }),
-
 /***/ "./src/common/containers/home/index.js":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -869,14 +846,14 @@ var Home = function Home(props) {
     {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 6
+        lineNumber: 8
       }
     },
     __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
       'div',
       { onClick: props.toggleText, __source: {
           fileName: _jsxFileName,
-          lineNumber: 7
+          lineNumber: 9
         }
       },
       'Toggle Text'
@@ -886,7 +863,7 @@ var Home = function Home(props) {
       {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 10
+          lineNumber: 12
         }
       },
       ' Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum'
@@ -990,14 +967,12 @@ var rootReducer = Object(__WEBPACK_IMPORTED_MODULE_0_redux__["combineReducers"])
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_redux_thunk__ = __webpack_require__("redux-thunk");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_redux_thunk___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_redux_thunk__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__reducers__ = __webpack_require__("./src/common/reducers/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__logger__ = __webpack_require__("./src/common/store/logger.js");
-
 
 
 
 
 var configureStore = function configureStore(preloadedState) {
-  var store = Object(__WEBPACK_IMPORTED_MODULE_0_redux__["createStore"])(__WEBPACK_IMPORTED_MODULE_2__reducers__["default"], preloadedState, __WEBPACK_IMPORTED_MODULE_3__logger__["a" /* logger */], Object(__WEBPACK_IMPORTED_MODULE_0_redux__["applyMiddleware"])(__WEBPACK_IMPORTED_MODULE_1_redux_thunk___default.a));
+  var store = Object(__WEBPACK_IMPORTED_MODULE_0_redux__["createStore"])(__WEBPACK_IMPORTED_MODULE_2__reducers__["default"], preloadedState, Object(__WEBPACK_IMPORTED_MODULE_0_redux__["applyMiddleware"])(__WEBPACK_IMPORTED_MODULE_1_redux_thunk___default.a));
 
   if (true) {
     // Enable Webpack hot module replacement for reducers
@@ -1011,24 +986,6 @@ var configureStore = function configureStore(preloadedState) {
 };
 
 /* harmony default export */ __webpack_exports__["a"] = (configureStore);
-
-/***/ }),
-
-/***/ "./src/common/store/logger.js":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return logger; });
-var logger = function logger(store) {
-  return function (next) {
-    return function (action) {
-      console.log('dispatching', action);
-      var result = next(action);
-      console.log('next state', store.getState());
-      return result;
-    };
-  };
-};
 
 /***/ }),
 
@@ -1077,11 +1034,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__common_store_configureStore__ = __webpack_require__("./src/common/store/configureStore.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_express__ = __webpack_require__("express");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_express___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_express__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__common_api_getlatest__ = __webpack_require__("./src/common/api/getlatest.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_react_dom_server__ = __webpack_require__("react-dom/server");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_react_dom_server___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_react_dom_server__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_serialize_javascript__ = __webpack_require__("serialize-javascript");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_serialize_javascript___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_serialize_javascript__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_react_dom_server__ = __webpack_require__("react-dom/server");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_react_dom_server___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_react_dom_server__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_serialize_javascript__ = __webpack_require__("serialize-javascript");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_serialize_javascript___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_serialize_javascript__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__polyfill__ = __webpack_require__("./src/server/polyfill.js");
 var _jsxFileName = 'C:\\Users\\hp\\Desktop\\chikara\\packages\\mangaflux-web\\src\\server\\index.js';
 
 
@@ -1093,45 +1050,56 @@ var _jsxFileName = 'C:\\Users\\hp\\Desktop\\chikara\\packages\\mangaflux-web\\sr
 
 
 
+
 var assets = __webpack_require__("./build/assets.json");
 
 var server = __WEBPACK_IMPORTED_MODULE_4_express___default()();
 
 server.disable('x-powered-by').use(__WEBPACK_IMPORTED_MODULE_4_express___default.a.static("C:\\Users\\hp\\Desktop\\chikara\\packages\\mangaflux-web\\public")).get('/*', function (req, res) {
-  Object(__WEBPACK_IMPORTED_MODULE_5__common_api_getlatest__["a" /* fetchLatest */])(function (apiResult) {
     // Read the counter from the request, if provided
     // const params = qs.parse(req.query);
 
     // Compile an initial state
-    var preloadedState = { latest: apiResult };
+    var preloadedState = {};
 
     // Create a new Redux store instance
     var store = Object(__WEBPACK_IMPORTED_MODULE_3__common_store_configureStore__["a" /* default */])(preloadedState);
 
     // Render the component to a string
-    var markup = Object(__WEBPACK_IMPORTED_MODULE_6_react_dom_server__["renderToString"])(__WEBPACK_IMPORTED_MODULE_2_react___default.a.createElement(
-      __WEBPACK_IMPORTED_MODULE_1_react_redux__["Provider"],
-      { store: store, __source: {
-          fileName: _jsxFileName,
-          lineNumber: 31
-        }
-      },
-      __WEBPACK_IMPORTED_MODULE_2_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_0__common_containers_home__["a" /* default */], {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 32
-        }
-      })
+    var markup = Object(__WEBPACK_IMPORTED_MODULE_5_react_dom_server__["renderToString"])(__WEBPACK_IMPORTED_MODULE_2_react___default.a.createElement(
+        __WEBPACK_IMPORTED_MODULE_1_react_redux__["Provider"],
+        { store: store, __source: {
+                fileName: _jsxFileName,
+                lineNumber: 31
+            }
+        },
+        __WEBPACK_IMPORTED_MODULE_2_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_0__common_containers_home__["a" /* default */], {
+            __source: {
+                fileName: _jsxFileName,
+                lineNumber: 32
+            }
+        })
     ));
 
     // Grab the initial state from our Redux store
     var finalState = store.getState();
 
-    res.send('<!doctype html>\n    <html lang="">\n    <head>\n        <meta http-equiv="X-UA-Compatible" content="IE=edge" />\n        <meta charSet=\'utf-8\' />\n        <title>Mangaflux</title>\n        <meta name="viewport" content="width=device-width, initial-scale=1">\n        ' + (assets.client.css ? '<link rel="stylesheet" href="' + assets.client.css + '">' : '') + '\n          ' + ( false ? '<script src="' + assets.client.js + '" defer></script>' : '<script src="' + assets.client.js + '" defer crossorigin></script>') + '\n    </head>\n    <body>\n        <div id="root">' + markup + '</div>\n        <script>\n          window.__PRELOADED_STATE__ = ' + __WEBPACK_IMPORTED_MODULE_7_serialize_javascript___default()(finalState) + '\n        </script>\n    </body>\n</html>');
-  });
+    res.send('<!doctype html>\n    <html lang="">\n    <head>\n        <meta http-equiv="X-UA-Compatible" content="IE=edge" />\n        <meta charSet=\'utf-8\' />\n        <title>Mangaflux</title>\n        <meta name="viewport" content="width=device-width, initial-scale=1">\n        ' + (assets.client.css ? '<link rel="stylesheet" href="' + assets.client.css + '">' : '') + '\n          ' + ( false ? '<script src="' + assets.client.js + '" defer></script>' : '<script src="' + assets.client.js + '" defer crossorigin></script>') + '\n    </head>\n    <body>\n        <div id="root">' + markup + '</div>\n        <script>\n          window.__PRELOADED_STATE__ = ' + __WEBPACK_IMPORTED_MODULE_6_serialize_javascript___default()(finalState) + '\n        </script>\n    </body>\n</html>');
 });
 
 /* harmony default export */ __webpack_exports__["default"] = (server);
+
+/***/ }),
+
+/***/ "./src/server/polyfill.js":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_node_fetch__ = __webpack_require__("node-fetch");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_node_fetch___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_node_fetch__);
+
+
+global.fetch = __WEBPACK_IMPORTED_MODULE_0_node_fetch___default.a;
 
 /***/ }),
 
@@ -1162,6 +1130,13 @@ module.exports = require("babel-runtime/core-js/object/assign");
 /***/ (function(module, exports) {
 
 module.exports = require("express");
+
+/***/ }),
+
+/***/ "node-fetch":
+/***/ (function(module, exports) {
+
+module.exports = require("node-fetch");
 
 /***/ }),
 
