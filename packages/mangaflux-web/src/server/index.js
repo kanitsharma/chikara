@@ -1,10 +1,10 @@
-import App from '../common/containers/App';
+import App from '../common/containers/home';
 import { Provider } from 'react-redux';
 import React from 'react';
 import configureStore from '../common/store/configureStore';
 import express from 'express';
-import { fetchCounter } from '../common/api/counter';
-import qs from 'qs';
+import { fetchLatest } from '../common/api/getlatest';
+// import qs from 'qs';
 import { renderToString } from 'react-dom/server';
 import serialize from 'serialize-javascript';
 
@@ -16,13 +16,12 @@ server
   .disable('x-powered-by')
   .use(express.static(process.env.RAZZLE_PUBLIC_DIR))
   .get('/*', (req, res) => {
-    fetchCounter(apiResult => {
+    fetchLatest(apiResult => {
       // Read the counter from the request, if provided
-      const params = qs.parse(req.query);
-      const counter = parseInt(params.counter, 10) || apiResult || 0;
+      // const params = qs.parse(req.query);
 
       // Compile an initial state
-      const preloadedState = { counter };
+      const preloadedState = { latest: apiResult };
 
       // Create a new Redux store instance
       const store = configureStore(preloadedState);

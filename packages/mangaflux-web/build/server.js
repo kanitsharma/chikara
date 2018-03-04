@@ -20,7 +20,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "14f4267a38bf1dca9519"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "02c5ed9842b8b9c91a84"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -823,80 +823,22 @@ if(true) {
 
 /***/ }),
 
-/***/ "./src/common/actions/index.js":
+/***/ "./src/common/api/getlatest.js":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SET_COUNTER", function() { return SET_COUNTER; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "INCREMENT_COUNTER", function() { return INCREMENT_COUNTER; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DECREMENT_COUNTER", function() { return DECREMENT_COUNTER; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "set", function() { return set; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "increment", function() { return increment; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "decrement", function() { return decrement; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "incrementIfOdd", function() { return incrementIfOdd; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "incrementAsync", function() { return incrementAsync; });
-var SET_COUNTER = 'SET_COUNTER';
-var INCREMENT_COUNTER = 'INCREMENT_COUNTER';
-var DECREMENT_COUNTER = 'DECREMENT_COUNTER';
-
-var set = function set(value) {
-  return {
-    type: SET_COUNTER,
-    payload: value
-  };
-};
-
-var increment = function increment() {
-  return {
-    type: INCREMENT_COUNTER
-  };
-};
-
-var decrement = function decrement() {
-  return {
-    type: DECREMENT_COUNTER
-  };
-};
-
-var incrementIfOdd = function incrementIfOdd() {
-  return function (dispatch, getState) {
-    var _getState = getState(),
-        counter = _getState.counter;
-
-    if (counter % 2 === 0) {
-      return;
-    }
-
-    dispatch(increment());
-  };
-};
-
-var incrementAsync = function incrementAsync() {
-  var delay = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1000;
-  return function (dispatch) {
-    setTimeout(function () {
-      dispatch(increment());
-    }, delay);
-  };
-};
-
-/***/ }),
-
-/***/ "./src/common/api/counter.js":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return fetchCounter; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return fetchLatest; });
 var getRandomInt = function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 };
 
-var fetchCounter = function fetchCounter(callback) {
+var fetchLatest = function fetchLatest(callback) {
   // Rather than immediately returning, we delay our code with a timeout to simulate asynchronous behavior
-  setTimeout(function () {
-    callback(getRandomInt(1, 100));
-  }, 500);
+  fetch('https://mangaflux-api.herokuapp.com/latest/0/20').then(function (res) {
+    return res.json();
+  }).then(function (res) {
+    return callback(res);
+  });
 
   // In the case of a real world API call, you'll normally run into a Promise like this:
   // API.getUser().then(user => callback(user))
@@ -904,164 +846,119 @@ var fetchCounter = function fetchCounter(callback) {
 
 /***/ }),
 
-/***/ "./src/common/components/Counter.js":
+/***/ "./src/common/containers/home/index.js":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__("react");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_prop_types__ = __webpack_require__("prop-types");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_prop_types__);
-var _jsxFileName = '/home/rajatsharma/chikara/packages/mangaflux-web/src/common/components/Counter.js';
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_json_stringify__ = __webpack_require__("babel-runtime/core-js/json/stringify");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_json_stringify___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_json_stringify__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react__ = __webpack_require__("react");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_redux__ = __webpack_require__("react-redux");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_redux___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_react_redux__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__futils_actionSpreader__ = __webpack_require__("./src/common/futils/actionSpreader.js");
+
+var _jsxFileName = 'C:\\Users\\hp\\Desktop\\chikara\\packages\\mangaflux-web\\src\\common\\containers\\home\\index.js';
 
 
 
-var Counter = function Counter(_ref) {
-  var increment = _ref.increment,
-      incrementIfOdd = _ref.incrementIfOdd,
-      incrementAsync = _ref.incrementAsync,
-      decrement = _ref.decrement,
-      counter = _ref.counter;
-  return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+
+var Home = function Home(props) {
+  return __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
     'div',
     {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 11
+        lineNumber: 6
       }
     },
-    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-      'h1',
-      {
-        __source: {
+    __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
+      'div',
+      { onClick: props.toggleText, __source: {
           fileName: _jsxFileName,
-          lineNumber: 12
+          lineNumber: 7
         }
       },
-      'Here\'s a clicker for you'
+      'Toggle Text'
     ),
-    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-      'p',
+    props.showText && __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
+      'div',
       {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 13
+          lineNumber: 10
         }
       },
-      'Clicked: ',
-      counter,
-      ' times',
-      ' ',
-      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-        'button',
-        { onClick: increment, __source: {
-            fileName: _jsxFileName,
-            lineNumber: 16
-          }
-        },
-        '+'
-      ),
-      ' ',
-      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-        'button',
-        { onClick: decrement, __source: {
-            fileName: _jsxFileName,
-            lineNumber: 18
-          }
-        },
-        '-'
-      ),
-      ' ',
-      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-        'button',
-        { onClick: incrementIfOdd, __source: {
-            fileName: _jsxFileName,
-            lineNumber: 20
-          }
-        },
-        'Increment if odd'
-      ),
-      ' ',
-      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-        'button',
-        { onClick: function onClick() {
-            return incrementAsync();
-          }, __source: {
-            fileName: _jsxFileName,
-            lineNumber: 22
-          }
-        },
-        'Increment async'
-      )
-    )
+      ' Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum'
+    ),
+    __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_json_stringify___default()(props.latest)
   );
 };
 
-Counter.propTypes = {
-  increment: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.func.isRequired,
-  incrementIfOdd: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.func.isRequired,
-  incrementAsync: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.func.isRequired,
-  decrement: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.func.isRequired,
-  counter: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.number.isRequired
-};
-
-/* harmony default export */ __webpack_exports__["a"] = (Counter);
-
-/***/ }),
-
-/***/ "./src/common/containers/App.js":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_redux__ = __webpack_require__("redux");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_redux___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_redux__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_redux__ = __webpack_require__("react-redux");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_redux___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react_redux__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_Counter__ = __webpack_require__("./src/common/components/Counter.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__actions__ = __webpack_require__("./src/common/actions/index.js");
-
-
-
-
-
 var mapStateToProps = function mapStateToProps(state) {
   return {
-    counter: state.counter
+    showText: state.home.showText,
+    latest: state.latest
   };
 };
 
-function mapDispatchToProps(dispatch) {
-  return Object(__WEBPACK_IMPORTED_MODULE_0_redux__["bindActionCreators"])(__WEBPACK_IMPORTED_MODULE_3__actions__, dispatch);
-}
+var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+  return {
+    toggleText: function toggleText() {
+      return dispatch(Object(__WEBPACK_IMPORTED_MODULE_3__futils_actionSpreader__["a" /* default */])('TOGGLE_TEXT'));
+    }
+  };
+};
 
-/* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_1_react_redux__["connect"])(mapStateToProps, mapDispatchToProps)(__WEBPACK_IMPORTED_MODULE_2__components_Counter__["a" /* default */]));
+/* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_2_react_redux__["connect"])(mapStateToProps, mapDispatchToProps)(Home));
 
 /***/ }),
 
-/***/ "./src/common/reducers/counter.js":
+/***/ "./src/common/containers/home/reducer.js":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__actions__ = __webpack_require__("./src/common/actions/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_object_assign__ = __webpack_require__("babel-runtime/core-js/object/assign");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_object_assign___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_object_assign__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__futils_createReducer__ = __webpack_require__("./src/common/futils/createReducer.js");
 
 
-var counter = function counter() {
-  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
-  var action = arguments[1];
 
-  switch (action.type) {
-    case __WEBPACK_IMPORTED_MODULE_0__actions__["SET_COUNTER"]:
-      return action.payload;
-    case __WEBPACK_IMPORTED_MODULE_0__actions__["INCREMENT_COUNTER"]:
-      return state + 1;
-    case __WEBPACK_IMPORTED_MODULE_0__actions__["DECREMENT_COUNTER"]:
-      return state - 1;
-    default:
-      return state;
+var initialState = {
+  showText: true
+};
+
+var actionHandlers = {
+  TOGGLE_TEXT: function TOGGLE_TEXT(s, a) {
+    return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_object_assign___default()({}, s, { showText: !s.showText });
   }
 };
 
-/* harmony default export */ __webpack_exports__["a"] = (counter);
+/* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_1__futils_createReducer__["a" /* default */])(initialState, actionHandlers));
+
+/***/ }),
+
+/***/ "./src/common/futils/actionSpreader.js":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony default export */ __webpack_exports__["a"] = (function (type, payload) {
+  return { type: type, payload: payload };
+});
+
+/***/ }),
+
+/***/ "./src/common/futils/createReducer.js":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony default export */ __webpack_exports__["a"] = (function (initialState, actionHandlers) {
+  return function () {
+    var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
+    var action = arguments[1];
+    return actionHandlers.hasOwnProperty(action.type) ? actionHandlers[action.type](state, action) : state;
+  };
+});
 
 /***/ }),
 
@@ -1072,12 +969,12 @@ var counter = function counter() {
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_redux__ = __webpack_require__("redux");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_redux___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_redux__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__counter__ = __webpack_require__("./src/common/reducers/counter.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__containers_home_reducer__ = __webpack_require__("./src/common/containers/home/reducer.js");
 
 
 
 var rootReducer = Object(__WEBPACK_IMPORTED_MODULE_0_redux__["combineReducers"])({
-  counter: __WEBPACK_IMPORTED_MODULE_1__counter__["a" /* default */]
+  home: __WEBPACK_IMPORTED_MODULE_1__containers_home_reducer__["a" /* default */]
 });
 
 /* harmony default export */ __webpack_exports__["default"] = (rootReducer);
@@ -1093,12 +990,14 @@ var rootReducer = Object(__WEBPACK_IMPORTED_MODULE_0_redux__["combineReducers"])
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_redux_thunk__ = __webpack_require__("redux-thunk");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_redux_thunk___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_redux_thunk__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__reducers__ = __webpack_require__("./src/common/reducers/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__logger__ = __webpack_require__("./src/common/store/logger.js");
+
 
 
 
 
 var configureStore = function configureStore(preloadedState) {
-  var store = Object(__WEBPACK_IMPORTED_MODULE_0_redux__["createStore"])(__WEBPACK_IMPORTED_MODULE_2__reducers__["default"], preloadedState, Object(__WEBPACK_IMPORTED_MODULE_0_redux__["applyMiddleware"])(__WEBPACK_IMPORTED_MODULE_1_redux_thunk___default.a));
+  var store = Object(__WEBPACK_IMPORTED_MODULE_0_redux__["createStore"])(__WEBPACK_IMPORTED_MODULE_2__reducers__["default"], preloadedState, __WEBPACK_IMPORTED_MODULE_3__logger__["a" /* logger */], Object(__WEBPACK_IMPORTED_MODULE_0_redux__["applyMiddleware"])(__WEBPACK_IMPORTED_MODULE_1_redux_thunk___default.a));
 
   if (true) {
     // Enable Webpack hot module replacement for reducers
@@ -1112,6 +1011,24 @@ var configureStore = function configureStore(preloadedState) {
 };
 
 /* harmony default export */ __webpack_exports__["a"] = (configureStore);
+
+/***/ }),
+
+/***/ "./src/common/store/logger.js":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return logger; });
+var logger = function logger(store) {
+  return function (next) {
+    return function (action) {
+      console.log('dispatching', action);
+      var result = next(action);
+      console.log('next state', store.getState());
+      return result;
+    };
+  };
+};
 
 /***/ }),
 
@@ -1152,7 +1069,7 @@ var port = "3000" || 3000;
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__common_containers_App__ = __webpack_require__("./src/common/containers/App.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__common_containers_home__ = __webpack_require__("./src/common/containers/home/index.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_redux__ = __webpack_require__("react-redux");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_redux___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react_redux__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react__ = __webpack_require__("react");
@@ -1160,21 +1077,19 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__common_store_configureStore__ = __webpack_require__("./src/common/store/configureStore.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_express__ = __webpack_require__("express");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_express___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_express__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__common_api_counter__ = __webpack_require__("./src/common/api/counter.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_qs__ = __webpack_require__("qs");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_qs___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_qs__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_react_dom_server__ = __webpack_require__("react-dom/server");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_react_dom_server___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_react_dom_server__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_serialize_javascript__ = __webpack_require__("serialize-javascript");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_serialize_javascript___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8_serialize_javascript__);
-var _jsxFileName = '/home/rajatsharma/chikara/packages/mangaflux-web/src/server/index.js';
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__common_api_getlatest__ = __webpack_require__("./src/common/api/getlatest.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_react_dom_server__ = __webpack_require__("react-dom/server");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_react_dom_server___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_react_dom_server__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_serialize_javascript__ = __webpack_require__("serialize-javascript");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_serialize_javascript___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_serialize_javascript__);
+var _jsxFileName = 'C:\\Users\\hp\\Desktop\\chikara\\packages\\mangaflux-web\\src\\server\\index.js';
 
 
 
 
 
 
-
+// import qs from 'qs';
 
 
 
@@ -1182,30 +1097,29 @@ var assets = __webpack_require__("./build/assets.json");
 
 var server = __WEBPACK_IMPORTED_MODULE_4_express___default()();
 
-server.disable('x-powered-by').use(__WEBPACK_IMPORTED_MODULE_4_express___default.a.static("/home/rajatsharma/chikara/packages/mangaflux-web/public")).get('/*', function (req, res) {
-  Object(__WEBPACK_IMPORTED_MODULE_5__common_api_counter__["a" /* fetchCounter */])(function (apiResult) {
+server.disable('x-powered-by').use(__WEBPACK_IMPORTED_MODULE_4_express___default.a.static("C:\\Users\\hp\\Desktop\\chikara\\packages\\mangaflux-web\\public")).get('/*', function (req, res) {
+  Object(__WEBPACK_IMPORTED_MODULE_5__common_api_getlatest__["a" /* fetchLatest */])(function (apiResult) {
     // Read the counter from the request, if provided
-    var params = __WEBPACK_IMPORTED_MODULE_6_qs___default.a.parse(req.query);
-    var counter = parseInt(params.counter, 10) || apiResult || 0;
+    // const params = qs.parse(req.query);
 
     // Compile an initial state
-    var preloadedState = { counter: counter };
+    var preloadedState = { latest: apiResult };
 
     // Create a new Redux store instance
     var store = Object(__WEBPACK_IMPORTED_MODULE_3__common_store_configureStore__["a" /* default */])(preloadedState);
 
     // Render the component to a string
-    var markup = Object(__WEBPACK_IMPORTED_MODULE_7_react_dom_server__["renderToString"])(__WEBPACK_IMPORTED_MODULE_2_react___default.a.createElement(
+    var markup = Object(__WEBPACK_IMPORTED_MODULE_6_react_dom_server__["renderToString"])(__WEBPACK_IMPORTED_MODULE_2_react___default.a.createElement(
       __WEBPACK_IMPORTED_MODULE_1_react_redux__["Provider"],
       { store: store, __source: {
           fileName: _jsxFileName,
-          lineNumber: 32
+          lineNumber: 31
         }
       },
-      __WEBPACK_IMPORTED_MODULE_2_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_0__common_containers_App__["a" /* default */], {
+      __WEBPACK_IMPORTED_MODULE_2_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_0__common_containers_home__["a" /* default */], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 33
+          lineNumber: 32
         }
       })
     ));
@@ -1213,7 +1127,7 @@ server.disable('x-powered-by').use(__WEBPACK_IMPORTED_MODULE_4_express___default
     // Grab the initial state from our Redux store
     var finalState = store.getState();
 
-    res.send('<!doctype html>\n    <html lang="">\n    <head>\n        <meta http-equiv="X-UA-Compatible" content="IE=edge" />\n        <meta charSet=\'utf-8\' />\n        <title>Mangaflux</title>\n        <meta name="viewport" content="width=device-width, initial-scale=1">\n        ' + (assets.client.css ? '<link rel="stylesheet" href="' + assets.client.css + '">' : '') + '\n          ' + ( false ? '<script src="' + assets.client.js + '" defer></script>' : '<script src="' + assets.client.js + '" defer crossorigin></script>') + '\n    </head>\n    <body>\n        <div id="root">' + markup + '</div>\n        <script>\n          window.__PRELOADED_STATE__ = ' + __WEBPACK_IMPORTED_MODULE_8_serialize_javascript___default()(finalState) + '\n        </script>\n    </body>\n</html>');
+    res.send('<!doctype html>\n    <html lang="">\n    <head>\n        <meta http-equiv="X-UA-Compatible" content="IE=edge" />\n        <meta charSet=\'utf-8\' />\n        <title>Mangaflux</title>\n        <meta name="viewport" content="width=device-width, initial-scale=1">\n        ' + (assets.client.css ? '<link rel="stylesheet" href="' + assets.client.css + '">' : '') + '\n          ' + ( false ? '<script src="' + assets.client.js + '" defer></script>' : '<script src="' + assets.client.js + '" defer crossorigin></script>') + '\n    </head>\n    <body>\n        <div id="root">' + markup + '</div>\n        <script>\n          window.__PRELOADED_STATE__ = ' + __WEBPACK_IMPORTED_MODULE_7_serialize_javascript___default()(finalState) + '\n        </script>\n    </body>\n</html>');
   });
 });
 
@@ -1230,24 +1144,24 @@ module.exports = __webpack_require__("./src/index.js");
 
 /***/ }),
 
+/***/ "babel-runtime/core-js/json/stringify":
+/***/ (function(module, exports) {
+
+module.exports = require("babel-runtime/core-js/json/stringify");
+
+/***/ }),
+
+/***/ "babel-runtime/core-js/object/assign":
+/***/ (function(module, exports) {
+
+module.exports = require("babel-runtime/core-js/object/assign");
+
+/***/ }),
+
 /***/ "express":
 /***/ (function(module, exports) {
 
 module.exports = require("express");
-
-/***/ }),
-
-/***/ "prop-types":
-/***/ (function(module, exports) {
-
-module.exports = require("prop-types");
-
-/***/ }),
-
-/***/ "qs":
-/***/ (function(module, exports) {
-
-module.exports = require("qs");
 
 /***/ }),
 
