@@ -20,7 +20,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "0f7444c3bddaddc6e77f"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "dc075fca6f51e6d9fdd9"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -823,6 +823,49 @@ if(true) {
 
 /***/ }),
 
+/***/ "./src/common/components/fullpageloader.js":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__("react");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__elementary_components__ = __webpack_require__("@elementary/components");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__elementary_components___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__elementary_components__);
+var _jsxFileName = 'C:\\Users\\hp\\Desktop\\chikara\\packages\\mangaflux-web\\src\\common\\components\\fullpageloader.js';
+
+
+
+/* harmony default export */ __webpack_exports__["a"] = (function () {
+  return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+    __WEBPACK_IMPORTED_MODULE_1__elementary_components__["Flex"],
+    { className: 'loader-overlay', __source: {
+        fileName: _jsxFileName,
+        lineNumber: 5
+      }
+    },
+    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+      'div',
+      { className: 'loader', __source: {
+          fileName: _jsxFileName,
+          lineNumber: 6
+        }
+      },
+      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { id: 'largeBox', __source: {
+          fileName: _jsxFileName,
+          lineNumber: 7
+        }
+      }),
+      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { id: 'smallBox', __source: {
+          fileName: _jsxFileName,
+          lineNumber: 8
+        }
+      })
+    )
+  );
+});
+
+/***/ }),
+
 /***/ "./src/common/components/header.js":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -886,20 +929,28 @@ var _jsxFileName = 'C:\\Users\\hp\\Desktop\\chikara\\packages\\mangaflux-web\\sr
             lineNumber: 12
           }
         },
-        'Popular'
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          __WEBPACK_IMPORTED_MODULE_2_react_router_dom__["Link"],
+          { to: '/popular', __source: {
+              fileName: _jsxFileName,
+              lineNumber: 13
+            }
+          },
+          'Popular'
+        )
       ),
       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         __WEBPACK_IMPORTED_MODULE_1__elementary_components__["Text"],
         { className: 'header-nav', color: '#01BCCB', f: '18px', padding: '0px 30px', __source: {
             fileName: _jsxFileName,
-            lineNumber: 13
+            lineNumber: 15
           }
         },
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
           __WEBPACK_IMPORTED_MODULE_2_react_router_dom__["Link"],
           { to: '/browse', __source: {
               fileName: _jsxFileName,
-              lineNumber: 14
+              lineNumber: 16
             }
           },
           'Browse'
@@ -911,67 +962,207 @@ var _jsxFileName = 'C:\\Users\\hp\\Desktop\\chikara\\packages\\mangaflux-web\\sr
 
 /***/ }),
 
-/***/ "./src/common/containers/home/index.js":
+/***/ "./src/common/containers/Popular/index.js":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_json_stringify__ = __webpack_require__("babel-runtime/core-js/json/stringify");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_json_stringify___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_json_stringify__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react__ = __webpack_require__("react");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_redux__ = __webpack_require__("react-redux");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_redux___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_react_redux__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__elementary_components__ = __webpack_require__("@elementary/components");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__elementary_components___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__elementary_components__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__futils_actionSpreader__ = __webpack_require__("./src/common/futils/actionSpreader.js");
-
-var _jsxFileName = 'C:\\Users\\hp\\Desktop\\chikara\\packages\\mangaflux-web\\src\\common\\containers\\home\\index.js';
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__("react");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_redux__ = __webpack_require__("react-redux");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_redux___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react_redux__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__elementary_components__ = __webpack_require__("@elementary/components");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__elementary_components___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__elementary_components__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__futils_actionSpreader__ = __webpack_require__("./src/common/futils/actionSpreader.js");
+var _jsxFileName = 'C:\\Users\\hp\\Desktop\\chikara\\packages\\mangaflux-web\\src\\common\\containers\\Popular\\index.js';
 
 
 
 
 
 var Home = function Home(props) {
-  props.fetchLatest();
-  return __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
-    __WEBPACK_IMPORTED_MODULE_3__elementary_components__["Flex"],
+  return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+    __WEBPACK_IMPORTED_MODULE_2__elementary_components__["Flex"],
     { flexDirection: 'column', height: '100%', alignItems: 'center', bg: '#1B192C', __source: {
         fileName: _jsxFileName,
-        lineNumber: 9
+        lineNumber: 8
       }
     },
-    __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
-      __WEBPACK_IMPORTED_MODULE_3__elementary_components__["Text"],
+    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+      __WEBPACK_IMPORTED_MODULE_2__elementary_components__["Text"],
       { f: '30px', color: '#FD315B', __source: {
           fileName: _jsxFileName,
-          lineNumber: 10
+          lineNumber: 9
         }
       },
-      'Latest Mangas'
-    ),
-    __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_json_stringify___default()(props.latest)
+      'Popular Mangas'
+    )
   );
 };
 
 var mapStateToProps = function mapStateToProps(state) {
+  return {};
+};
+
+var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+  return {};
+};
+
+/* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_1_react_redux__["connect"])(mapStateToProps, mapDispatchToProps)(Home));
+
+/***/ }),
+
+/***/ "./src/common/containers/home/cycle.js":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony default export */ __webpack_exports__["a"] = (function (sources) {
+  var request$ = sources.ACTION.filter(function (action) {
+    return action.type === 'FETCH_LATEST';
+  }).map(function (_) {
+    return {
+      url: 'https://mangaflux-api.herokuapp.com/latest/0/10',
+      category: 'latestMangas'
+    };
+  });
+
+  var action$ = sources.HTTP.select('latestMangas').flatten().map(function (res) {
+    return res.body.data;
+  }).map(function (x) {
+    return { type: 'LATEST', payload: x };
+  });
+
   return {
-    latest: state.home.latest
+    ACTION: action$,
+    HTTP: request$
   };
+});
+
+/***/ }),
+
+/***/ "./src/common/containers/home/home.js":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_object_get_prototype_of__ = __webpack_require__("babel-runtime/core-js/object/get-prototype-of");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_object_get_prototype_of___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_object_get_prototype_of__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_classCallCheck__ = __webpack_require__("babel-runtime/helpers/classCallCheck");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_classCallCheck___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_classCallCheck__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_possibleConstructorReturn__ = __webpack_require__("babel-runtime/helpers/possibleConstructorReturn");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_possibleConstructorReturn___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_possibleConstructorReturn__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_inherits__ = __webpack_require__("babel-runtime/helpers/inherits");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_inherits___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_inherits__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_react__ = __webpack_require__("react");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__elementary_components__ = __webpack_require__("@elementary/components");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__elementary_components___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__elementary_components__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_fullpageloader__ = __webpack_require__("./src/common/components/fullpageloader.js");
+
+
+
+
+var _jsxFileName = 'C:\\Users\\hp\\Desktop\\chikara\\packages\\mangaflux-web\\src\\common\\containers\\home\\home.js';
+
+
+
+
+var Home = function (_Component) {
+  __WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_inherits___default()(Home, _Component);
+
+  function Home() {
+    var _ref;
+
+    var _temp, _this, _ret;
+
+    __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_classCallCheck___default()(this, Home);
+
+    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    return _ret = (_temp = (_this = __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_possibleConstructorReturn___default()(this, (_ref = Home.__proto__ || __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_object_get_prototype_of___default()(Home)).call.apply(_ref, [this].concat(args))), _this), _this.componentWillMount = function () {
+      return _this.props.fetchLatest();
+    }, _this.render = function () {
+      var _this$props = _this.props,
+          latest = _this$props.latest,
+          baseImg = _this$props.baseImg,
+          showLoader = _this$props.showLoader;
+
+      return __WEBPACK_IMPORTED_MODULE_4_react___default.a.createElement(
+        __WEBPACK_IMPORTED_MODULE_5__elementary_components__["Flex"],
+        { flexDirection: 'column', height: '100%', alignItems: 'center', bg: '#1B192C', __source: {
+            fileName: _jsxFileName,
+            lineNumber: 11
+          }
+        },
+        __WEBPACK_IMPORTED_MODULE_4_react___default.a.createElement(
+          __WEBPACK_IMPORTED_MODULE_5__elementary_components__["Text"],
+          { f: '30px', color: '#FD315B', __source: {
+              fileName: _jsxFileName,
+              lineNumber: 12
+            }
+          },
+          'Latest Mangas'
+        ),
+        __WEBPACK_IMPORTED_MODULE_4_react___default.a.createElement(
+          __WEBPACK_IMPORTED_MODULE_5__elementary_components__["Flex"],
+          { flexDirection: 'row', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'flex-start', padding: '10px 40px', __source: {
+              fileName: _jsxFileName,
+              lineNumber: 13
+            }
+          },
+          latest.map(function (x) {
+            return __WEBPACK_IMPORTED_MODULE_4_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5__elementary_components__["Image"], { padding: '30px', src: '' + baseImg + x.im, __source: {
+                fileName: _jsxFileName,
+                lineNumber: 16
+              }
+            });
+          })
+        ),
+        showLoader && __WEBPACK_IMPORTED_MODULE_4_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_6__components_fullpageloader__["a" /* default */], {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 21
+          }
+        })
+      );
+    }, _temp), __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_possibleConstructorReturn___default()(_this, _ret);
+  }
+
+  return Home;
+}(__WEBPACK_IMPORTED_MODULE_4_react__["Component"]);
+
+/* harmony default export */ __webpack_exports__["a"] = (Home);
+
+/***/ }),
+
+/***/ "./src/common/containers/home/index.js":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_object_assign__ = __webpack_require__("babel-runtime/core-js/object/assign");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_object_assign___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_object_assign__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_redux__ = __webpack_require__("react-redux");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_redux___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react_redux__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__futils_actionSpreader__ = __webpack_require__("./src/common/futils/actionSpreader.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__home__ = __webpack_require__("./src/common/containers/home/home.js");
+
+
+
+
+
+var mapStateToProps = function mapStateToProps(state) {
+  return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_object_assign___default()({}, state.home);
 };
 
 var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   return {
     fetchLatest: function fetchLatest() {
-      return fetch('https://mangaflux-api.herokuapp.com/latest/0/20').then(function (x) {
-        return x.json();
-      }).then(function (x) {
-        return dispatch(Object(__WEBPACK_IMPORTED_MODULE_4__futils_actionSpreader__["a" /* default */])('LATEST', x));
-      });
+      return dispatch(Object(__WEBPACK_IMPORTED_MODULE_2__futils_actionSpreader__["a" /* default */])('FETCH_LATEST'));
     }
   };
 };
 
-/* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_2_react_redux__["connect"])(mapStateToProps, mapDispatchToProps)(Home));
+/* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_1_react_redux__["connect"])(mapStateToProps, mapDispatchToProps)(__WEBPACK_IMPORTED_MODULE_3__home__["a" /* default */]));
 
 /***/ }),
 
@@ -986,12 +1177,14 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
 
 
 var initialState = {
-  latest: []
+  latest: [],
+  baseImg: 'http://cdn.mangaeden.com/mangasimg/',
+  showLoader: true
 };
 
 var actionHandlers = {
   LATEST: function LATEST(s, a) {
-    return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_object_assign___default()({}, s, { latest: a.payload });
+    return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_object_assign___default()({}, s, { latest: a.payload, showLoader: false });
   }
 };
 
@@ -1009,7 +1202,9 @@ var actionHandlers = {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_router_dom___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react_router_dom__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_header__ = __webpack_require__("./src/common/components/header.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__home__ = __webpack_require__("./src/common/containers/home/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__Popular__ = __webpack_require__("./src/common/containers/Popular/index.js");
 var _jsxFileName = 'C:\\Users\\hp\\Desktop\\chikara\\packages\\mangaflux-web\\src\\common\\containers\\layout\\index.js';
+
 
 
 
@@ -1022,13 +1217,13 @@ var _jsxFileName = 'C:\\Users\\hp\\Desktop\\chikara\\packages\\mangaflux-web\\sr
     {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 8
+        lineNumber: 9
       }
     },
     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__components_header__["a" /* default */], {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 9
+        lineNumber: 10
       }
     }),
     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -1036,22 +1231,42 @@ var _jsxFileName = 'C:\\Users\\hp\\Desktop\\chikara\\packages\\mangaflux-web\\sr
       {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 10
+          lineNumber: 11
         }
       },
       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["Route"], { exact: true, path: '/', component: __WEBPACK_IMPORTED_MODULE_3__home__["a" /* default */], __source: {
           fileName: _jsxFileName,
-          lineNumber: 11
+          lineNumber: 12
+        }
+      }),
+      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["Route"], { path: '/popular', component: __WEBPACK_IMPORTED_MODULE_4__Popular__["a" /* default */], __source: {
+          fileName: _jsxFileName,
+          lineNumber: 13
         }
       }),
       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["Route"], { path: '/browse', component: __WEBPACK_IMPORTED_MODULE_2__components_header__["a" /* default */], __source: {
           fileName: _jsxFileName,
-          lineNumber: 12
+          lineNumber: 14
         }
       })
     )
   );
 });
+
+/***/ }),
+
+/***/ "./src/common/cycle/index.js":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_redux_cycles__ = __webpack_require__("redux-cycles");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_redux_cycles___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_redux_cycles__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__containers_home_cycle__ = __webpack_require__("./src/common/containers/home/cycle.js");
+
+
+
+
+/* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_0_redux_cycles__["combineCycles"])(__WEBPACK_IMPORTED_MODULE_1__containers_home_cycle__["a" /* default */]));
 
 /***/ }),
 
@@ -1104,19 +1319,32 @@ var rootReducer = Object(__WEBPACK_IMPORTED_MODULE_0_redux__["combineReducers"])
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_redux__ = __webpack_require__("redux");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_redux___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_redux__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_redux_thunk__ = __webpack_require__("redux-thunk");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_redux_thunk___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_redux_thunk__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__reducers__ = __webpack_require__("./src/common/reducers/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__cycle_run__ = __webpack_require__("@cycle/run");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__cycle_run___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__cycle_run__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_redux_cycles__ = __webpack_require__("redux-cycles");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_redux_cycles___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_redux_cycles__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__cycle_http__ = __webpack_require__("@cycle/http");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__cycle_http___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__cycle_http__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__reducers__ = __webpack_require__("./src/common/reducers/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__cycle__ = __webpack_require__("./src/common/cycle/index.js");
 
 
+
+
+
+
+
+
+var cycleMiddleware = Object(__WEBPACK_IMPORTED_MODULE_2_redux_cycles__["createCycleMiddleware"])();
+var makeActionDriver = cycleMiddleware.makeActionDriver;
 
 
 var configureStore = function configureStore(preloadedState) {
-  var store = Object(__WEBPACK_IMPORTED_MODULE_0_redux__["createStore"])(__WEBPACK_IMPORTED_MODULE_2__reducers__["default"], preloadedState, Object(__WEBPACK_IMPORTED_MODULE_0_redux__["applyMiddleware"])(__WEBPACK_IMPORTED_MODULE_1_redux_thunk___default.a));
+  var store = Object(__WEBPACK_IMPORTED_MODULE_0_redux__["createStore"])(__WEBPACK_IMPORTED_MODULE_4__reducers__["default"], preloadedState, Object(__WEBPACK_IMPORTED_MODULE_0_redux__["applyMiddleware"])(cycleMiddleware));
 
   if (true) {
     // Enable Webpack hot module replacement for reducers
-    module.hot.accept("./src/common/reducers/index.js", function(__WEBPACK_OUTDATED_DEPENDENCIES__) { /* harmony import */ __WEBPACK_IMPORTED_MODULE_2__reducers__ = __webpack_require__("./src/common/reducers/index.js"); (function () {
+    module.hot.accept("./src/common/reducers/index.js", function(__WEBPACK_OUTDATED_DEPENDENCIES__) { /* harmony import */ __WEBPACK_IMPORTED_MODULE_4__reducers__ = __webpack_require__("./src/common/reducers/index.js"); (function () {
       var nextRootReducer = __webpack_require__("./src/common/reducers/index.js").default;
       store.replaceReducer(nextRootReducer);
     })(__WEBPACK_OUTDATED_DEPENDENCIES__); });
@@ -1124,6 +1352,11 @@ var configureStore = function configureStore(preloadedState) {
 
   return store;
 };
+
+Object(__WEBPACK_IMPORTED_MODULE_1__cycle_run__["run"])(__WEBPACK_IMPORTED_MODULE_5__cycle__["a" /* default */], {
+  ACTION: makeActionDriver(),
+  HTTP: Object(__WEBPACK_IMPORTED_MODULE_3__cycle_http__["makeHTTPDriver"])()
+});
 
 /* harmony default export */ __webpack_exports__["a"] = (configureStore);
 
@@ -1264,6 +1497,20 @@ module.exports = __webpack_require__("./src/index.js");
 
 /***/ }),
 
+/***/ "@cycle/http":
+/***/ (function(module, exports) {
+
+module.exports = require("@cycle/http");
+
+/***/ }),
+
+/***/ "@cycle/run":
+/***/ (function(module, exports) {
+
+module.exports = require("@cycle/run");
+
+/***/ }),
+
 /***/ "@elementary/components":
 /***/ (function(module, exports) {
 
@@ -1271,17 +1518,38 @@ module.exports = require("@elementary/components");
 
 /***/ }),
 
-/***/ "babel-runtime/core-js/json/stringify":
-/***/ (function(module, exports) {
-
-module.exports = require("babel-runtime/core-js/json/stringify");
-
-/***/ }),
-
 /***/ "babel-runtime/core-js/object/assign":
 /***/ (function(module, exports) {
 
 module.exports = require("babel-runtime/core-js/object/assign");
+
+/***/ }),
+
+/***/ "babel-runtime/core-js/object/get-prototype-of":
+/***/ (function(module, exports) {
+
+module.exports = require("babel-runtime/core-js/object/get-prototype-of");
+
+/***/ }),
+
+/***/ "babel-runtime/helpers/classCallCheck":
+/***/ (function(module, exports) {
+
+module.exports = require("babel-runtime/helpers/classCallCheck");
+
+/***/ }),
+
+/***/ "babel-runtime/helpers/inherits":
+/***/ (function(module, exports) {
+
+module.exports = require("babel-runtime/helpers/inherits");
+
+/***/ }),
+
+/***/ "babel-runtime/helpers/possibleConstructorReturn":
+/***/ (function(module, exports) {
+
+module.exports = require("babel-runtime/helpers/possibleConstructorReturn");
 
 /***/ }),
 
@@ -1334,10 +1602,10 @@ module.exports = require("redux");
 
 /***/ }),
 
-/***/ "redux-thunk":
+/***/ "redux-cycles":
 /***/ (function(module, exports) {
 
-module.exports = require("redux-thunk");
+module.exports = require("redux-cycles");
 
 /***/ }),
 

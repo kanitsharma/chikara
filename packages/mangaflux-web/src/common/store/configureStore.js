@@ -1,12 +1,19 @@
 import { createStore, applyMiddleware } from 'redux';
-import thunk from 'redux-thunk';
+import { run } from '@cycle/run';
+import { createCycleMiddleware } from 'redux-cycles';
+import { makeHTTPDriver } from '@cycle/http';
+
 import rootReducer from '../reducers';
+import rootCycle from '../cycle';
+
+const cycleMiddleware = createCycleMiddleware();
+const { makeActionDriver } = cycleMiddleware;
 
 const configureStore = (preloadedState) => {
   const store = createStore(
     rootReducer,
     preloadedState,
-    applyMiddleware(thunk),
+    applyMiddleware(cycleMiddleware),
   );
 
   if (module.hot) {
@@ -19,5 +26,10 @@ const configureStore = (preloadedState) => {
 
   return store;
 };
+
+run(rootCycle, {
+  ACTION: makeActionDriver(),
+  HTTP: makeHTTPDriver(),
+});
 
 export default configureStore;
