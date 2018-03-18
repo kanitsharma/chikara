@@ -1,6 +1,10 @@
 import Express from 'express';
 import compression from 'compression';
 import bodyParser from 'body-parser';
+import { binder } from '@elementary/proper';
+
+import upgradeAppWithMongoose from './bootstrap/mongoose';
+import upgradeAppWithResponse from './bootstrap/response';
 
 import routes from './routes';
 import serverConfig from './config';
@@ -11,12 +15,16 @@ const app = new Express();
 app.use(compression());
 app.use(bodyParser.json({ limit: '20mb' }));
 app.use(bodyParser.urlencoded({ limit: '20mb', extended: false }));
-app.use(routes);
+
+binder()
+  .add(upgradeAppWithMongoose)
+  .add(upgradeAppWithResponse).invoke(app)
+  .use(routes);
 
 // start app
-app.listen(serverConfig.port, (error) => {
+app.connectThenListen(serverConfig.port, (error) => {
   if (error) {
-    console.log('Something Went Wrong');
+    console.log('Something Went Wrong, Precisely:', error.message);
     return;
   }
   console.log(`Server running at ${serverConfig.port}`);

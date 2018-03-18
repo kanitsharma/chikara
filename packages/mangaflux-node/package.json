@@ -14,11 +14,13 @@
   "author": "Rajat Sharma",
   "license": "MIT",
   "dependencies": {
+    "@elementary/proper": "0.2.2",
     "@lectro/enhancer-commonutils": "1.1.0",
     "@lectro/enhancer-flowruntime": "1.1.0",
     "body-parser": "1.18.2",
     "compression": "1.7.1",
     "express": "4.16.2",
+    "mongoose": "^5.0.10",
     "winston": "2.4.0",
     "winston-daily-rotate-file": "1.7.2"
   }
