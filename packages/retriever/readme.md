@@ -2,8 +2,6 @@
 
 _Retrieves Data from the Web to feed MangafluxDB_
 
-<img src="./ret.png" height="100px" align="right">
-
 [![Crips](http://forthebadge.com/images/badges/built-by-crips.svg)](https://www.urbandictionary.com/define.php?term=Crips)
 
 ### Getting Started

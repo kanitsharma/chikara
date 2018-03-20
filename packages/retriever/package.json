@@ -1,5 +1,5 @@
 {
-  "name": "asynchronizer",
+  "name": "@chikara/retriever",
   "version": "0.0.1",
   "description": "Async Functions with Node and more.",
   "main": "index.js",
@@ -24,12 +24,14 @@
     "flow-bin": "^0.67.1"
   },
   "dependencies": {
+    "@elementary/proper": "0.2.2",
     "@lectro/enhancer-commonutils": "1.1.0",
     "@lectro/enhancer-flowruntime": "1.1.0",
     "body-parser": "1.18.2",
     "compression": "1.7.1",
-    "@elementary/proper": "0.2.2",
     "express": "4.16.2",
+    "mongodb": "2.2.33",
+    "request-promise": "4.2.2",
     "winston": "2.4.0",
     "winston-daily-rotate-file": "1.7.2"
   }
