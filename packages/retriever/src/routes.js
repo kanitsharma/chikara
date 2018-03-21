@@ -28,6 +28,7 @@ router.route('/manga/:mangaId').get(async (req, res) => {
 
 router.route('/chapter/:chapterId').get(async (req, res) => {
   const response = await res.requestChapter(req.params.chapterId);
+  console.log(response);
   res.create(response).success().send();
 });
 
