@@ -1,6 +1,6 @@
 ## Chikara
 
-<img src="chikara.png" height="200px">
+<img src="chikara.png" height="100px">
 
 ### Getting Started
 
