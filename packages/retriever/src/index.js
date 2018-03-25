@@ -6,6 +6,7 @@ import { binder as B } from '@elementary/proper';
 import routes from './routes';
 import serverConfig from './config';
 import responseFactory from './factories/response';
+import mongooseFactory from './factories/mongoose';
 import requestFactory from './factories/request';
 import connectDB from './factories/connectdb';
 
@@ -21,10 +22,11 @@ connectDB(config.mongo, app).then((appWithDb) => {
   B()
     .add(responseFactory)
     .add(requestFactory)
+    .add(mongooseFactory)
     .invoke(app)
     .use(routes);
 
-  appWithDb.listen(serverConfig.port, (error) => {
+  appWithDb.connectThenListen(serverConfig.port, (error) => {
     if (error) {
       console.log('Something Went Wrong');
       return;
