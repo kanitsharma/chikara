@@ -19,14 +19,16 @@ export const uniq2 = (arr) => {
   return arr2;
 };
 
-export const savingPromise = model => new Promise((resolve, reject) => {
+export const savingPromise = model => (model ? new Promise((resolve, reject) => {
   model.save((err, success) => {
     if (err) {
       reject(err);
     }
     resolve(success);
   });
-});
+}) : Promise.resolve());
+
+export const findExistingOrSavePromise = (query, model) => model.find(query, callback);
 
 export const wait = ms => new Promise(resolve => setTimeout(() => {
   resolve();

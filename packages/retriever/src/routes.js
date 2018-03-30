@@ -1,7 +1,9 @@
 import { Router } from 'express';
+import fs from 'fs';
 import { flatMap, binder as B } from '@elementary/proper';
 import { uniq2, savingPromise, wait } from './utils';
 import Category from './schemas/category';
+// import Artist from './schemas/artist';
 
 const router = new Router();
 
@@ -43,43 +45,47 @@ router.route('/fillcat').get(async (req, res) => {
   const response = B()
     .add(flatMap(x => x)).invoke(await cursor.next().then(x => x.data.map(y => y.c)));
   const uniqCat = uniq2(response, []);
+  fs.appendFileSync('categories.chikara', `${uniqCat.join('\n')}`);
   try {
-    const savedCats = await Promise.all(uniqCat.map(x => savingPromise(new Category({ t: x }))));
-    res.create(savedCats).success().send();
+    // const savedCats = await Promise.all(uniqCat.map(x => savingPromise(new Category({ t: x }))));
+    // res.create(savedCats).success().send();
+    res.create('Done 🦑').success().send();
   } catch (e) {
     res.create().internalerror().send();
   }
 });
 
 router.route('/fillartists').get(async (req, res) => {
-  // const cursor = res.db().collection('list')
-  //   .find(
-  //     {},
-  //   );
-  // const response = await cursor.next().then(x => x.data.map(y => y.i));
-  // // const manga = await res.requestManga(response);
-  // const reducedResponse = await Promise.all(response.shrink(10).map(async (x) => {
-  //   try {
-  //     console.log('Fetching for ', ...x);
-  //     await wait(10000);
-  //     // const lowerPromises = await Promise.all(x.map(y => res.requestManga(y)));
-  //     return x;
-  //   } catch (e) {
-  //     console.log('Failed for ', ...x);
-  //     return x;
-  //   }
-  // }));
-  await Promise.all([1, 2, 3, 4, 5].map(async (x) => {
-    await wait(10000);
-    console.log(x);
-    return x;
-  }));
+  const cursor = res.db().collection('list')
+    .find(
+      {},
+    );
+  const response = await cursor.next().then(x => x.data.map(y => y.i));
+  fs.appendFileSync('artists.chikara', `${response.join('\n')}`);
+  console.log('Got DB Response');
+  console.log(response.length);
+  // const manga = await res.requestManga(response[0]);
+  // const reducedResponse = () => response.shrink(30).reduce((acc, x, i) => acc.then(_ =>
+  //   Promise.all(x.map((y) => {
+  //     console.log('Getting Info for', y);
+  //     return res.requestManga(y).then(xx => xx.artist);
+  //   })).then((ay) => {
+  //     console.log('Saving Artists', ay);
+  //     return fs.appendFileSync('artists.chikara', `\n${ay.join('\n')}`);
+  //   })).then(___ => wait(100)).then(___ => console.log('Round', (i + 1) * 30)),
+  // Promise.resolve());
 
   try {
-    res.create('Yay').success().send();
+    res.create('Done 🦑').success().send();
   } catch (e) {
+    console.log(e);
     res.create().internalerror().send();
   }
+});
+
+router.route('/manga/:mangaId').get(async (req, res) => {
+  const response = await res.requestManga(req.params.mangaId);
+  res.create(response).success().send();
 });
 
 export default router;
