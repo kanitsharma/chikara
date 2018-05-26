@@ -3,6 +3,10 @@ Array.prototype.last = function() {
   return this.length ? this[this.length - 1] : null;
 }
 
+Array.prototype.first = function() {
+  return this.length ? this[0] : null
+}
+
 Array.prototype.shrink = function(length) {
   return this.reduce(
     (acc, curr) => (acc.last().length < length ?
