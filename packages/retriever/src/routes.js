@@ -3,7 +3,7 @@ import fs from 'fs';
 import { flatMap, binder as B } from '@elementary/proper';
 import { uniq2, savingPromise, wait } from './utils';
 import Category from './schemas/category';
-// import Artist from './schemas/artist';
+import Artist from './schemas/artist';
 
 const router = new Router();
 
@@ -56,28 +56,10 @@ router.route('/fillcat').get(async (req, res) => {
 });
 
 router.route('/fillartists').get(async (req, res) => {
-  const cursor = res.db().collection('list')
-    .find(
-      {},
-      { 'data.i': 1 }
-    )
-  const response = await cursor.next()
-    .then(x => x.data.map(y => y.i))
+  const artists = await res.db().collection('detailedList').distinct('artist').then(x => x.filter(y => y.length > 0))
 
-  const updateArtists = async (from = 0, to = 100) => {
-    const mangaArtistsPromises = response
-      .slice(from, to)
-      .map(async x => await res.requestManga(x).then(x => x.artist).catch(console.log))
-
-    const mangaArtistList = await Promise.all(mangaArtistsPromises)
-
-    console.log('Saving artists', mangaArtistList)
-    fs.appendFileSync('artists.chikara', `${mangaArtistList.join('\n')}`)
-
-    wait(5000).then(updateArtists(to, to + 100))
-  }
-
-  await updateArtists()
+  const artistsPromises = artists.map(async x => await savingPromise(new Artist({ name: x })))
+  await Promise.all(artistsPromises)
 
   try {
     res.create('Done 🦑').success().send();
