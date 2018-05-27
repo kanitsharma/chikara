@@ -87,6 +87,28 @@ router.route('/fillartists').get(async (req, res) => {
   }
 });
 
+router.route('/updateMangaList').get(async (req, res) => {
+  const idList = fs.readFileSync('mangas.chikara', 'utf-8')
+    .toString()
+    .split('\n')
+    .map(x => x.replace('\r', ''))
+
+  const mangaList = await res.requestMangaList().then(x => x.manga)
+
+  const idListFiltered = mangaList
+    .map(x => x.i)
+    .filter(x => !idList.includes(x))
+
+  fs.appendFileSync('mangas.chikara', `${idListFiltered.join('\n')}`)
+
+  try {
+    res.create('Done 🦑').success().send();
+  } catch (e) {
+    console.log(e);
+    res.create().internalerror().send();
+  }
+});
+
 router.route('/fillmangas').get(async (req, res) => {
   const idList = fs.readFileSync('mangas.chikara', 'utf-8')
     .toString()
@@ -94,7 +116,6 @@ router.route('/fillmangas').get(async (req, res) => {
     .map(x => x.replace('\r', ''))
 
   const updateManga = async (from = 0, to = 150) => {
-    console.log(from, to)
     const mangasPromises = idList
       .slice(from, to)
       .map(async x => await res.requestManga(x)
