@@ -38,16 +38,12 @@ router.route('/chapter/:chapterId').get(async (req, res) => {
 });
 
 router.route('/fillcat').get(async (req, res) => {
-  const cursor = res.db().collection('list')
-    .find(
-      {},
-    );
-  const response = B()
-    .add(flatMap(x => x)).invoke(await cursor.next().then(x => x.data.map(y => y.c)));
-  const uniqCat = uniq2(response, []);
-  fs.appendFileSync('categories.chikara', `${uniqCat.join('\n')}`);
+  const categories = await res.db().collection('detailedList').distinct('categories').then(x => x.filter(y => y.length > 0))
+  
+  const categoriesPromises = categories.map(async x => await savingPromise(new Category({ t: x })))
+  await Promise.all(categoriesPromises)
+
   try {
-    const savedCats = await Promise.all(uniqCat.map(x => savingPromise(new Category({ t: x }))));
     res.create(savedCats).success().send();
     res.create('Done 🦑').success().send();
   } catch (e) {
