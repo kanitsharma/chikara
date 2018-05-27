@@ -116,6 +116,7 @@ router.route('/fillmangas').get(async (req, res) => {
     .map(x => x.replace('\r', ''))
 
   const updateManga = async (from = 0, to = 150) => {
+    console.log(from, to)
     const mangasPromises = idList
       .slice(from, to)
       .map(async x => await res.requestManga(x)
