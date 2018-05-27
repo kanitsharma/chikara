@@ -67,10 +67,7 @@ router.route('/fillartists').get(async (req, res) => {
   const updateArtists = async (from = 0, to = 100) => {
     const mangaArtistsPromises = response
       .slice(from, to)
-      .map(async x => {
-        const mangaArtist = await res.requestManga(x).then(x => x.artist).catch(console.log)
-        return mangaArtist
-      })
+      .map(async x => await res.requestManga(x).then(x => x.artist).catch(console.log))
 
     const mangaArtistList = await Promise.all(mangaArtistsPromises)
 
@@ -96,13 +93,22 @@ router.route('/fillmangas').get(async (req, res) => {
     .split('\n')
     .map(x => x.replace('\r', ''))
 
-  const mangasPromises = idList
-    .map(async x => {
-      const manga = await res.db().collection('list').find({}, { data: { $elemMatch: { 'i': x } } }).next().then(x => x.data.first())
-      return manga     
-    })
+  const updateManga = async (from = 0, to = 150) => {
+    console.log(from, to)
+    const mangasPromises = idList
+      .slice(from, to)
+      .map(async x => await res.requestManga(x)
+        .then(x => res.db().collection('detailedList').insert(x))
+        .catch(_ => process.exit())
+      )
 
-  const resolveAll = await Promise.all(mangasPromises)
+    const mangaList = await Promise.all(mangasPromises)
+
+    updateManga(to, to + 150)
+  }
+  
+  const lastno = await res.db().collection('detailedList').count()
+  updateManga(lastno, lastno + 150)
 
   try {
     res.create('Done 🦑').success().send();
