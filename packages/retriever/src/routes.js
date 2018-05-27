@@ -4,6 +4,9 @@ import { flatMap, binder as B } from '@elementary/proper';
 import { uniq2, savingPromise, wait } from './utils';
 import Category from './schemas/category';
 import Artist from './schemas/artist';
+import Manga from './schemas/manga';
+import Chapter from './schemas/chapter';
+import Image from './schemas/image';
 
 const router = new Router();
 
@@ -39,12 +42,11 @@ router.route('/chapter/:chapterId').get(async (req, res) => {
 
 router.route('/fillcat').get(async (req, res) => {
   const categories = await res.db().collection('detailedList').distinct('categories').then(x => x.filter(y => y.length > 0))
-  
+
   const categoriesPromises = categories.map(async x => await savingPromise(new Category({ t: x })))
   await Promise.all(categoriesPromises)
 
   try {
-    res.create(savedCats).success().send();
     res.create('Done 🦑').success().send();
   } catch (e) {
     res.create().internalerror().send();
@@ -109,6 +111,53 @@ router.route('/fillmangas').get(async (req, res) => {
   
   const lastno = await res.db().collection('detailedList').count()
   updateManga(lastno, lastno + 150)
+
+  try {
+    res.create('Done 🦑').success().send();
+  } catch (e) {
+    console.log(e);
+    res.create().internalerror().send();
+  }
+});
+
+router.route('/fillMangasWithSchema').get(async (req, res) => {
+  // const idList = fs.readFileSync('mangas.chikara', 'utf-8')
+  // .toString()
+  // .split('\n')
+  // .map(x => x.replace('\r', ''))
+
+  const mangas = await res.db().collection('detailedList').find().limit(1).toArray()
+
+  mangas.forEach(async x => {
+    const listData = await res.db().collection('list').find({}, { data: { $elemMatch: { t: x.title } } }).next().then(x => x.data[0])
+    const mangasPromises = await savingPromise(new Manga({
+      a: listData.a,
+      t: x.title,
+      artist: new Artist({ name: x.artist }),
+      cat: x.categories.map(y => new Category({ t: y })),
+      created: x.created,
+      description: x.description,
+      hits: x.hits,
+      image: x.image,
+      directImage: x.imageURL,
+      chapters: await Promise.all(
+        x.chapters.map(async y => {
+          const Images = await res.requestChapter(y[3])
+          return new Chapter({
+            images: Images.images.map(z => new Image({
+              hash: z[1],
+              height: z[3],
+              width: z[2]
+            })),
+            releaseDate: y[1]
+          })
+        })
+      ),
+      lastChapterDate: x.last_chapter_date,
+      released: x.released,
+      id: listData.i
+    }))    
+  })
 
   try {
     res.create('Done 🦑').success().send();
