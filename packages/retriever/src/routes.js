@@ -121,13 +121,8 @@ router.route('/fillmangas').get(async (req, res) => {
 });
 
 router.route('/fillMangasWithSchema').get(async (req, res) => {
-  // const idList = fs.readFileSync('mangas.chikara', 'utf-8')
-  // .toString()
-  // .split('\n')
-  // .map(x => x.replace('\r', ''))
-
   const mangas = await res.db().collection('detailedList').find().limit(1).toArray()
-
+  
   mangas.forEach(async x => {
     const listData = await res.db().collection('list').find({}, { data: { $elemMatch: { t: x.title } } }).next().then(x => x.data[0])
     const mangasPromises = await savingPromise(new Manga({
