@@ -108,7 +108,7 @@ router.route('/fillmangas').get(async (req, res) => {
 
     updateManga(to, to + 150)
   }
-  
+
   const lastno = await res.db().collection('detailedList').count()
   updateManga(lastno, lastno + 150)
 
@@ -122,7 +122,7 @@ router.route('/fillmangas').get(async (req, res) => {
 
 router.route('/fillMangasWithSchema').get(async (req, res) => {
   const mangas = await res.db().collection('detailedList').find().limit(1).toArray()
-  
+
   mangas.forEach(async x => {
     const listData = await res.db().collection('list').find({}, { data: { $elemMatch: { t: x.title } } }).next().then(x => x.data[0])
     const mangasPromises = await savingPromise(new Manga({
@@ -138,20 +138,20 @@ router.route('/fillMangasWithSchema').get(async (req, res) => {
       chapters: await Promise.all(
         x.chapters.map(async y => {
           const Images = await res.requestChapter(y[3])
-          return new Chapter({
-            images: Images.images.map(z => new Image({
+          return {
+            images: Images.images.map(z => ({
               hash: z[1],
               height: z[3],
               width: z[2]
             })),
             releaseDate: y[1]
-          })
+          }
         })
       ),
       lastChapterDate: x.last_chapter_date,
       released: x.released,
       id: listData.i
-    }))    
+    }))
   })
 
   try {
