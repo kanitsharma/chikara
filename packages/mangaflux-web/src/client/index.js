@@ -1,10 +1,10 @@
-import React from 'react';
-import { hydrate } from 'react-dom';
-import { Provider } from 'react-redux';
-import { BrowserRouter } from 'react-router-dom';
-import configureStore from '../common/store/configureStore';
-import App from '../common/containers/layout';
-import './index.css';
+import React from "react";
+import { hydrate } from "react-dom";
+import { Provider } from "react-redux";
+import { BrowserRouter } from "react-router-dom";
+import configureStore from "../common/store/configureStore";
+import App from "../common/containers/layout";
+import "./index.css";
 
 const store = configureStore(window.__PRELOADED_STATE__);
 
@@ -14,7 +14,7 @@ hydrate(
       <App />
     </BrowserRouter>
   </Provider>,
-  document.getElementById('root'),
+  document.getElementById("root")
 );
 
 if (module.hot) {

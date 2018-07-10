@@ -1,28 +1,28 @@
-import { Provider } from 'react-redux';
-import React from 'react';
-import express from 'express';
-import { renderToString } from 'react-dom/server';
-import serialize from 'serialize-javascript';
-import { StaticRouter } from 'react-router-dom';
+import { Provider } from "react-redux";
+import React from "react";
+import express from "express";
+import { renderToString } from "react-dom/server";
+import serialize from "serialize-javascript";
+import { StaticRouter } from "react-router-dom";
 
-import App from '../common/containers/layout';
-import configureStore from '../common/store/configureStore';
+import App from "../common/containers/layout";
+import configureStore from "../common/store/configureStore";
 // import qs from 'qs';
-import './polyfill';
+import "./polyfill";
 
 const assets = require(process.env.RAZZLE_ASSETS_MANIFEST);
 
 const server = express();
 
 server
-  .disable('x-powered-by')
+  .disable("x-powered-by")
   .use(express.static(process.env.RAZZLE_PUBLIC_DIR))
-  .get('/*', (req, res) => {
+  .get("/*", (req, res) => {
     // Read the counter from the request, if provided
     // const params = qs.parse(req.query);
 
     // Compile an initial state
-    const preloadedState = { };
+    const preloadedState = {};
 
     // Create a new Redux store instance
     const store = configureStore(preloadedState);
@@ -33,7 +33,7 @@ server
         <StaticRouter>
           <App />
         </StaticRouter>
-      </Provider>,
+      </Provider>
     );
 
     // Grab the initial state from our Redux store
@@ -46,12 +46,16 @@ server
         <meta charSet='utf-8' />
         <title>Mangaflux</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        ${assets.client.css
-    ? `<link rel="stylesheet" href="${assets.client.css}">`
-    : ''}
-          ${process.env.NODE_ENV === 'production'
-    ? `<script src="${assets.client.js}" defer></script>`
-    : `<script src="${assets.client.js}" defer crossorigin></script>`}
+        ${
+          assets.client.css
+            ? `<link rel="stylesheet" href="${assets.client.css}">`
+            : ""
+        }
+          ${
+            process.env.NODE_ENV === "production"
+              ? `<script src="${assets.client.js}" defer></script>`
+              : `<script src="${assets.client.js}" defer crossorigin></script>`
+          }
     </head>
     <body>
         <div id="root">${markup}</div>

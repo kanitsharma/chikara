@@ -1,35 +1,27 @@
-import { createStore, applyMiddleware } from 'redux';
-import { run } from '@cycle/run';
-import { createCycleMiddleware } from 'redux-cycles';
-import { makeHTTPDriver } from '@cycle/http';
+import { createStore, applyMiddleware } from "redux";
+import { createEpicMiddleware } from "redux-most";
 
-import rootReducer from '../reducers';
-import rootCycle from '../cycle';
+import rootReducer from "../reducers";
+import rootEpic from "../epics";
 
-const cycleMiddleware = createCycleMiddleware();
-const { makeActionDriver } = cycleMiddleware;
+const epicMiddleware = createEpicMiddleware(rootEpic);
 
-const configureStore = (preloadedState) => {
+const configureStore = preloadedState => {
   const store = createStore(
     rootReducer,
     preloadedState,
-    applyMiddleware(cycleMiddleware),
+    applyMiddleware(epicMiddleware)
   );
 
   if (module.hot) {
     // Enable Webpack hot module replacement for reducers
-    module.hot.accept('../reducers', () => {
-      const nextRootReducer = require('../reducers').default;
+    module.hot.accept("../reducers", () => {
+      const nextRootReducer = require("../reducers").default;
       store.replaceReducer(nextRootReducer);
     });
   }
 
   return store;
 };
-
-run(rootCycle, {
-  ACTION: makeActionDriver(),
-  HTTP: makeHTTPDriver(),
-});
 
 export default configureStore;

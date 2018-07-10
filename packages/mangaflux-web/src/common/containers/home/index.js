@@ -1,13 +1,15 @@
-import { connect } from 'react-redux';
-import actionSpreader from '../../futils/actionSpreader';
-import Home from './home'
+import { connect } from "react-redux";
+import { prop } from "ramda";
+import actionSpreader from "../../futils/actionSpreader";
+import Home from "./home";
 
-const mapStateToProps = state => ({
-  ...state.home,
-});
+const mapStateToProps = prop("home");
 
 const mapDispatchToProps = dispatch => ({
-  fetchLatest: () => dispatch(actionSpreader('FETCH_LATEST')),
+  fetchLatest: () => dispatch(actionSpreader("FETCH_LATEST"))
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Home);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Home);
