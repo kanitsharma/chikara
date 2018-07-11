@@ -20,7 +20,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "b54d7b1695555fd9dcb0"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "052c9c9b17778d798ac7"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -685,6 +685,89 @@ module.exports = {"client":{"js":"http://localhost:3001/static/js/bundle.js"}}
 
 /***/ }),
 
+/***/ "./node_modules/css-loader/lib/css-base.js":
+/***/ (function(module, exports) {
+
+/*
+	MIT License http://www.opensource.org/licenses/mit-license.php
+	Author Tobias Koppers @sokra
+*/
+// css base code, injected by the css-loader
+module.exports = function(useSourceMap) {
+	var list = [];
+
+	// return the list of modules as css string
+	list.toString = function toString() {
+		return this.map(function (item) {
+			var content = cssWithMappingToString(item, useSourceMap);
+			if(item[2]) {
+				return "@media " + item[2] + "{" + content + "}";
+			} else {
+				return content;
+			}
+		}).join("");
+	};
+
+	// import a list of modules into the list
+	list.i = function(modules, mediaQuery) {
+		if(typeof modules === "string")
+			modules = [[null, modules, ""]];
+		var alreadyImportedModules = {};
+		for(var i = 0; i < this.length; i++) {
+			var id = this[i][0];
+			if(typeof id === "number")
+				alreadyImportedModules[id] = true;
+		}
+		for(i = 0; i < modules.length; i++) {
+			var item = modules[i];
+			// skip already imported module
+			// this implementation is not 100% perfect for weird media query combinations
+			//  when a module is imported multiple times with different media queries.
+			//  I hope this will never occur (Hey this way we have smaller bundles)
+			if(typeof item[0] !== "number" || !alreadyImportedModules[item[0]]) {
+				if(mediaQuery && !item[2]) {
+					item[2] = mediaQuery;
+				} else if(mediaQuery) {
+					item[2] = "(" + item[2] + ") and (" + mediaQuery + ")";
+				}
+				list.push(item);
+			}
+		}
+	};
+	return list;
+};
+
+function cssWithMappingToString(item, useSourceMap) {
+	var content = item[1] || '';
+	var cssMapping = item[3];
+	if (!cssMapping) {
+		return content;
+	}
+
+	if (useSourceMap && typeof btoa === 'function') {
+		var sourceMapping = toComment(cssMapping);
+		var sourceURLs = cssMapping.sources.map(function (source) {
+			return '/*# sourceURL=' + cssMapping.sourceRoot + source + ' */'
+		});
+
+		return [content].concat(sourceURLs).concat([sourceMapping]).join('\n');
+	}
+
+	return [content].join('\n');
+}
+
+// Adapted from convert-source-map (MIT)
+function toComment(sourceMap) {
+	// eslint-disable-next-line no-undef
+	var base64 = btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap))));
+	var data = 'sourceMappingURL=data:application/json;charset=utf-8;base64,' + base64;
+
+	return '/*# ' + data + ' */';
+}
+
+
+/***/ }),
+
 /***/ "./node_modules/webpack/hot/log-apply-result.js":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -831,13 +914,39 @@ if(true) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_ramda___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_ramda__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_redux_most__ = __webpack_require__("redux-most");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_redux_most___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_redux_most__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_most__ = __webpack_require__("most");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_most___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_most__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__futils_curried__ = __webpack_require__("./src/common/futils/curried.js");
 
 
 
-// someEpic is a new function which is still awaiting one argument, the action$
-var someEpic = Object(__WEBPACK_IMPORTED_MODULE_0_ramda__["compose"])(Object(__WEBPACK_IMPORTED_MODULE_1_redux_most__["select"])("Test"));
 
-/* harmony default export */ __webpack_exports__["a"] = (someEpic);
+
+var fetchManga = function fetchManga(_ref) {
+  var payload = _ref.payload;
+  return fetch("https://www.mangaeden.com/api/list/0/").then(function (res) {
+    return res.json();
+  });
+};
+
+var fetchData = Object(__WEBPACK_IMPORTED_MODULE_0_ramda__["compose"])(Object(__WEBPACK_IMPORTED_MODULE_3__futils_curried__["c" /* cmap */])(Object(__WEBPACK_IMPORTED_MODULE_3__futils_curried__["a" /* action */])("FETCHED_INIT")), Object(__WEBPACK_IMPORTED_MODULE_3__futils_curried__["b" /* cchain */])(__WEBPACK_IMPORTED_MODULE_2_most__["fromPromise"]), Object(__WEBPACK_IMPORTED_MODULE_3__futils_curried__["c" /* cmap */])(fetchManga), Object(__WEBPACK_IMPORTED_MODULE_1_redux_most__["select"])("FETCH_INIT"));
+
+/* harmony default export */ __webpack_exports__["a"] = (fetchData);
+
+/***/ }),
+
+/***/ "./src/common/containers/home/home.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/css-base.js")(undefined);
+// imports
+
+
+// module
+exports.push([module.i, ".home_container {\n  width: 100vw;\n  height: 100vh;\n  background: rgb(90, 97, 198);\n  background: radial-gradient(\n    circle,\n    rgba(90, 97, 198, 1) 12%,\n    rgba(32, 69, 145, 1) 100%\n  );\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  font-family: \"Roboto\", sans-serif;\n}\n\n.nav_container {\n  width: 90%;\n  margin: 20px;\n  padding: 20px;\n  font-size: 18px;\n  color: #fbdaf9;\n  border-radius: 10px;\n  background-color: #204591;\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n  box-shadow: 5px 5px 23px rgba(0, 0, 0, 0.2);\n}\n\n.nav-menu {\n  display: flex;\n  flex-direction: row;\n  height: 100%;\n  justify-content: center;\n}\n\n.nav-menu div {\n  cursor: pointer;\n  margin: 0px 25px;\n  font-size: 15px;\n  font-weight: bold;\n  letter-spacing: 2px;\n}\n\n.nav_left {\n  margin-right: auto;\n  font-size: 30px;\n  letter-spacing: 1px;\n}\n", ""]);
+
+// exports
+
 
 /***/ }),
 
@@ -847,21 +956,100 @@ var someEpic = Object(__WEBPACK_IMPORTED_MODULE_0_ramda__["compose"])(Object(__W
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__("react");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__home_css__ = __webpack_require__("./src/common/containers/home/home.css");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__home_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__home_css__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_recompose__ = __webpack_require__("recompose");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_recompose___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_recompose__);
 var _jsxFileName = "/home/kanitsharma/open-source/chikara/packages/mangaflux-web/src/common/containers/home/home.js";
 
 
-/* harmony default export */ __webpack_exports__["a"] = (function (props) {
+
+
+var withInitData = Object(__WEBPACK_IMPORTED_MODULE_2_recompose__["lifecycle"])({
+  componentDidMount: function componentDidMount() {
+    this.props.fetchLatest();
+  }
+});
+
+var Home = function Home(props) {
   return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
     "div",
-    {
-      __source: {
+    { className: "home_container", __source: {
         fileName: _jsxFileName,
-        lineNumber: 3
+        lineNumber: 12
       }
     },
-    "Home"
+    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+      "div",
+      { className: "nav_container", __source: {
+          fileName: _jsxFileName,
+          lineNumber: 13
+        }
+      },
+      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+        "div",
+        { className: "nav_left", __source: {
+            fileName: _jsxFileName,
+            lineNumber: 14
+          }
+        },
+        "Mangaflux"
+      ),
+      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+        "div",
+        { className: "nav-menu", __source: {
+            fileName: _jsxFileName,
+            lineNumber: 15
+          }
+        },
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          "div",
+          {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 16
+            }
+          },
+          "HOME"
+        ),
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          "div",
+          {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 17
+            }
+          },
+          "BROWSE"
+        ),
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          "div",
+          {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 18
+            }
+          },
+          "ABOUT"
+        )
+      )
+    ),
+    props.mangaList.map(function (x) {
+      return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+        "div",
+        {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 21
+          }
+        },
+        x.a
+      );
+    })
   );
-});
+};
+
+/* harmony default export */ __webpack_exports__["a"] = (withInitData(Home));
 
 /***/ }),
 
@@ -885,7 +1073,7 @@ var mapStateToProps = Object(__WEBPACK_IMPORTED_MODULE_1_ramda__["prop"])("home"
 var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   return {
     fetchLatest: function fetchLatest() {
-      return dispatch(Object(__WEBPACK_IMPORTED_MODULE_2__futils_actionSpreader__["a" /* default */])("FETCH_LATEST"));
+      return dispatch(Object(__WEBPACK_IMPORTED_MODULE_2__futils_actionSpreader__["a" /* default */])("FETCH_INIT"));
     }
   };
 };
@@ -895,9 +1083,26 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
 /***/ }),
 
 /***/ "./src/common/containers/home/reducer.js":
-/***/ (function(module, exports) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_object_assign__ = __webpack_require__("babel-runtime/core-js/object/assign");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_object_assign___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_object_assign__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__futils_createreducer__ = __webpack_require__("./src/common/futils/createreducer.js");
 
 
+
+var ACTION_HANDLERS = {
+  FETCHED_INIT: function FETCHED_INIT(s, a) {
+    return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_object_assign___default()({}, s, { mangaList: a.payload.manga });
+  }
+};
+
+var initialState = {
+  mangaList: []
+};
+
+/* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_1__futils_createreducer__["a" /* default */])(initialState, ACTION_HANDLERS));
 
 /***/ }),
 
@@ -970,6 +1175,42 @@ var rootEpic = Object(__WEBPACK_IMPORTED_MODULE_0_redux_most__["combineEpics"])(
 
 /***/ }),
 
+/***/ "./src/common/futils/createreducer.js":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony default export */ __webpack_exports__["a"] = (function (initialState, actionHandlers) {
+  return function () {
+    var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
+    var action = arguments[1];
+    return actionHandlers.hasOwnProperty(action.type) ? actionHandlers[action.type](state, action) : state;
+  };
+});
+
+/***/ }),
+
+/***/ "./src/common/futils/curried.js":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return cmap; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return cchain; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return action; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_ramda__ = __webpack_require__("ramda");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_ramda___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_ramda__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_most__ = __webpack_require__("most");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_most___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_most__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__futils_actionSpreader__ = __webpack_require__("./src/common/futils/actionSpreader.js");
+
+
+
+
+var cmap = Object(__WEBPACK_IMPORTED_MODULE_0_ramda__["curry"])(__WEBPACK_IMPORTED_MODULE_1_most__["map"]);
+var cchain = Object(__WEBPACK_IMPORTED_MODULE_0_ramda__["curry"])(__WEBPACK_IMPORTED_MODULE_1_most__["chain"]);
+var action = Object(__WEBPACK_IMPORTED_MODULE_0_ramda__["curry"])(__WEBPACK_IMPORTED_MODULE_2__futils_actionSpreader__["a" /* default */]);
+
+/***/ }),
+
 /***/ "./src/common/reducers/index.js":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -978,12 +1219,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_redux__ = __webpack_require__("redux");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_redux___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_redux__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__containers_home_reducer__ = __webpack_require__("./src/common/containers/home/reducer.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__containers_home_reducer___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__containers_home_reducer__);
 
 
 
 var rootReducer = Object(__WEBPACK_IMPORTED_MODULE_0_redux__["combineReducers"])({
-  home: __WEBPACK_IMPORTED_MODULE_1__containers_home_reducer___default.a
+  home: __WEBPACK_IMPORTED_MODULE_1__containers_home_reducer__["a" /* default */]
 });
 
 /* harmony default export */ __webpack_exports__["default"] = (rootReducer);
@@ -998,22 +1238,25 @@ var rootReducer = Object(__WEBPACK_IMPORTED_MODULE_0_redux__["combineReducers"])
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_redux___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_redux__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_redux_most__ = __webpack_require__("redux-most");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_redux_most___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_redux_most__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__reducers__ = __webpack_require__("./src/common/reducers/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__epics__ = __webpack_require__("./src/common/epics/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_redux_logger__ = __webpack_require__("redux-logger");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_redux_logger___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_redux_logger__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__reducers__ = __webpack_require__("./src/common/reducers/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__epics__ = __webpack_require__("./src/common/epics/index.js");
 
 
 
 
 
 
-var epicMiddleware = Object(__WEBPACK_IMPORTED_MODULE_1_redux_most__["createEpicMiddleware"])(__WEBPACK_IMPORTED_MODULE_3__epics__["a" /* default */]);
+
+var epicMiddleware = Object(__WEBPACK_IMPORTED_MODULE_1_redux_most__["createEpicMiddleware"])(__WEBPACK_IMPORTED_MODULE_4__epics__["a" /* default */]);
 
 var configureStore = function configureStore(preloadedState) {
-  var store = Object(__WEBPACK_IMPORTED_MODULE_0_redux__["createStore"])(__WEBPACK_IMPORTED_MODULE_2__reducers__["default"], preloadedState, Object(__WEBPACK_IMPORTED_MODULE_0_redux__["applyMiddleware"])(epicMiddleware));
+  var store = Object(__WEBPACK_IMPORTED_MODULE_0_redux__["createStore"])(__WEBPACK_IMPORTED_MODULE_3__reducers__["default"], preloadedState, Object(__WEBPACK_IMPORTED_MODULE_0_redux__["applyMiddleware"])(epicMiddleware, __WEBPACK_IMPORTED_MODULE_2_redux_logger___default.a));
 
   if (true) {
     // Enable Webpack hot module replacement for reducers
-    module.hot.accept("./src/common/reducers/index.js", function(__WEBPACK_OUTDATED_DEPENDENCIES__) { /* harmony import */ __WEBPACK_IMPORTED_MODULE_2__reducers__ = __webpack_require__("./src/common/reducers/index.js"); (function () {
+    module.hot.accept("./src/common/reducers/index.js", function(__WEBPACK_OUTDATED_DEPENDENCIES__) { /* harmony import */ __WEBPACK_IMPORTED_MODULE_3__reducers__ = __webpack_require__("./src/common/reducers/index.js"); (function () {
       var nextRootReducer = __webpack_require__("./src/common/reducers/index.js").default;
       store.replaceReducer(nextRootReducer);
     })(__WEBPACK_OUTDATED_DEPENDENCIES__); });
@@ -1161,10 +1404,24 @@ module.exports = __webpack_require__("./src/index.js");
 
 /***/ }),
 
+/***/ "babel-runtime/core-js/object/assign":
+/***/ (function(module, exports) {
+
+module.exports = require("babel-runtime/core-js/object/assign");
+
+/***/ }),
+
 /***/ "express":
 /***/ (function(module, exports) {
 
 module.exports = require("express");
+
+/***/ }),
+
+/***/ "most":
+/***/ (function(module, exports) {
+
+module.exports = require("most");
 
 /***/ }),
 
@@ -1210,10 +1467,24 @@ module.exports = require("react-router-dom");
 
 /***/ }),
 
+/***/ "recompose":
+/***/ (function(module, exports) {
+
+module.exports = require("recompose");
+
+/***/ }),
+
 /***/ "redux":
 /***/ (function(module, exports) {
 
 module.exports = require("redux");
+
+/***/ }),
+
+/***/ "redux-logger":
+/***/ (function(module, exports) {
+
+module.exports = require("redux-logger");
 
 /***/ }),
 

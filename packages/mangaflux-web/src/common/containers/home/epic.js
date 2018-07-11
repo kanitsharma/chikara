@@ -1,7 +1,16 @@
 import { compose } from "ramda";
 import { select } from "redux-most";
+import { fromPromise } from "most";
+import { cmap, cchain, action } from "../../futils/curried";
 
-// someEpic is a new function which is still awaiting one argument, the action$
-const someEpic = compose(select("Test"));
+const fetchManga = ({ payload }) =>
+  fetch("https://www.mangaeden.com/api/list/0/").then(res => res.json());
 
-export default someEpic;
+const fetchData = compose(
+  cmap(action("FETCHED_INIT")),
+  cchain(fromPromise),
+  cmap(fetchManga),
+  select("FETCH_INIT")
+);
+
+export default fetchData;

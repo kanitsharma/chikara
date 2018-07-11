@@ -1,5 +1,6 @@
 import { createStore, applyMiddleware } from "redux";
 import { createEpicMiddleware } from "redux-most";
+import logger from "redux-logger";
 
 import rootReducer from "../reducers";
 import rootEpic from "../epics";
@@ -10,7 +11,7 @@ const configureStore = preloadedState => {
   const store = createStore(
     rootReducer,
     preloadedState,
-    applyMiddleware(epicMiddleware)
+    applyMiddleware(epicMiddleware, logger)
   );
 
   if (module.hot) {

@@ -6,7 +6,7 @@ import Home from "./home";
 const mapStateToProps = prop("home");
 
 const mapDispatchToProps = dispatch => ({
-  fetchLatest: () => dispatch(actionSpreader("FETCH_LATEST"))
+  fetchLatest: () => dispatch(actionSpreader("FETCH_INIT"))
 });
 
 export default connect(
