@@ -20,7 +20,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "9cf8e97bc306b7aafe14"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "a7cd106550fd13f4eb68"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -959,7 +959,10 @@ exports.push([module.i, ".loader-overlay {\n  width: 100vw;\n  height: 100vh;\n 
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__mangacard_css__ = __webpack_require__("./src/common/components/mangacard/mangacard.css");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__mangacard_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__mangacard_css__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__placeholder_jpeg__ = __webpack_require__("./src/common/components/mangacard/placeholder.jpeg");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__placeholder_jpeg___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__placeholder_jpeg__);
 var _jsxFileName = "/home/kanitsharma/open-source/chikara/packages/mangaflux-web/src/common/components/mangacard/index.js";
+
 
 
 var BASE_URL = "http://cdn.mangaeden.com/mangasimg/";
@@ -971,12 +974,12 @@ var BASE_URL = "http://cdn.mangaeden.com/mangasimg/";
     "div",
     { className: "manga_card", __source: {
         fileName: _jsxFileName,
-        lineNumber: 6
+        lineNumber: 7
       }
     },
-    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("img", { src: "" + BASE_URL + imgUrl, __source: {
+    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("img", { src: imgUrl ? "" + BASE_URL + imgUrl : __WEBPACK_IMPORTED_MODULE_2__placeholder_jpeg___default.a, __source: {
         fileName: _jsxFileName,
-        lineNumber: 7
+        lineNumber: 8
       }
     }),
     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -984,7 +987,7 @@ var BASE_URL = "http://cdn.mangaeden.com/mangasimg/";
       {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 8
+          lineNumber: 9
         }
       },
       title
@@ -1002,10 +1005,17 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, "", ""]);
+exports.push([module.i, ".latest_container {\n  height: 420px;\n  width: 92%;\n  display: flex;\n  flex-direction: row;\n  overflow-y: auto;\n  border-radius: 10px;\n  background-color: #204591;\n  box-shadow: 5px 5px 23px rgba(0, 0, 0, 0.2);\n}\n\n.latest_container::-webkit-scrollbar-track {\n  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);\n  background-color: #f5f5f5;\n}\n\n.latest_container::-webkit-scrollbar {\n  height: 2px;\n  background-color: #f5f5f5;\n}\n\n.latest_container::-webkit-scrollbar-thumb {\n  background-color: #cf84fd;\n}\n\n.manga_card {\n  margin: 10px 10px;\n  color: #fbdaf9;\n}\n\n.manga_card img {\n  width: 250px;\n  height: 350px;\n  border-radius: 10px;\n}\n", ""]);
 
 // exports
 
+
+/***/ }),
+
+/***/ "./src/common/components/mangacard/placeholder.jpeg":
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "static/media/placeholder.d8e8f90a.jpeg";
 
 /***/ }),
 
