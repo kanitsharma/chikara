@@ -1,7 +1,7 @@
 import { compose } from 'ramda';
 import { select } from 'redux-most';
-import { fromPromise, merge, concat, of } from 'most';
-import { cmap, cchain, action } from '../../futils/curried';
+import { fromPromise, merge, of } from 'most';
+import { cmap, cchain, action, cconcat } from '../../futils/curried';
 import actionSpreader from '../../futils/actionSpreader';
 
 const Latest = 'https://mangaflux-api.herokuapp.com/latest/0/20';
@@ -19,20 +19,15 @@ const manga$ = a =>
 const latest$ = manga$('FETCHED_LATEST');
 const popular$ = manga$('FETCHED_POPULAR');
 
-const createData = _ => ({ Popular, Latest });
-
-const sendAction$ = ({ Latest, Popular }) =>
-  concat(
-    of(actionSpreader('LOADER_ON')),
-    concat(
-      merge(popular$(Popular), latest$(Latest)),
-      of(actionSpreader('LOADER_OFF'))
-    )
+const sendAction$ = (l, p) =>
+  compose(
+    cconcat(of(actionSpreader('LOADER_ON'))),
+    cconcat(merge(popular$(p), latest$(l))),
+    _ => of(actionSpreader('LOADER_OFF'))
   );
 
 const fetchData = compose(
-  cchain(sendAction$),
-  cmap(createData),
+  cchain(sendAction$(Latest, Popular)),
   select('FETCH_INIT')
 );
 

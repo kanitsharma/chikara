@@ -20,7 +20,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "fbf5e378884119707ffe"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "7bc653b8cd1d9acf6a5e"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -1310,23 +1310,19 @@ var fetchManga = function fetchManga(url) {
 };
 
 var manga$ = function manga$(a) {
-  return Object(__WEBPACK_IMPORTED_MODULE_0_ramda__["compose"])(Object(__WEBPACK_IMPORTED_MODULE_3__futils_curried__["c" /* cmap */])(Object(__WEBPACK_IMPORTED_MODULE_3__futils_curried__["a" /* action */])(a)), __WEBPACK_IMPORTED_MODULE_2_most__["fromPromise"], fetchManga);
+  return Object(__WEBPACK_IMPORTED_MODULE_0_ramda__["compose"])(Object(__WEBPACK_IMPORTED_MODULE_3__futils_curried__["d" /* cmap */])(Object(__WEBPACK_IMPORTED_MODULE_3__futils_curried__["a" /* action */])(a)), __WEBPACK_IMPORTED_MODULE_2_most__["fromPromise"], fetchManga);
 };
 
 var latest$ = manga$('FETCHED_LATEST');
 var popular$ = manga$('FETCHED_POPULAR');
 
-var createData = function createData(_) {
-  return { Popular: Popular, Latest: Latest };
+var sendAction$ = function sendAction$(l, p) {
+  return Object(__WEBPACK_IMPORTED_MODULE_0_ramda__["compose"])(Object(__WEBPACK_IMPORTED_MODULE_3__futils_curried__["c" /* cconcat */])(Object(__WEBPACK_IMPORTED_MODULE_2_most__["of"])(Object(__WEBPACK_IMPORTED_MODULE_4__futils_actionSpreader__["a" /* default */])('LOADER_ON'))), Object(__WEBPACK_IMPORTED_MODULE_3__futils_curried__["c" /* cconcat */])(Object(__WEBPACK_IMPORTED_MODULE_2_most__["merge"])(popular$(p), latest$(l))), function (_) {
+    return Object(__WEBPACK_IMPORTED_MODULE_2_most__["of"])(Object(__WEBPACK_IMPORTED_MODULE_4__futils_actionSpreader__["a" /* default */])('LOADER_OFF'));
+  });
 };
 
-var sendAction$ = function sendAction$(_ref) {
-  var Latest = _ref.Latest,
-      Popular = _ref.Popular;
-  return Object(__WEBPACK_IMPORTED_MODULE_2_most__["concat"])(Object(__WEBPACK_IMPORTED_MODULE_2_most__["of"])(Object(__WEBPACK_IMPORTED_MODULE_4__futils_actionSpreader__["a" /* default */])('LOADER_ON')), Object(__WEBPACK_IMPORTED_MODULE_2_most__["concat"])(Object(__WEBPACK_IMPORTED_MODULE_2_most__["merge"])(popular$(Popular), latest$(Latest)), Object(__WEBPACK_IMPORTED_MODULE_2_most__["of"])(Object(__WEBPACK_IMPORTED_MODULE_4__futils_actionSpreader__["a" /* default */])('LOADER_OFF'))));
-};
-
-var fetchData = Object(__WEBPACK_IMPORTED_MODULE_0_ramda__["compose"])(Object(__WEBPACK_IMPORTED_MODULE_3__futils_curried__["b" /* cchain */])(sendAction$), Object(__WEBPACK_IMPORTED_MODULE_3__futils_curried__["c" /* cmap */])(createData), Object(__WEBPACK_IMPORTED_MODULE_1_redux_most__["select"])('FETCH_INIT'));
+var fetchData = Object(__WEBPACK_IMPORTED_MODULE_0_ramda__["compose"])(Object(__WEBPACK_IMPORTED_MODULE_3__futils_curried__["b" /* cchain */])(sendAction$(Latest, Popular)), Object(__WEBPACK_IMPORTED_MODULE_1_redux_most__["select"])('FETCH_INIT'));
 
 /* harmony default export */ __webpack_exports__["a"] = (fetchData);
 
@@ -1607,9 +1603,10 @@ var rootEpic = Object(__WEBPACK_IMPORTED_MODULE_0_redux_most__["combineEpics"])(
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return cmap; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return cmap; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return cchain; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return action; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return cconcat; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_ramda__ = __webpack_require__("ramda");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_ramda___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_ramda__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_most__ = __webpack_require__("most");
@@ -1622,6 +1619,7 @@ var rootEpic = Object(__WEBPACK_IMPORTED_MODULE_0_redux_most__["combineEpics"])(
 var cmap = Object(__WEBPACK_IMPORTED_MODULE_0_ramda__["curry"])(__WEBPACK_IMPORTED_MODULE_1_most__["map"]);
 var cchain = Object(__WEBPACK_IMPORTED_MODULE_0_ramda__["curry"])(__WEBPACK_IMPORTED_MODULE_1_most__["chain"]);
 var action = Object(__WEBPACK_IMPORTED_MODULE_0_ramda__["curry"])(__WEBPACK_IMPORTED_MODULE_2__futils_actionSpreader__["a" /* default */]);
+var cconcat = Object(__WEBPACK_IMPORTED_MODULE_0_ramda__["curry"])(__WEBPACK_IMPORTED_MODULE_1_most__["concat"]);
 
 /***/ }),
 
