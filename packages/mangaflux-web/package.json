@@ -13,8 +13,9 @@
   "license": "MIT",
   "dependencies": {
     "express": "^4.16.2",
+    "most": "^1.7.3",
     "node-fetch": "^2.0.0",
-    "prop-types": "^15.6.1",
+    "prop-types": "^15.6.2",
     "qs": "^6.5.1",
     "ramda": "^0.25.0",
     "react": "^16.2.0",

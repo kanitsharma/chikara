@@ -1,9 +1,11 @@
 import { connect } from "react-redux";
-import { prop } from "ramda";
+import { pick } from "ramda";
 import actionSpreader from "../../futils/actionSpreader";
-import Home from "./home";
+import Latest from "./latest";
 
-const mapStateToProps = prop("home");
+const mapStateToProps = state => ({
+  ...pick(["mangaList"], state.home)
+});
 
 const mapDispatchToProps = dispatch => ({
   fetchLatest: () => dispatch(actionSpreader("FETCH_INIT")),
@@ -13,4 +15,4 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Home);
+)(Latest);

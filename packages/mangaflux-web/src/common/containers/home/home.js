@@ -1,12 +1,14 @@
-import React from "react";
-import "./home.css";
-import { lifecycle } from "recompose";
+import React from 'react'
+import { lifecycle } from 'recompose'
+import Latest from '../latest'
+import './home.css'
+import Loader from '../../components/loader'
 
 const withInitData = lifecycle({
   componentDidMount() {
-    this.props.fetchLatest();
+    this.props.fetchLatest()
   }
-});
+})
 
 const Home = props => (
   <div className="home_container">
@@ -18,8 +20,9 @@ const Home = props => (
         <div>ABOUT</div>
       </div>
     </div>
-    {props.mangaList.map(x => <div>{x.a}</div>)}
+    <Latest />
+    {props.showLoader && <Loader />}
   </div>
-);
+)
 
-export default withInitData(Home);
+export default withInitData(Home)
