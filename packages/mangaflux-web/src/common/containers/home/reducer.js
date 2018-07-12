@@ -1,17 +1,19 @@
-import reducer from "../../futils/createreducer";
+import reducer from '../../futils/createreducer';
 
 const ACTION_HANDLERS = {
   FETCHED_INIT: (s, a) => ({
     ...s,
-    mangaList: a.payload.data,
+    latestList: a.payload.latest.data,
+    popularList: a.payload.popular.data,
     showLoader: false
   }),
-  LOADER_OFF: (s, a) => ({ ...s, showLoader: false }),
-  LOADER_ON: (s, a) => ({ ...s, showLoader: true })
+  LOADER_OFF: (s, _a) => ({ ...s, showLoader: false }),
+  LOADER_ON: (s, _a) => ({ ...s, showLoader: true })
 };
 
 const initialState = {
-  mangaList: [],
+  latestList: [],
+  popularList: [],
   showLoader: true
 };
 

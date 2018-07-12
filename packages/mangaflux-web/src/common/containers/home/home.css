@@ -1,6 +1,6 @@
 .home_container {
   width: 100vw;
-  height: 100vh;
+  height: 100%;
   background: rgb(90, 97, 198);
   background: radial-gradient(
     circle,
@@ -10,7 +10,9 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 .nav_container {
@@ -44,6 +46,7 @@
 
 .nav_left {
   margin-right: auto;
-  font-size: 30px;
+  font-size: 40px;
   letter-spacing: 1px;
+  font-family: 'n';
 }

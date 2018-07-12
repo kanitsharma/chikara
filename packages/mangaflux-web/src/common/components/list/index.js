@@ -2,16 +2,16 @@ import React from "react";
 import { setPropTypes } from "recompose";
 import MangaCard from "../../components/mangacard";
 import p from "prop-types";
-import "./latest.css";
+import "./list.css";
 
-const Latest = props => (
+const List = ({ list }) => (
   <div className="latest_container">
-    {props.mangaList.map(x => <MangaCard imgUrl={x.im} title={x.t} />)}
+    {list.map(x => <MangaCard imgUrl={x.im} title={x.t} />)}
   </div>
 );
 
 const withPropType = setPropTypes({
-  mangaList: p.array
+  list: p.array
 });
 
-export default withPropType(Latest);
+export default withPropType(List);
