@@ -20,7 +20,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "b087856e41213d377e0e"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "fbf5e378884119707ffe"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -1123,6 +1123,165 @@ module.exports = __webpack_require__.p + "static/media/placeholder.f83d4416.png"
 
 /***/ }),
 
+/***/ "./src/common/components/nav/index.js":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__("react");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__nav_css__ = __webpack_require__("./src/common/components/nav/nav.css");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__nav_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__nav_css__);
+var _jsxFileName = '/home/kanitsharma/open-source/chikara/packages/mangaflux-web/src/common/components/nav/index.js';
+
+
+
+/* harmony default export */ __webpack_exports__["a"] = (function (props) {
+  return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+    'div',
+    { className: 'nav_container', __source: {
+        fileName: _jsxFileName,
+        lineNumber: 5
+      }
+    },
+    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+      'div',
+      { className: 'nav_left', __source: {
+          fileName: _jsxFileName,
+          lineNumber: 6
+        }
+      },
+      'Mangaflux'
+    ),
+    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+      'div',
+      { className: 'nav-menu', __source: {
+          fileName: _jsxFileName,
+          lineNumber: 7
+        }
+      },
+      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+        'div',
+        {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 8
+          }
+        },
+        'HOME'
+      ),
+      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+        'div',
+        {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 9
+          }
+        },
+        'BROWSE'
+      ),
+      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+        'div',
+        {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 10
+          }
+        },
+        'ABOUT'
+      )
+    )
+  );
+});
+
+/***/ }),
+
+/***/ "./src/common/components/nav/nav.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/css-base.js")(undefined);
+// imports
+
+
+// module
+exports.push([module.i, ".nav_container {\n  width: 90%;\n  margin: 20px;\n  padding: 20px;\n  font-size: 18px;\n  color: #fbdaf9;\n  border-radius: 10px;\n  background-color: #204591;\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n  box-shadow: 5px 5px 23px rgba(0, 0, 0, 0.2);\n}\n\n.nav-menu {\n  display: flex;\n  flex-direction: row;\n  height: 100%;\n  justify-content: center;\n}\n\n.nav-menu div {\n  cursor: pointer;\n  margin: 0px 25px;\n  font-size: 15px;\n  font-weight: bold;\n  letter-spacing: 2px;\n}\n\n.nav_left {\n  margin-right: auto;\n  font-size: 40px;\n  letter-spacing: 1px;\n  font-family: 'n';\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ "./src/common/containers/browse/browse.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/css-base.js")(undefined);
+// imports
+
+
+// module
+exports.push([module.i, ".home_container {\n  width: 100vw;\n  height: 100%;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  overflow-x: hidden;\n  overflow-y: auto;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ "./src/common/containers/browse/browse.js":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__("react");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__browse_css__ = __webpack_require__("./src/common/containers/browse/browse.css");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__browse_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__browse_css__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_heading__ = __webpack_require__("./src/common/components/heading/index.js");
+var _jsxFileName = '/home/kanitsharma/open-source/chikara/packages/mangaflux-web/src/common/containers/browse/browse.js';
+
+
+
+
+var Browse = function Browse(props) {
+  return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+    'div',
+    { className: 'home_container', __source: {
+        fileName: _jsxFileName,
+        lineNumber: 6
+      }
+    },
+    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__components_heading__["a" /* default */], { title: 'Latest', __source: {
+        fileName: _jsxFileName,
+        lineNumber: 7
+      }
+    })
+  );
+};
+
+/* harmony default export */ __webpack_exports__["a"] = (Browse);
+
+/***/ }),
+
+/***/ "./src/common/containers/browse/index.js":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react_redux__ = __webpack_require__("react-redux");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react_redux___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react_redux__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ramda__ = __webpack_require__("ramda");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ramda___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_ramda__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__browse__ = __webpack_require__("./src/common/containers/browse/browse.js");
+
+
+
+
+var mapStateToProps = Object(__WEBPACK_IMPORTED_MODULE_1_ramda__["prop"])('');
+
+var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+  return {};
+};
+
+/* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_0_react_redux__["connect"])(mapStateToProps, mapDispatchToProps)(__WEBPACK_IMPORTED_MODULE_2__browse__["a" /* default */]));
+
+/***/ }),
+
 /***/ "./src/common/containers/home/epic.js":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -1134,6 +1293,8 @@ module.exports = __webpack_require__.p + "static/media/placeholder.f83d4416.png"
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_most__ = __webpack_require__("most");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_most___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_most__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__futils_curried__ = __webpack_require__("./src/common/futils/curried.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__futils_actionSpreader__ = __webpack_require__("./src/common/futils/actionSpreader.js");
+
 
 
 
@@ -1148,15 +1309,24 @@ var fetchManga = function fetchManga(url) {
   });
 };
 
-var manga$ = Object(__WEBPACK_IMPORTED_MODULE_0_ramda__["compose"])(__WEBPACK_IMPORTED_MODULE_2_most__["fromPromise"], fetchManga);
-
-var zipData = function zipData(x, y) {
-  return { latest: x, popular: y };
+var manga$ = function manga$(a) {
+  return Object(__WEBPACK_IMPORTED_MODULE_0_ramda__["compose"])(Object(__WEBPACK_IMPORTED_MODULE_3__futils_curried__["c" /* cmap */])(Object(__WEBPACK_IMPORTED_MODULE_3__futils_curried__["a" /* action */])(a)), __WEBPACK_IMPORTED_MODULE_2_most__["fromPromise"], fetchManga);
 };
 
-var fetchData = Object(__WEBPACK_IMPORTED_MODULE_0_ramda__["compose"])(Object(__WEBPACK_IMPORTED_MODULE_3__futils_curried__["c" /* cmap */])(Object(__WEBPACK_IMPORTED_MODULE_3__futils_curried__["a" /* action */])('FETCHED_INIT')), Object(__WEBPACK_IMPORTED_MODULE_3__futils_curried__["b" /* cchain */])(function (_) {
-  return Object(__WEBPACK_IMPORTED_MODULE_2_most__["zip"])(zipData, manga$(Latest), manga$(Popular));
-}), Object(__WEBPACK_IMPORTED_MODULE_1_redux_most__["select"])('FETCH_INIT'));
+var latest$ = manga$('FETCHED_LATEST');
+var popular$ = manga$('FETCHED_POPULAR');
+
+var createData = function createData(_) {
+  return { Popular: Popular, Latest: Latest };
+};
+
+var sendAction$ = function sendAction$(_ref) {
+  var Latest = _ref.Latest,
+      Popular = _ref.Popular;
+  return Object(__WEBPACK_IMPORTED_MODULE_2_most__["concat"])(Object(__WEBPACK_IMPORTED_MODULE_2_most__["of"])(Object(__WEBPACK_IMPORTED_MODULE_4__futils_actionSpreader__["a" /* default */])('LOADER_ON')), Object(__WEBPACK_IMPORTED_MODULE_2_most__["concat"])(Object(__WEBPACK_IMPORTED_MODULE_2_most__["merge"])(popular$(Popular), latest$(Latest)), Object(__WEBPACK_IMPORTED_MODULE_2_most__["of"])(Object(__WEBPACK_IMPORTED_MODULE_4__futils_actionSpreader__["a" /* default */])('LOADER_OFF'))));
+};
+
+var fetchData = Object(__WEBPACK_IMPORTED_MODULE_0_ramda__["compose"])(Object(__WEBPACK_IMPORTED_MODULE_3__futils_curried__["b" /* cchain */])(sendAction$), Object(__WEBPACK_IMPORTED_MODULE_3__futils_curried__["c" /* cmap */])(createData), Object(__WEBPACK_IMPORTED_MODULE_1_redux_most__["select"])('FETCH_INIT'));
 
 /* harmony default export */ __webpack_exports__["a"] = (fetchData);
 
@@ -1170,7 +1340,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, ".home_container {\n  width: 100vw;\n  height: 100%;\n  background: rgb(90, 97, 198);\n  background: radial-gradient(\n    circle,\n    rgba(90, 97, 198, 1) 12%,\n    rgba(32, 69, 145, 1) 100%\n  );\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  font-family: 'Roboto', sans-serif;\n  overflow-x: hidden;\n  overflow-y: auto;\n}\n\n.nav_container {\n  width: 90%;\n  margin: 20px;\n  padding: 20px;\n  font-size: 18px;\n  color: #fbdaf9;\n  border-radius: 10px;\n  background-color: #204591;\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n  box-shadow: 5px 5px 23px rgba(0, 0, 0, 0.2);\n}\n\n.nav-menu {\n  display: flex;\n  flex-direction: row;\n  height: 100%;\n  justify-content: center;\n}\n\n.nav-menu div {\n  cursor: pointer;\n  margin: 0px 25px;\n  font-size: 15px;\n  font-weight: bold;\n  letter-spacing: 2px;\n}\n\n.nav_left {\n  margin-right: auto;\n  font-size: 40px;\n  letter-spacing: 1px;\n  font-family: 'n';\n}\n", ""]);
+exports.push([module.i, ".home_container {\n  width: 100vw;\n  height: 100%;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  overflow-x: hidden;\n  overflow-y: auto;\n}\n", ""]);
 
 // exports
 
@@ -1212,85 +1382,30 @@ var Home = function Home(props) {
         lineNumber: 15
       }
     },
-    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-      'div',
-      { className: 'nav_container', __source: {
-          fileName: _jsxFileName,
-          lineNumber: 16
-        }
-      },
-      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-        'div',
-        { className: 'nav_left', __source: {
-            fileName: _jsxFileName,
-            lineNumber: 17
-          }
-        },
-        'Mangaflux'
-      ),
-      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-        'div',
-        { className: 'nav-menu', __source: {
-            fileName: _jsxFileName,
-            lineNumber: 18
-          }
-        },
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-          'div',
-          {
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 19
-            }
-          },
-          'HOME'
-        ),
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-          'div',
-          {
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 20
-            }
-          },
-          'BROWSE'
-        ),
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-          'div',
-          {
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 21
-            }
-          },
-          'ABOUT'
-        )
-      )
-    ),
     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5__components_heading__["a" /* default */], { title: 'Latest', __source: {
         fileName: _jsxFileName,
-        lineNumber: 24
+        lineNumber: 16
       }
     }),
     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__components_list__["a" /* default */], { list: props.latestList, __source: {
         fileName: _jsxFileName,
-        lineNumber: 25
+        lineNumber: 17
       }
     }),
     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5__components_heading__["a" /* default */], { title: 'Popular', __source: {
         fileName: _jsxFileName,
-        lineNumber: 26
+        lineNumber: 18
       }
     }),
     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__components_list__["a" /* default */], { list: props.popularList, __source: {
         fileName: _jsxFileName,
-        lineNumber: 27
+        lineNumber: 19
       }
     }),
     props.showLoader && __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__components_loader__["a" /* default */], {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 28
+        lineNumber: 20
       }
     })
   );
@@ -1343,10 +1458,15 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
 
 
 var ACTION_HANDLERS = {
-  FETCHED_INIT: function FETCHED_INIT(s, a) {
+  FETCHED_LATEST: function FETCHED_LATEST(s, a) {
     return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_object_assign___default()({}, s, {
-      latestList: a.payload.latest.data,
-      popularList: a.payload.popular.data,
+      latestList: a.payload.data,
+      showLoader: false
+    });
+  },
+  FETCHED_POPULAR: function FETCHED_POPULAR(s, a) {
+    return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_object_assign___default()({}, s, {
+      popularList: a.payload.data,
       showLoader: false
     });
   },
@@ -1361,7 +1481,7 @@ var ACTION_HANDLERS = {
 var initialState = {
   latestList: [],
   popularList: [],
-  showLoader: true
+  showLoader: false
 };
 
 /* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_1__futils_createreducer__["a" /* default */])(initialState, ACTION_HANDLERS));
@@ -1376,38 +1496,70 @@ var initialState = {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_router_dom__ = __webpack_require__("react-router-dom");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_router_dom___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react_router_dom__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__home__ = __webpack_require__("./src/common/containers/home/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_nav__ = __webpack_require__("./src/common/components/nav/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__home__ = __webpack_require__("./src/common/containers/home/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__browse__ = __webpack_require__("./src/common/containers/browse/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__layout_css__ = __webpack_require__("./src/common/containers/layout/layout.css");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__layout_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__layout_css__);
 var _jsxFileName = '/home/kanitsharma/open-source/chikara/packages/mangaflux-web/src/common/containers/layout/index.js';
 
 
 
 
 
-/* harmony default export */ __webpack_exports__["a"] = (function () {
+
+
+
+/* harmony default export */ __webpack_exports__["a"] = (function (props) {
   return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
     'div',
-    {
-      __source: {
+    { className: 'main_layout', __source: {
         fileName: _jsxFileName,
-        lineNumber: 7
+        lineNumber: 10
       }
     },
+    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__components_nav__["a" /* default */], {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 11
+      }
+    }),
     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
       __WEBPACK_IMPORTED_MODULE_1_react_router_dom__["Switch"],
       {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 8
+          lineNumber: 12
         }
       },
-      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["Route"], { exact: true, path: '/', component: __WEBPACK_IMPORTED_MODULE_2__home__["a" /* default */], __source: {
+      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["Route"], { exact: true, path: '/', component: __WEBPACK_IMPORTED_MODULE_3__home__["a" /* default */], __source: {
           fileName: _jsxFileName,
-          lineNumber: 9
+          lineNumber: 13
+        }
+      }),
+      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["Route"], { exact: true, path: '/browse', component: __WEBPACK_IMPORTED_MODULE_4__browse__["a" /* default */], __source: {
+          fileName: _jsxFileName,
+          lineNumber: 14
         }
       })
     )
   );
 });
+
+/***/ }),
+
+/***/ "./src/common/containers/layout/layout.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/css-base.js")(undefined);
+// imports
+
+
+// module
+exports.push([module.i, ".main_layout {\n  background: rgb(90, 97, 198);\n  background: radial-gradient(\n    circle,\n    rgba(90, 97, 198, 1) 12%,\n    rgba(32, 69, 145, 1) 100%\n  );\n  width: 100vw;\n  height: 100%;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  font-family: 'Roboto', sans-serif;\n}\n", ""]);
+
+// exports
+
 
 /***/ }),
 

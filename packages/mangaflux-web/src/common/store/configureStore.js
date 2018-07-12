@@ -1,9 +1,9 @@
-import { createStore, applyMiddleware } from "redux";
-import { createEpicMiddleware } from "redux-most";
-import logger from "redux-logger";
+import { createStore, applyMiddleware } from 'redux';
+import { createEpicMiddleware } from 'redux-most';
+import logger from 'redux-logger';
 
-import rootReducer from "../reducers";
-import rootEpic from "../epics";
+import rootReducer from '../reducers';
+import rootEpic from '../epics';
 
 const epicMiddleware = createEpicMiddleware(rootEpic);
 
@@ -16,8 +16,8 @@ const configureStore = preloadedState => {
 
   if (module.hot) {
     // Enable Webpack hot module replacement for reducers
-    module.hot.accept("../reducers", () => {
-      const nextRootReducer = require("../reducers").default;
+    module.hot.accept('../reducers', () => {
+      const nextRootReducer = require('../reducers').default;
       store.replaceReducer(nextRootReducer);
     });
   }

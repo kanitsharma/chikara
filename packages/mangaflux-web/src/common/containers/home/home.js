@@ -13,14 +13,6 @@ const withInitData = lifecycle({
 
 const Home = props => (
   <div className="home_container">
-    <div className="nav_container">
-      <div className="nav_left">Mangaflux</div>
-      <div className="nav-menu">
-        <div>HOME</div>
-        <div>BROWSE</div>
-        <div>ABOUT</div>
-      </div>
-    </div>
     <Heading title="Latest" />
     <List list={props.latestList} />
     <Heading title="Popular" />
