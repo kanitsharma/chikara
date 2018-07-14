@@ -19,12 +19,14 @@
   justify-content: center;
 }
 
-.nav-menu div {
+.nav-menu a {
   cursor: pointer;
   margin: 0px 25px;
   font-size: 15px;
   font-weight: bold;
   letter-spacing: 2px;
+  color: #fbdaf9;
+  text-decoration: none;
 }
 
 .nav_left {

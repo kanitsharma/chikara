@@ -3,6 +3,7 @@ import { select } from 'redux-most';
 import { fromPromise, merge, of } from 'most';
 import { cmap, cchain, action, cconcat } from '../../futils/curried';
 import actionSpreader from '../../futils/actionSpreader';
+import fetch from 'node-fetch';
 
 const Latest = 'https://mangaflux-api.herokuapp.com/latest/0/20';
 const Popular = 'https://mangaflux-api.herokuapp.com/list/0/20';

@@ -20,7 +20,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "7bc653b8cd1d9acf6a5e"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "681bc6f92a3a744e156c"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -1129,9 +1129,12 @@ module.exports = __webpack_require__.p + "static/media/placeholder.f83d4416.png"
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__("react");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__nav_css__ = __webpack_require__("./src/common/components/nav/nav.css");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__nav_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__nav_css__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_router_dom__ = __webpack_require__("react-router-dom");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_router_dom___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react_router_dom__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__nav_css__ = __webpack_require__("./src/common/components/nav/nav.css");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__nav_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__nav_css__);
 var _jsxFileName = '/home/kanitsharma/open-source/chikara/packages/mangaflux-web/src/common/components/nav/index.js';
+
 
 
 
@@ -1140,14 +1143,14 @@ var _jsxFileName = '/home/kanitsharma/open-source/chikara/packages/mangaflux-web
     'div',
     { className: 'nav_container', __source: {
         fileName: _jsxFileName,
-        lineNumber: 5
+        lineNumber: 6
       }
     },
     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
       'div',
       { className: 'nav_left', __source: {
           fileName: _jsxFileName,
-          lineNumber: 6
+          lineNumber: 7
         }
       },
       'Mangaflux'
@@ -1156,35 +1159,32 @@ var _jsxFileName = '/home/kanitsharma/open-source/chikara/packages/mangaflux-web
       'div',
       { className: 'nav-menu', __source: {
           fileName: _jsxFileName,
-          lineNumber: 7
+          lineNumber: 8
         }
       },
       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-        'div',
-        {
-          __source: {
+        __WEBPACK_IMPORTED_MODULE_1_react_router_dom__["Link"],
+        { to: '/', __source: {
             fileName: _jsxFileName,
-            lineNumber: 8
+            lineNumber: 9
           }
         },
         'HOME'
       ),
       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-        'div',
-        {
-          __source: {
+        __WEBPACK_IMPORTED_MODULE_1_react_router_dom__["Link"],
+        { to: '/browse', __source: {
             fileName: _jsxFileName,
-            lineNumber: 9
+            lineNumber: 10
           }
         },
         'BROWSE'
       ),
       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-        'div',
-        {
-          __source: {
+        __WEBPACK_IMPORTED_MODULE_1_react_router_dom__["Link"],
+        { to: '/about', __source: {
             fileName: _jsxFileName,
-            lineNumber: 10
+            lineNumber: 11
           }
         },
         'ABOUT'
@@ -1203,7 +1203,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, ".nav_container {\n  width: 90%;\n  margin: 20px;\n  padding: 20px;\n  font-size: 18px;\n  color: #fbdaf9;\n  border-radius: 10px;\n  background-color: #204591;\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n  box-shadow: 5px 5px 23px rgba(0, 0, 0, 0.2);\n}\n\n.nav-menu {\n  display: flex;\n  flex-direction: row;\n  height: 100%;\n  justify-content: center;\n}\n\n.nav-menu div {\n  cursor: pointer;\n  margin: 0px 25px;\n  font-size: 15px;\n  font-weight: bold;\n  letter-spacing: 2px;\n}\n\n.nav_left {\n  margin-right: auto;\n  font-size: 40px;\n  letter-spacing: 1px;\n  font-family: 'n';\n}\n", ""]);
+exports.push([module.i, ".nav_container {\n  width: 90%;\n  margin: 20px;\n  padding: 20px;\n  font-size: 18px;\n  color: #fbdaf9;\n  border-radius: 10px;\n  background-color: #204591;\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n  box-shadow: 5px 5px 23px rgba(0, 0, 0, 0.2);\n}\n\n.nav-menu {\n  display: flex;\n  flex-direction: row;\n  height: 100%;\n  justify-content: center;\n}\n\n.nav-menu a {\n  cursor: pointer;\n  margin: 0px 25px;\n  font-size: 15px;\n  font-weight: bold;\n  letter-spacing: 2px;\n  color: #fbdaf9;\n  text-decoration: none;\n}\n\n.nav_left {\n  margin-right: auto;\n  font-size: 40px;\n  letter-spacing: 1px;\n  font-family: 'n';\n}\n", ""]);
 
 // exports
 
@@ -1294,6 +1294,9 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_most___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_most__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__futils_curried__ = __webpack_require__("./src/common/futils/curried.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__futils_actionSpreader__ = __webpack_require__("./src/common/futils/actionSpreader.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_node_fetch__ = __webpack_require__("node-fetch");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_node_fetch___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_node_fetch__);
+
 
 
 
@@ -1304,7 +1307,7 @@ var Latest = 'https://mangaflux-api.herokuapp.com/latest/0/20';
 var Popular = 'https://mangaflux-api.herokuapp.com/list/0/20';
 
 var fetchManga = function fetchManga(url) {
-  return fetch(url).then(function (res) {
+  return __WEBPACK_IMPORTED_MODULE_5_node_fetch___default()(url).then(function (res) {
     return res.json();
   });
 };
