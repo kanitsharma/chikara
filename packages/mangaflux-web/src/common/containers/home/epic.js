@@ -1,7 +1,7 @@
 import { compose } from 'ramda';
 import { select } from 'redux-most';
 import { fromPromise, merge, of } from 'most';
-import { cmap, cchain, action, cconcat } from '../../futils/curried';
+import { Map, Chain, Action, Concat } from '../../futils/curried';
 import actionSpreader from '../../futils/actionSpreader';
 import fetch from 'node-fetch';
 
@@ -12,7 +12,7 @@ const fetchManga = url => fetch(url).then(res => res.json());
 
 const manga$ = a =>
   compose(
-    cmap(action(a)),
+    Map(Action(a)),
     fromPromise,
     fetchManga
   );
@@ -22,13 +22,13 @@ const popular$ = manga$('FETCHED_POPULAR');
 
 const sendAction$ = (l, p) =>
   compose(
-    cconcat(of(actionSpreader('LOADER_ON'))),
-    cconcat(merge(popular$(p), latest$(l))),
+    Concat(of(actionSpreader('LOADER_ON'))),
+    Concat(merge(popular$(p), latest$(l))),
     _ => of(actionSpreader('LOADER_OFF'))
   );
 
 const fetchData = compose(
-  cchain(sendAction$(Latest, Popular)),
+  Chain(sendAction$(Latest, Popular)),
   select('FETCH_INIT')
 );
 

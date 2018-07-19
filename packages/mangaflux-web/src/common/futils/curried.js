@@ -2,7 +2,7 @@ import { curry } from 'ramda';
 import { map, chain, concat } from 'most';
 import actionSpreader from '../futils/actionSpreader';
 
-export const cmap = curry(map);
-export const cchain = curry(chain);
-export const action = curry(actionSpreader);
-export const cconcat = curry(concat);
+export const Map = curry(map);
+export const Chain = curry(chain);
+export const Action = curry(actionSpreader);
+export const Concat = curry(concat);
