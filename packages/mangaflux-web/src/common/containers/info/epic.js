@@ -1,13 +1,11 @@
-import { compose, tap, always, curryN, __ } from 'ramda';
+import { compose, __ } from 'ramda';
 import { select } from 'redux-most';
-import { fromPromise, merge, of, concat } from 'most';
-import { Map, Chain, Action } from '../../futils/curried';
+import { fromPromise, of } from 'most';
+import { Map, Chain, Action, Merge, Concat } from '../../futils/curried';
 import actionSpreader from '../../futils/actionSpreader';
 import fetch from 'node-fetch';
 
 const InfoAPI = 'https://www.mangaeden.com/api/manga/';
-const Merge = curryN(2, merge);
-const Concat = curryN(2, concat);
 
 const fetchInfo = ({ payload }) =>
   fetch(InfoAPI + payload).then(res => res.json());

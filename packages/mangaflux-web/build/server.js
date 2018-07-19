@@ -20,7 +20,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "e8eae0baab3d9cd36e5c"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "3e28b7165a7a2fa88f15"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -1327,6 +1327,10 @@ var fetchManga = function fetchManga(url) {
   });
 };
 
+var createAction$ = function createAction$(a) {
+  return Object(__WEBPACK_IMPORTED_MODULE_2_most__["of"])(Object(__WEBPACK_IMPORTED_MODULE_4__futils_actionSpreader__["a" /* default */])(a));
+};
+
 var manga$ = function manga$(a) {
   return Object(__WEBPACK_IMPORTED_MODULE_0_ramda__["compose"])(Object(__WEBPACK_IMPORTED_MODULE_3__futils_curried__["d" /* Map */])(Object(__WEBPACK_IMPORTED_MODULE_3__futils_curried__["a" /* Action */])(a)), __WEBPACK_IMPORTED_MODULE_2_most__["fromPromise"], fetchManga);
 };
@@ -1335,9 +1339,7 @@ var latest$ = manga$('FETCHED_LATEST');
 var popular$ = manga$('FETCHED_POPULAR');
 
 var sendAction$ = function sendAction$(l, p) {
-  return Object(__WEBPACK_IMPORTED_MODULE_0_ramda__["compose"])(Object(__WEBPACK_IMPORTED_MODULE_3__futils_curried__["c" /* Concat */])(Object(__WEBPACK_IMPORTED_MODULE_2_most__["of"])(Object(__WEBPACK_IMPORTED_MODULE_4__futils_actionSpreader__["a" /* default */])('LOADER_ON'))), Object(__WEBPACK_IMPORTED_MODULE_3__futils_curried__["c" /* Concat */])(Object(__WEBPACK_IMPORTED_MODULE_2_most__["merge"])(popular$(p), latest$(l))), function (_) {
-    return Object(__WEBPACK_IMPORTED_MODULE_2_most__["of"])(Object(__WEBPACK_IMPORTED_MODULE_4__futils_actionSpreader__["a" /* default */])('LOADER_OFF'));
-  });
+  return Object(__WEBPACK_IMPORTED_MODULE_0_ramda__["compose"])(Object(__WEBPACK_IMPORTED_MODULE_3__futils_curried__["c" /* Concat */])(__WEBPACK_IMPORTED_MODULE_0_ramda__["__"], createAction$('LOADER_OFF')), Object(__WEBPACK_IMPORTED_MODULE_3__futils_curried__["e" /* Merge */])(latest$(l)), Object(__WEBPACK_IMPORTED_MODULE_3__futils_curried__["e" /* Merge */])(popular$(p)), Object(__WEBPACK_IMPORTED_MODULE_0_ramda__["always"])(createAction$('LOADER_ON')));
 };
 
 var fetchData = Object(__WEBPACK_IMPORTED_MODULE_0_ramda__["compose"])(Object(__WEBPACK_IMPORTED_MODULE_3__futils_curried__["b" /* Chain */])(sendAction$(Latest, Popular)), Object(__WEBPACK_IMPORTED_MODULE_1_redux_most__["select"])('FETCH_INIT'));
@@ -1519,8 +1521,6 @@ var initialState = {
 
 
 var InfoAPI = 'https://www.mangaeden.com/api/manga/';
-var Merge = Object(__WEBPACK_IMPORTED_MODULE_0_ramda__["curryN"])(2, __WEBPACK_IMPORTED_MODULE_2_most__["merge"]);
-var Concat = Object(__WEBPACK_IMPORTED_MODULE_0_ramda__["curryN"])(2, __WEBPACK_IMPORTED_MODULE_2_most__["concat"]);
 
 var fetchInfo = function fetchInfo(_ref) {
   var payload = _ref.payload;
@@ -1531,7 +1531,7 @@ var fetchInfo = function fetchInfo(_ref) {
 
 var info$ = Object(__WEBPACK_IMPORTED_MODULE_0_ramda__["compose"])(Object(__WEBPACK_IMPORTED_MODULE_3__futils_curried__["d" /* Map */])(Object(__WEBPACK_IMPORTED_MODULE_3__futils_curried__["a" /* Action */])('FETCHED_INFO')), __WEBPACK_IMPORTED_MODULE_2_most__["fromPromise"], fetchInfo);
 
-var sendAction$ = Object(__WEBPACK_IMPORTED_MODULE_0_ramda__["compose"])(Concat(__WEBPACK_IMPORTED_MODULE_0_ramda__["__"], Object(__WEBPACK_IMPORTED_MODULE_2_most__["of"])(Object(__WEBPACK_IMPORTED_MODULE_4__futils_actionSpreader__["a" /* default */])('LOADER_OFF'))), Merge(__WEBPACK_IMPORTED_MODULE_0_ramda__["__"], Object(__WEBPACK_IMPORTED_MODULE_2_most__["of"])(Object(__WEBPACK_IMPORTED_MODULE_4__futils_actionSpreader__["a" /* default */])('LOADER_ON'))), info$);
+var sendAction$ = Object(__WEBPACK_IMPORTED_MODULE_0_ramda__["compose"])(Object(__WEBPACK_IMPORTED_MODULE_3__futils_curried__["c" /* Concat */])(__WEBPACK_IMPORTED_MODULE_0_ramda__["__"], Object(__WEBPACK_IMPORTED_MODULE_2_most__["of"])(Object(__WEBPACK_IMPORTED_MODULE_4__futils_actionSpreader__["a" /* default */])('LOADER_OFF'))), Object(__WEBPACK_IMPORTED_MODULE_3__futils_curried__["e" /* Merge */])(__WEBPACK_IMPORTED_MODULE_0_ramda__["__"], Object(__WEBPACK_IMPORTED_MODULE_2_most__["of"])(Object(__WEBPACK_IMPORTED_MODULE_4__futils_actionSpreader__["a" /* default */])('LOADER_ON'))), info$);
 
 var fetchData = Object(__WEBPACK_IMPORTED_MODULE_0_ramda__["compose"])(Object(__WEBPACK_IMPORTED_MODULE_3__futils_curried__["b" /* Chain */])(sendAction$), Object(__WEBPACK_IMPORTED_MODULE_1_redux_most__["select"])('SET_INFO_ID'));
 
@@ -1792,6 +1792,7 @@ var rootEpic = Object(__WEBPACK_IMPORTED_MODULE_0_redux_most__["combineEpics"])(
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return Chain; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Action; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return Concat; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return Merge; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_ramda__ = __webpack_require__("ramda");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_ramda___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_ramda__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_most__ = __webpack_require__("most");
@@ -1805,6 +1806,7 @@ var Map = Object(__WEBPACK_IMPORTED_MODULE_0_ramda__["curry"])(__WEBPACK_IMPORTE
 var Chain = Object(__WEBPACK_IMPORTED_MODULE_0_ramda__["curry"])(__WEBPACK_IMPORTED_MODULE_1_most__["chain"]);
 var Action = Object(__WEBPACK_IMPORTED_MODULE_0_ramda__["curry"])(__WEBPACK_IMPORTED_MODULE_2__futils_actionSpreader__["a" /* default */]);
 var Concat = Object(__WEBPACK_IMPORTED_MODULE_0_ramda__["curry"])(__WEBPACK_IMPORTED_MODULE_1_most__["concat"]);
+var Merge = Object(__WEBPACK_IMPORTED_MODULE_0_ramda__["curryN"])(2, __WEBPACK_IMPORTED_MODULE_1_most__["merge"]);
 
 /***/ }),
 
