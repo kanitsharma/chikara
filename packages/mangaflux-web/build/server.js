@@ -20,7 +20,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "cafee80b33854840d947"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "e8eae0baab3d9cd36e5c"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -1520,6 +1520,7 @@ var initialState = {
 
 var InfoAPI = 'https://www.mangaeden.com/api/manga/';
 var Merge = Object(__WEBPACK_IMPORTED_MODULE_0_ramda__["curryN"])(2, __WEBPACK_IMPORTED_MODULE_2_most__["merge"]);
+var Concat = Object(__WEBPACK_IMPORTED_MODULE_0_ramda__["curryN"])(2, __WEBPACK_IMPORTED_MODULE_2_most__["concat"]);
 
 var fetchInfo = function fetchInfo(_ref) {
   var payload = _ref.payload;
@@ -1530,9 +1531,7 @@ var fetchInfo = function fetchInfo(_ref) {
 
 var info$ = Object(__WEBPACK_IMPORTED_MODULE_0_ramda__["compose"])(Object(__WEBPACK_IMPORTED_MODULE_3__futils_curried__["d" /* Map */])(Object(__WEBPACK_IMPORTED_MODULE_3__futils_curried__["a" /* Action */])('FETCHED_INFO')), __WEBPACK_IMPORTED_MODULE_2_most__["fromPromise"], fetchInfo);
 
-var sendAction$ = function sendAction$(x) {
-  return Object(__WEBPACK_IMPORTED_MODULE_0_ramda__["compose"])(Merge(Object(__WEBPACK_IMPORTED_MODULE_2_most__["of"])(Object(__WEBPACK_IMPORTED_MODULE_4__futils_actionSpreader__["a" /* default */])('LOADER_ON'))), Object(__WEBPACK_IMPORTED_MODULE_3__futils_curried__["c" /* Concat */])(info$(x)), Object(__WEBPACK_IMPORTED_MODULE_0_ramda__["always"])(Object(__WEBPACK_IMPORTED_MODULE_2_most__["of"])(Object(__WEBPACK_IMPORTED_MODULE_4__futils_actionSpreader__["a" /* default */])('LOADER_OFF'))))();
-};
+var sendAction$ = Object(__WEBPACK_IMPORTED_MODULE_0_ramda__["compose"])(Concat(__WEBPACK_IMPORTED_MODULE_0_ramda__["__"], Object(__WEBPACK_IMPORTED_MODULE_2_most__["of"])(Object(__WEBPACK_IMPORTED_MODULE_4__futils_actionSpreader__["a" /* default */])('LOADER_OFF'))), Merge(__WEBPACK_IMPORTED_MODULE_0_ramda__["__"], Object(__WEBPACK_IMPORTED_MODULE_2_most__["of"])(Object(__WEBPACK_IMPORTED_MODULE_4__futils_actionSpreader__["a" /* default */])('LOADER_ON'))), info$);
 
 var fetchData = Object(__WEBPACK_IMPORTED_MODULE_0_ramda__["compose"])(Object(__WEBPACK_IMPORTED_MODULE_3__futils_curried__["b" /* Chain */])(sendAction$), Object(__WEBPACK_IMPORTED_MODULE_1_redux_most__["select"])('SET_INFO_ID'));
 
