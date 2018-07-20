@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import { prop } from 'ramda';
 import Info from './info';
 
-const mapStateToProps = prop('home');
+const mapStateToProps = prop('info');
 
 const mapDispatchToProps = _dispatch => ({});
 

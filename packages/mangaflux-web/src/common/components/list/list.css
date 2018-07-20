@@ -1,5 +1,5 @@
 .latest_container {
-  height: 370px;
+  min-height: 370px;
   width: 90%;
   max-width: 1300px;
   display: flex;

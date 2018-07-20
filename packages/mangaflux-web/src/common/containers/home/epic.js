@@ -26,8 +26,7 @@ const sendAction$ = (l, p) =>
   compose(
     Concat(__, createAction$('LOADER_OFF')),
     Merge(latest$(l)),
-    Merge(popular$(p)),
-    always(createAction$('LOADER_ON')),
+    always(popular$(p)),
   );
 
 const fetchData = compose(

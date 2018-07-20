@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { pick } from 'ramda';
-import './loader.css';
 
 const Loader = ({ showLoader }) =>
   showLoader ? (

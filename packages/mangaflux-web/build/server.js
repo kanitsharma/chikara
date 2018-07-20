@@ -20,7 +20,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "95544f22f211ca002427"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "023ba0df2ed476cbd18f"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -1004,7 +1004,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, ".latest_container {\n  height: 370px;\n  width: 90%;\n  max-width: 1300px;\n  display: flex;\n  flex-direction: row;\n  overflow-y: auto;\n  border-radius: 10px;\n  background-color: #204591;\n  box-shadow: 5px 5px 23px rgba(0, 0, 0, 0.2);\n  margin: 10px 0px;\n}\n\n.latest_container::-webkit-scrollbar-track {\n  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);\n  background-color: #f5f5f5;\n}\n\n.latest_container::-webkit-scrollbar {\n  height: 4px;\n  background-color: #f5f5f5;\n}\n\n.latest_container::-webkit-scrollbar-thumb {\n  background-color: #cf84fd;\n}\n", ""]);
+exports.push([module.i, ".latest_container {\n  min-height: 370px;\n  width: 90%;\n  max-width: 1300px;\n  display: flex;\n  flex-direction: row;\n  overflow-y: auto;\n  border-radius: 10px;\n  background-color: #204591;\n  box-shadow: 5px 5px 23px rgba(0, 0, 0, 0.2);\n  margin: 10px 0px;\n}\n\n.latest_container::-webkit-scrollbar-track {\n  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);\n  background-color: #f5f5f5;\n}\n\n.latest_container::-webkit-scrollbar {\n  height: 4px;\n  background-color: #f5f5f5;\n}\n\n.latest_container::-webkit-scrollbar-thumb {\n  background-color: #cf84fd;\n}\n", ""]);
 
 // exports
 
@@ -1293,7 +1293,7 @@ var latest$ = manga$('FETCHED_LATEST');
 var popular$ = manga$('FETCHED_POPULAR');
 
 var sendAction$ = function sendAction$(l, p) {
-  return Object(__WEBPACK_IMPORTED_MODULE_0_ramda__["compose"])(Object(__WEBPACK_IMPORTED_MODULE_4__futils_curried__["c" /* Concat */])(__WEBPACK_IMPORTED_MODULE_0_ramda__["__"], createAction$('LOADER_OFF')), Object(__WEBPACK_IMPORTED_MODULE_4__futils_curried__["e" /* Merge */])(latest$(l)), Object(__WEBPACK_IMPORTED_MODULE_4__futils_curried__["e" /* Merge */])(popular$(p)), Object(__WEBPACK_IMPORTED_MODULE_0_ramda__["always"])(createAction$('LOADER_ON')));
+  return Object(__WEBPACK_IMPORTED_MODULE_0_ramda__["compose"])(Object(__WEBPACK_IMPORTED_MODULE_4__futils_curried__["c" /* Concat */])(__WEBPACK_IMPORTED_MODULE_0_ramda__["__"], createAction$('LOADER_OFF')), Object(__WEBPACK_IMPORTED_MODULE_4__futils_curried__["e" /* Merge */])(latest$(l)), Object(__WEBPACK_IMPORTED_MODULE_0_ramda__["always"])(popular$(p)));
 };
 
 var fetchData = Object(__WEBPACK_IMPORTED_MODULE_0_ramda__["compose"])(Object(__WEBPACK_IMPORTED_MODULE_4__futils_curried__["b" /* Chain */])(sendAction$(Latest, Popular)), Object(__WEBPACK_IMPORTED_MODULE_1_redux_most__["select"])('FETCH_INIT'));
@@ -1447,7 +1447,7 @@ var ACTION_HANDLERS = {
 var initialState = {
   latestList: [],
   popularList: [],
-  showLoader: false
+  showLoader: true
 };
 
 /* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_1__futils_createreducer__["a" /* default */])(initialState, ACTION_HANDLERS));
@@ -1507,7 +1507,7 @@ var fetchData = Object(__WEBPACK_IMPORTED_MODULE_0_ramda__["compose"])(Object(__
 
 
 
-var mapStateToProps = Object(__WEBPACK_IMPORTED_MODULE_1_ramda__["prop"])('home');
+var mapStateToProps = Object(__WEBPACK_IMPORTED_MODULE_1_ramda__["prop"])('info');
 
 var mapDispatchToProps = function mapDispatchToProps(_dispatch) {
   return {};
@@ -1525,7 +1525,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, ".info_container {\n  height: 84vh;\n}\n", ""]);
+exports.push([module.i, ".info_container {\n  width: 70%;\n  height: 75%;\n  display: flex;\n  flex-direction: column;\n  border-radius: 10px;\n  background-color: #204591;\n  box-shadow: 5px 5px 23px rgba(0, 0, 0, 0.2);\n  margin-top: 10px;\n  padding: 25px 40px;\n  overflow-y: auto;\n}\n\n.info_container::-webkit-scrollbar-track {\n  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);\n  background-color: #f5f5f5;\n}\n\n.info_container::-webkit-scrollbar {\n  width: 4px;\n  background-color: #f5f5f5;\n}\n\n.info_container::-webkit-scrollbar-thumb {\n  background-color: #cf84fd;\n}\n\n.title-container {\n  display: flex;\n  flex-direction: row;\n  width: 100%;\n  justify-content: space-between;\n  min-height: 350px;\n}\n\n.info-title {\n  color: #fce5ff;\n  font-family: 'n';\n  font-size: 40px;\n  margin-top: 20px;\n  margin-bottom: 20px;\n}\n\n.info-meta {\n  font-size: 22px;\n  color: #fbdcfc;\n  display: flex;\n  flex-direction: column;\n  justify-content: space-between;\n}\n\n.info-meta-data {\n  margin: 5px 0px;\n}\n\n.info-tags {\n  display: flex;\n  flex-direction: row;\n  flex-wrap: wrap;\n}\n\n.info-tags div {\n  margin-right: 10px;\n  margin-top: 10px;\n  color: #f6aafe;\n  border: 1px solid #f6aafe;\n  padding: 5px 10px;\n  border-radius: 12px;\n}\n\n.info-description {\n  margin: 30px 0px;\n  font-size: 20px;\n  line-height: 27px;\n  letter-spacing: 1px;\n  color: #fbdcfc;\n}\n\n.info-description-title {\n  font-size: 25px;\n  color: #fce5ff;\n  margin-bottom: 10px;\n}\n\n.chapter {\n  display: flex;\n  flex-direction: row;\n  font-size: 20px;\n  color: #fbdcfc;\n  align-items: center;\n}\n\n.chapter_no {\n  margin: 10px 10px;\n}\n", ""]);
 
 // exports
 
@@ -1538,26 +1538,225 @@ exports.push([module.i, ".info_container {\n  height: 84vh;\n}\n", ""]);
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__("react");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_recompose__ = __webpack_require__("recompose");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_recompose___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_recompose__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__info_css__ = __webpack_require__("./src/common/containers/info/info.css");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__info_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__info_css__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__info_css__ = __webpack_require__("./src/common/containers/info/info.css");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__info_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__info_css__);
 var _jsxFileName = '/home/kanitsharma/open-source/chikara/packages/mangaflux-web/src/common/containers/info/info.js';
 
 
+var BASE_URL = 'http://cdn.mangaeden.com/mangasimg/';
 
-
-var withInitData = Object(__WEBPACK_IMPORTED_MODULE_1_recompose__["lifecycle"])({});
-
-var Info = function Info(_props) {
-  return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: 'info_container', __source: {
-      fileName: _jsxFileName,
-      lineNumber: 7
-    }
-  });
+var Info = function Info(_ref) {
+  var _ref$currentInfo = _ref.currentInfo,
+      title = _ref$currentInfo.title,
+      image = _ref$currentInfo.image,
+      artist = _ref$currentInfo.artist,
+      author = _ref$currentInfo.author,
+      chapters_len = _ref$currentInfo.chapters_len,
+      released = _ref$currentInfo.released,
+      categories = _ref$currentInfo.categories,
+      status = _ref$currentInfo.status,
+      description = _ref$currentInfo.description,
+      chapters = _ref$currentInfo.chapters;
+  return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+    'div',
+    { className: 'info_container', __source: {
+        fileName: _jsxFileName,
+        lineNumber: 19
+      }
+    },
+    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+      'div',
+      { className: 'title-container', __source: {
+          fileName: _jsxFileName,
+          lineNumber: 20
+        }
+      },
+      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+        'div',
+        { className: 'info-meta', __source: {
+            fileName: _jsxFileName,
+            lineNumber: 21
+          }
+        },
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          'div',
+          {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 22
+            }
+          },
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            'div',
+            { className: 'info-title', __source: {
+                fileName: _jsxFileName,
+                lineNumber: 23
+              }
+            },
+            title
+          ),
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            'div',
+            { className: 'info-meta-data', __source: {
+                fileName: _jsxFileName,
+                lineNumber: 24
+              }
+            },
+            'Artist: ',
+            artist
+          ),
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            'div',
+            { className: 'info-meta-data', __source: {
+                fileName: _jsxFileName,
+                lineNumber: 25
+              }
+            },
+            'Author: ',
+            author
+          ),
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            'div',
+            { className: 'info-meta-data', __source: {
+                fileName: _jsxFileName,
+                lineNumber: 26
+              }
+            },
+            'No of chapters: ',
+            chapters_len
+          ),
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            'div',
+            { className: 'info-meta-data', __source: {
+                fileName: _jsxFileName,
+                lineNumber: 27
+              }
+            },
+            'Released on: ',
+            released
+          ),
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            'div',
+            { className: 'info-meta-data', __source: {
+                fileName: _jsxFileName,
+                lineNumber: 28
+              }
+            },
+            'Status: ',
+            status === 1 ? 'Ongoing' : 'Finished'
+          )
+        ),
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          'div',
+          { className: 'info-tags', __source: {
+              fileName: _jsxFileName,
+              lineNumber: 32
+            }
+          },
+          categories && categories.map(function (x) {
+            return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'div',
+              {
+                __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 33
+                }
+              },
+              x
+            );
+          })
+        )
+      ),
+      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+        'div',
+        { className: 'info-title-image', __source: {
+            fileName: _jsxFileName,
+            lineNumber: 36
+          }
+        },
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { alt: '', src: '' + BASE_URL + image, __source: {
+            fileName: _jsxFileName,
+            lineNumber: 37
+          }
+        })
+      )
+    ),
+    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+      'div',
+      { className: 'info-description', __source: {
+          fileName: _jsxFileName,
+          lineNumber: 40
+        }
+      },
+      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+        'div',
+        { className: 'info-description-title', __source: {
+            fileName: _jsxFileName,
+            lineNumber: 41
+          }
+        },
+        'Description'
+      ),
+      description
+    ),
+    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+      'div',
+      { className: 'chapters-container', __source: {
+          fileName: _jsxFileName,
+          lineNumber: 44
+        }
+      },
+      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+        'div',
+        { className: 'info-description-title', __source: {
+            fileName: _jsxFileName,
+            lineNumber: 45
+          }
+        },
+        'Chapters'
+      ),
+      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+        'div',
+        {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 46
+          }
+        },
+        chapters && chapters.map(function (x) {
+          return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            'div',
+            { className: 'chapter', __source: {
+                fileName: _jsxFileName,
+                lineNumber: 49
+              }
+            },
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'div',
+              { className: 'chapter_no', __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 50
+                }
+              },
+              x[0]
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'div',
+              { className: 'chapter_name', __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 51
+                }
+              },
+              x[2]
+            )
+          );
+        })
+      )
+    )
+  );
 };
 
-/* harmony default export */ __webpack_exports__["a"] = (withInitData(Info));
+/* harmony default export */ __webpack_exports__["a"] = (Info);
 
 /***/ }),
 
@@ -1574,11 +1773,15 @@ var Info = function Info(_props) {
 var ACTION_HANDLERS = {
   SET_INFO_ID: function SET_INFO_ID(s, a) {
     return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_object_assign___default()({}, s, { currentId: a.payload });
+  },
+  FETCHED_INFO: function FETCHED_INFO(s, a) {
+    return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_object_assign___default()({}, s, { currentInfo: a.payload });
   }
 };
 
 var initialState = {
-  currentId: null
+  currentId: null,
+  currentInfo: {}
 };
 
 /* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_1__futils_createreducer__["a" /* default */])(initialState, ACTION_HANDLERS));
@@ -1669,7 +1872,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, ".main_layout {\n  background: rgb(90, 97, 198);\n  background: radial-gradient(\n    circle,\n    rgba(90, 97, 198, 1) 12%,\n    rgba(32, 69, 145, 1) 100%\n  );\n  width: 100vw;\n  height: 100%;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  font-family: 'Roboto', sans-serif;\n}\n", ""]);
+exports.push([module.i, ".main_layout {\n  background: rgb(90, 97, 198);\n  background: radial-gradient(\n    circle,\n    rgba(90, 97, 198, 1) 12%,\n    rgba(32, 69, 145, 1) 100%\n  );\n  width: 100vw;\n  height: 100%;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  font-family: 'Chela One', cursive;\n}\n", ""]);
 
 // exports
 
@@ -1688,11 +1891,8 @@ exports.push([module.i, ".main_layout {\n  background: rgb(90, 97, 198);\n  back
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_redux___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_react_redux__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ramda__ = __webpack_require__("ramda");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ramda___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_ramda__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__loader_css__ = __webpack_require__("./src/common/containers/loader/loader.css");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__loader_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__loader_css__);
 
 var _jsxFileName = '/home/kanitsharma/open-source/chikara/packages/mangaflux-web/src/common/containers/loader/index.js';
-
 
 
 
@@ -1703,18 +1903,18 @@ var Loader = function Loader(_ref) {
     'div',
     { className: 'loader-overlay', __source: {
         fileName: _jsxFileName,
-        lineNumber: 8
+        lineNumber: 7
       }
     },
     __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement('div', { className: 'lds-dual-ring', __source: {
         fileName: _jsxFileName,
-        lineNumber: 9
+        lineNumber: 8
       }
     })
   ) : __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement('div', {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 12
+      lineNumber: 11
     }
   });
 };
@@ -1727,21 +1927,6 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
 };
 
 /* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_2_react_redux__["connect"])(mapStateToProps, mapDispatchToProps)(Loader));
-
-/***/ }),
-
-/***/ "./src/common/containers/loader/loader.css":
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/css-base.js")(undefined);
-// imports
-
-
-// module
-exports.push([module.i, ".loader-overlay {\n  width: 100vw;\n  height: 100vh;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  background-color: rgba(0, 0, 0, 0.3);\n  position: fixed;\n  top: 0;\n  left: 0;\n}\n\n.lds-dual-ring {\n  display: inline-block;\n  width: 64px;\n  height: 64px;\n}\n.lds-dual-ring:after {\n  content: \" \";\n  display: block;\n  width: 46px;\n  height: 46px;\n  margin: 1px;\n  border-radius: 50%;\n  border: 5px solid #fff;\n  border-color: #fff transparent #fff transparent;\n  animation: lds-dual-ring 1.2s linear infinite;\n}\n@keyframes lds-dual-ring {\n  0% {\n    transform: rotate(0deg);\n  }\n  100% {\n    transform: rotate(360deg);\n  }\n}\n", ""]);
-
-// exports
-
 
 /***/ }),
 
