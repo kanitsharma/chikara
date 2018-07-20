@@ -10,10 +10,10 @@ import Loader from '../../components/loader';
 
 import './layout.css';
 
-const Layout = props => (
+const Layout = ({ showLoader }) => (
   <div className="main_layout">
     <Nav />
-    {props.showLoader && <Loader />}
+    {showLoader && <Loader />}
     <Switch>
       <Route exact path="/" component={Home} />
       <Route exact path="/browse" component={Browse} />
@@ -24,9 +24,9 @@ const Layout = props => (
 
 const mapStateToProps = prop('home');
 
-const mapDispatchToProps = dispatch => ({});
+const mapDispatchToProps = _ => ({});
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  mapDispatchToProps,
 )(Layout);

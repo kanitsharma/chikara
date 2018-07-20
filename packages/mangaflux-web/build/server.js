@@ -20,7 +20,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "3e28b7165a7a2fa88f15"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "820a653da10f69c65ad1"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -1307,10 +1307,10 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_redux_most___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_redux_most__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_most__ = __webpack_require__("most");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_most___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_most__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__futils_curried__ = __webpack_require__("./src/common/futils/curried.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__futils_actionSpreader__ = __webpack_require__("./src/common/futils/actionSpreader.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_node_fetch__ = __webpack_require__("node-fetch");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_node_fetch___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_node_fetch__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_node_fetch__ = __webpack_require__("node-fetch");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_node_fetch___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_node_fetch__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__futils_curried__ = __webpack_require__("./src/common/futils/curried.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__futils_actionSpreader__ = __webpack_require__("./src/common/futils/actionSpreader.js");
 
 
 
@@ -1322,27 +1322,27 @@ var Latest = 'https://mangaflux-api.herokuapp.com/latest/0/20';
 var Popular = 'https://mangaflux-api.herokuapp.com/list/0/20';
 
 var fetchManga = function fetchManga(url) {
-  return __WEBPACK_IMPORTED_MODULE_5_node_fetch___default()(url).then(function (res) {
+  return __WEBPACK_IMPORTED_MODULE_3_node_fetch___default()(url).then(function (res) {
     return res.json();
   });
 };
 
 var createAction$ = function createAction$(a) {
-  return Object(__WEBPACK_IMPORTED_MODULE_2_most__["of"])(Object(__WEBPACK_IMPORTED_MODULE_4__futils_actionSpreader__["a" /* default */])(a));
+  return Object(__WEBPACK_IMPORTED_MODULE_2_most__["of"])(Object(__WEBPACK_IMPORTED_MODULE_5__futils_actionSpreader__["a" /* default */])(a));
 };
 
 var manga$ = function manga$(a) {
-  return Object(__WEBPACK_IMPORTED_MODULE_0_ramda__["compose"])(Object(__WEBPACK_IMPORTED_MODULE_3__futils_curried__["d" /* Map */])(Object(__WEBPACK_IMPORTED_MODULE_3__futils_curried__["a" /* Action */])(a)), __WEBPACK_IMPORTED_MODULE_2_most__["fromPromise"], fetchManga);
+  return Object(__WEBPACK_IMPORTED_MODULE_0_ramda__["compose"])(Object(__WEBPACK_IMPORTED_MODULE_4__futils_curried__["d" /* Map */])(Object(__WEBPACK_IMPORTED_MODULE_4__futils_curried__["a" /* Action */])(a)), __WEBPACK_IMPORTED_MODULE_2_most__["fromPromise"], fetchManga);
 };
 
 var latest$ = manga$('FETCHED_LATEST');
 var popular$ = manga$('FETCHED_POPULAR');
 
 var sendAction$ = function sendAction$(l, p) {
-  return Object(__WEBPACK_IMPORTED_MODULE_0_ramda__["compose"])(Object(__WEBPACK_IMPORTED_MODULE_3__futils_curried__["c" /* Concat */])(__WEBPACK_IMPORTED_MODULE_0_ramda__["__"], createAction$('LOADER_OFF')), Object(__WEBPACK_IMPORTED_MODULE_3__futils_curried__["e" /* Merge */])(latest$(l)), Object(__WEBPACK_IMPORTED_MODULE_3__futils_curried__["e" /* Merge */])(popular$(p)), Object(__WEBPACK_IMPORTED_MODULE_0_ramda__["always"])(createAction$('LOADER_ON')));
+  return Object(__WEBPACK_IMPORTED_MODULE_0_ramda__["compose"])(Object(__WEBPACK_IMPORTED_MODULE_4__futils_curried__["c" /* Concat */])(__WEBPACK_IMPORTED_MODULE_0_ramda__["__"], createAction$('LOADER_OFF')), Object(__WEBPACK_IMPORTED_MODULE_4__futils_curried__["e" /* Merge */])(latest$(l)), Object(__WEBPACK_IMPORTED_MODULE_4__futils_curried__["e" /* Merge */])(popular$(p)), Object(__WEBPACK_IMPORTED_MODULE_0_ramda__["always"])(createAction$('LOADER_ON')));
 };
 
-var fetchData = Object(__WEBPACK_IMPORTED_MODULE_0_ramda__["compose"])(Object(__WEBPACK_IMPORTED_MODULE_3__futils_curried__["b" /* Chain */])(sendAction$(Latest, Popular)), Object(__WEBPACK_IMPORTED_MODULE_1_redux_most__["select"])('FETCH_INIT'));
+var fetchData = Object(__WEBPACK_IMPORTED_MODULE_0_ramda__["compose"])(Object(__WEBPACK_IMPORTED_MODULE_4__futils_curried__["b" /* Chain */])(sendAction$(Latest, Popular)), Object(__WEBPACK_IMPORTED_MODULE_1_redux_most__["select"])('FETCH_INIT'));
 
 /* harmony default export */ __webpack_exports__["a"] = (fetchData);
 
@@ -1509,10 +1509,10 @@ var initialState = {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_redux_most___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_redux_most__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_most__ = __webpack_require__("most");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_most___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_most__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__futils_curried__ = __webpack_require__("./src/common/futils/curried.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__futils_actionSpreader__ = __webpack_require__("./src/common/futils/actionSpreader.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_node_fetch__ = __webpack_require__("node-fetch");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_node_fetch___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_node_fetch__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_node_fetch__ = __webpack_require__("node-fetch");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_node_fetch___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_node_fetch__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__futils_curried__ = __webpack_require__("./src/common/futils/curried.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__futils_actionSpreader__ = __webpack_require__("./src/common/futils/actionSpreader.js");
 
 
 
@@ -1524,16 +1524,16 @@ var InfoAPI = 'https://www.mangaeden.com/api/manga/';
 
 var fetchInfo = function fetchInfo(_ref) {
   var payload = _ref.payload;
-  return __WEBPACK_IMPORTED_MODULE_5_node_fetch___default()(InfoAPI + payload).then(function (res) {
+  return __WEBPACK_IMPORTED_MODULE_3_node_fetch___default()(InfoAPI + payload).then(function (res) {
     return res.json();
   });
 };
 
-var info$ = Object(__WEBPACK_IMPORTED_MODULE_0_ramda__["compose"])(Object(__WEBPACK_IMPORTED_MODULE_3__futils_curried__["d" /* Map */])(Object(__WEBPACK_IMPORTED_MODULE_3__futils_curried__["a" /* Action */])('FETCHED_INFO')), __WEBPACK_IMPORTED_MODULE_2_most__["fromPromise"], fetchInfo);
+var info$ = Object(__WEBPACK_IMPORTED_MODULE_0_ramda__["compose"])(Object(__WEBPACK_IMPORTED_MODULE_4__futils_curried__["d" /* Map */])(Object(__WEBPACK_IMPORTED_MODULE_4__futils_curried__["a" /* Action */])('FETCHED_INFO')), __WEBPACK_IMPORTED_MODULE_2_most__["fromPromise"], fetchInfo);
 
-var sendAction$ = Object(__WEBPACK_IMPORTED_MODULE_0_ramda__["compose"])(Object(__WEBPACK_IMPORTED_MODULE_3__futils_curried__["c" /* Concat */])(__WEBPACK_IMPORTED_MODULE_0_ramda__["__"], Object(__WEBPACK_IMPORTED_MODULE_2_most__["of"])(Object(__WEBPACK_IMPORTED_MODULE_4__futils_actionSpreader__["a" /* default */])('LOADER_OFF'))), Object(__WEBPACK_IMPORTED_MODULE_3__futils_curried__["e" /* Merge */])(__WEBPACK_IMPORTED_MODULE_0_ramda__["__"], Object(__WEBPACK_IMPORTED_MODULE_2_most__["of"])(Object(__WEBPACK_IMPORTED_MODULE_4__futils_actionSpreader__["a" /* default */])('LOADER_ON'))), info$);
+var sendAction$ = Object(__WEBPACK_IMPORTED_MODULE_0_ramda__["compose"])(Object(__WEBPACK_IMPORTED_MODULE_4__futils_curried__["c" /* Concat */])(__WEBPACK_IMPORTED_MODULE_0_ramda__["__"], Object(__WEBPACK_IMPORTED_MODULE_2_most__["of"])(Object(__WEBPACK_IMPORTED_MODULE_5__futils_actionSpreader__["a" /* default */])('LOADER_OFF'))), Object(__WEBPACK_IMPORTED_MODULE_4__futils_curried__["e" /* Merge */])(__WEBPACK_IMPORTED_MODULE_0_ramda__["__"], Object(__WEBPACK_IMPORTED_MODULE_2_most__["of"])(Object(__WEBPACK_IMPORTED_MODULE_5__futils_actionSpreader__["a" /* default */])('LOADER_ON'))), info$);
 
-var fetchData = Object(__WEBPACK_IMPORTED_MODULE_0_ramda__["compose"])(Object(__WEBPACK_IMPORTED_MODULE_3__futils_curried__["b" /* Chain */])(sendAction$), Object(__WEBPACK_IMPORTED_MODULE_1_redux_most__["select"])('SET_INFO_ID'));
+var fetchData = Object(__WEBPACK_IMPORTED_MODULE_0_ramda__["compose"])(Object(__WEBPACK_IMPORTED_MODULE_4__futils_curried__["b" /* Chain */])(sendAction$), Object(__WEBPACK_IMPORTED_MODULE_1_redux_most__["select"])('SET_INFO_ID'));
 
 /* harmony default export */ __webpack_exports__["a"] = (fetchData);
 
@@ -1547,20 +1547,18 @@ var fetchData = Object(__WEBPACK_IMPORTED_MODULE_0_ramda__["compose"])(Object(__
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react_redux___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react_redux__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ramda__ = __webpack_require__("ramda");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ramda___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_ramda__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__futils_actionSpreader__ = __webpack_require__("./src/common/futils/actionSpreader.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__info__ = __webpack_require__("./src/common/containers/info/info.js");
-
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__info__ = __webpack_require__("./src/common/containers/info/info.js");
 
 
 
 
 var mapStateToProps = Object(__WEBPACK_IMPORTED_MODULE_1_ramda__["prop"])('home');
 
-var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+var mapDispatchToProps = function mapDispatchToProps(_dispatch) {
   return {};
 };
 
-/* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_0_react_redux__["connect"])(mapStateToProps, mapDispatchToProps)(__WEBPACK_IMPORTED_MODULE_3__info__["a" /* default */]));
+/* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_0_react_redux__["connect"])(mapStateToProps, mapDispatchToProps)(__WEBPACK_IMPORTED_MODULE_2__info__["a" /* default */]));
 
 /***/ }),
 
@@ -1587,25 +1585,19 @@ exports.push([module.i, ".info_container {\n  height: 84vh;\n}\n", ""]);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_recompose__ = __webpack_require__("recompose");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_recompose___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_recompose__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_list__ = __webpack_require__("./src/common/components/list/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__info_css__ = __webpack_require__("./src/common/containers/info/info.css");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__info_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__info_css__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_loader__ = __webpack_require__("./src/common/components/loader/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_heading__ = __webpack_require__("./src/common/components/heading/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__info_css__ = __webpack_require__("./src/common/containers/info/info.css");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__info_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__info_css__);
 var _jsxFileName = '/home/kanitsharma/open-source/chikara/packages/mangaflux-web/src/common/containers/info/info.js';
-
-
-
 
 
 
 
 var withInitData = Object(__WEBPACK_IMPORTED_MODULE_1_recompose__["lifecycle"])({});
 
-var Info = function Info(props) {
+var Info = function Info(_props) {
   return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: 'info_container', __source: {
       fileName: _jsxFileName,
-      lineNumber: 10
+      lineNumber: 7
     }
   });
 };
@@ -1670,7 +1662,8 @@ var _jsxFileName = '/home/kanitsharma/open-source/chikara/packages/mangaflux-web
 
 
 
-var Layout = function Layout(props) {
+var Layout = function Layout(_ref) {
+  var showLoader = _ref.showLoader;
   return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
     'div',
     { className: 'main_layout', __source: {
@@ -1684,7 +1677,7 @@ var Layout = function Layout(props) {
         lineNumber: 15
       }
     }),
-    props.showLoader && __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_8__components_loader__["a" /* default */], {
+    showLoader && __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_8__components_loader__["a" /* default */], {
       __source: {
         fileName: _jsxFileName,
         lineNumber: 16
@@ -1719,7 +1712,7 @@ var Layout = function Layout(props) {
 
 var mapStateToProps = Object(__WEBPACK_IMPORTED_MODULE_3_ramda__["prop"])('home');
 
-var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+var mapDispatchToProps = function mapDispatchToProps(_) {
   return {};
 };
 

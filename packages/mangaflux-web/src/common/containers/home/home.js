@@ -7,7 +7,7 @@ import Heading from '../../components/heading';
 const withInitData = lifecycle({
   componentDidMount() {
     this.props.fetchLatest();
-  }
+  },
 });
 
 const Home = props => (
