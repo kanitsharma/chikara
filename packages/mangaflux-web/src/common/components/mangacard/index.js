@@ -9,7 +9,7 @@ const Mangacard = ({ imgUrl, title, id, setId, history }) => (
     className="manga_card"
     onClick={_ => {
       setId(id);
-      history.push('/info');
+      history.replace('/info');
     }}
   >
     <img alt="" src={imgUrl ? `${BASE_URL}${imgUrl}` : Placeholder} />

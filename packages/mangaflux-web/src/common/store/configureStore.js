@@ -11,7 +11,7 @@ const configureStore = preloadedState => {
   const store = createStore(
     rootReducer,
     preloadedState,
-    applyMiddleware(epicMiddleware, logger)
+    applyMiddleware(epicMiddleware, logger),
   );
 
   if (module.hot) {

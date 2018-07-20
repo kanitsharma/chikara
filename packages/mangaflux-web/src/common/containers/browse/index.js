@@ -1,12 +1,11 @@
 import { connect } from 'react-redux';
-import { prop } from 'ramda';
 import Browse from './browse';
 
-const mapStateToProps = prop('');
+const mapStateToProps = _state => ({});
 
-const mapDispatchToProps = dispatch => ({});
+const mapDispatchToProps = _dispatch => ({});
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  mapDispatchToProps,
 )(Browse);
