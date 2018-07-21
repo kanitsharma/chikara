@@ -4,7 +4,7 @@ import Heading from '../../components/heading';
 
 const Browse = props => (
   <div className="home_container">
-    <Heading title="Latest" />
+    <div>Browse mangas from here</div>
   </div>
 );
 
