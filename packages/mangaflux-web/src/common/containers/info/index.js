@@ -1,8 +1,11 @@
 import { connect } from 'react-redux';
-import { prop } from 'ramda';
+import { pick } from 'ramda';
 import Info from './info';
 
-const mapStateToProps = prop('info');
+const mapStateToProps = state => ({
+  ...state.info,
+  ...pick(['showLoader'], state.home),
+});
 
 const mapDispatchToProps = _dispatch => ({});
 

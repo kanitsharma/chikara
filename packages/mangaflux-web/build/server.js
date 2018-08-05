@@ -20,7 +20,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "789769c9ea5910d2ef8f"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "f497512e4cc25096eb10"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -1108,7 +1108,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, ".manga_card {\n  margin: 10px 10px;\n  color: #fbdaf9;\n  letter-spacing: 1px;\n  position: relative;\n}\n\n.manga_card img {\n  width: 200px;\n  height: 300px;\n  border-radius: 10px;\n}\n\n.custom {\n  position: absolute;\n  top: 35%;\n  left: 35%;\n}\n", ""]);
+exports.push([module.i, ".manga_card {\n  margin: 10px 10px;\n  color: #fbdaf9;\n  letter-spacing: 1px;\n  position: relative;\n  min-width: 200px;\n}\n\n.manga_card img {\n  width: 200px;\n  height: 300px;\n  border-radius: 10px;\n}\n\n.custom {\n  position: absolute;\n  top: 35%;\n  left: 35%;\n}\n", ""]);
 
 // exports
 
@@ -1344,7 +1344,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, ".home_container {\n  width: 100vw;\n  height: 100%;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  overflow-x: hidden;\n  overflow-y: auto;\n}\n", ""]);
+exports.push([module.i, ".home_container {\n  width: 100vw;\n  height: 100%;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  overflow-x: hidden;\n  overflow-y: auto;\n}\n\n.home_container::-webkit-scrollbar-track {\n  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);\n  background-color: #f5f5f5;\n}\n\n.home_container::-webkit-scrollbar {\n  width: 4px;\n  background-color: #f5f5f5;\n}\n\n.home_container::-webkit-scrollbar-thumb {\n  background-color: #cf84fd;\n}\n", ""]);
 
 // exports
 
@@ -1532,22 +1532,27 @@ var fetchData = Object(__WEBPACK_IMPORTED_MODULE_0_ramda__["compose"])(Object(__
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react_redux__ = __webpack_require__("react-redux");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react_redux___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react_redux__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ramda__ = __webpack_require__("ramda");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ramda___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_ramda__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__info__ = __webpack_require__("./src/common/containers/info/info.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_object_assign__ = __webpack_require__("babel-runtime/core-js/object/assign");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_object_assign___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_object_assign__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_redux__ = __webpack_require__("react-redux");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_redux___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react_redux__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ramda__ = __webpack_require__("ramda");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ramda___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_ramda__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__info__ = __webpack_require__("./src/common/containers/info/info.js");
 
 
 
 
-var mapStateToProps = Object(__WEBPACK_IMPORTED_MODULE_1_ramda__["prop"])('info');
+
+var mapStateToProps = function mapStateToProps(state) {
+  return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_object_assign___default()({}, state.info, Object(__WEBPACK_IMPORTED_MODULE_2_ramda__["pick"])(['showLoader'], state.home));
+};
 
 var mapDispatchToProps = function mapDispatchToProps(_dispatch) {
   return {};
 };
 
-/* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_0_react_redux__["connect"])(mapStateToProps, mapDispatchToProps)(__WEBPACK_IMPORTED_MODULE_2__info__["a" /* default */]));
+/* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_1_react_redux__["connect"])(mapStateToProps, mapDispatchToProps)(__WEBPACK_IMPORTED_MODULE_3__info__["a" /* default */]));
 
 /***/ }),
 
@@ -1559,7 +1564,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, ".info_container {\n  width: 70%;\n  height: 75%;\n  display: flex;\n  flex-direction: column;\n  border-radius: 10px;\n  background-color: #204591;\n  box-shadow: 5px 5px 23px rgba(0, 0, 0, 0.2);\n  margin-top: 10px;\n  padding: 25px 40px;\n  overflow-y: auto;\n}\n\n.info_container::-webkit-scrollbar-track {\n  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);\n  background-color: #f5f5f5;\n}\n\n.info_container::-webkit-scrollbar {\n  width: 4px;\n  background-color: #f5f5f5;\n}\n\n.info_container::-webkit-scrollbar-thumb {\n  background-color: #cf84fd;\n}\n\n.title-container {\n  display: flex;\n  flex-direction: row;\n  width: 100%;\n  justify-content: space-between;\n  min-height: 350px;\n}\n\n.info-title {\n  color: #fce5ff;\n  font-family: 'n';\n  font-size: 40px;\n  margin-top: 20px;\n  margin-bottom: 20px;\n}\n\n.info-meta {\n  font-size: 22px;\n  color: #fbdcfc;\n  display: flex;\n  flex-direction: column;\n  justify-content: space-between;\n}\n\n.info-meta-data {\n  margin: 5px 0px;\n}\n\n.info-tags {\n  display: flex;\n  flex-direction: row;\n  flex-wrap: wrap;\n}\n\n.info-tags div {\n  margin-right: 10px;\n  margin-top: 10px;\n  color: #f6aafe;\n  border: 2px solid #f6aafe;\n  padding: 5px 10px;\n  border-radius: 12px;\n}\n\n.info-description {\n  margin: 30px 0px;\n  font-size: 20px;\n  line-height: 27px;\n  letter-spacing: 1px;\n  color: #fbdcfc;\n}\n\n.info-description-title {\n  font-size: 25px;\n  color: #fce5ff;\n  margin-bottom: 10px;\n}\n\n.chapter {\n  display: flex;\n  flex-direction: row;\n  font-size: 20px;\n  color: #fbdcfc;\n  align-items: center;\n  padding: 5px 10px;\n  width: 20%;\n  cursor: pointer;\n}\n\n.chapter:hover {\n  border: 2px solid #f6aafe;\n  border-radius: 12px;\n}\n\n.chapter_no {\n  margin: 10px 10px;\n}\n", ""]);
+exports.push([module.i, ".info_container {\n  width: 70%;\n  height: 75%;\n  display: flex;\n  flex-direction: column;\n  border-radius: 10px;\n  background-color: #204591;\n  box-shadow: 5px 5px 23px rgba(0, 0, 0, 0.2);\n  margin-top: 10px;\n  padding: 25px 40px;\n  overflow-y: auto;\n}\n\n.blur {\n  filter: blur(15px);\n}\n\n.info_container::-webkit-scrollbar-track {\n  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);\n  background-color: #f5f5f5;\n}\n\n.info_container::-webkit-scrollbar {\n  width: 4px;\n  background-color: #f5f5f5;\n}\n\n.info_container::-webkit-scrollbar-thumb {\n  background-color: #cf84fd;\n}\n\n.title-container {\n  display: flex;\n  flex-direction: row;\n  width: 100%;\n  justify-content: space-between;\n}\n\n.info-title {\n  color: #fce5ff;\n  font-family: 'n';\n  font-size: 40px;\n  margin-top: 20px;\n  margin-bottom: 20px;\n}\n\n.info-meta {\n  font-size: 22px;\n  color: #fbdcfc;\n  display: flex;\n  flex-direction: column;\n  justify-content: space-between;\n}\n\n.info-meta-data {\n  margin: 5px 0px;\n}\n\n.info-tags {\n  display: flex;\n  flex-direction: row;\n  flex-wrap: wrap;\n}\n\n.info-tags div {\n  margin-right: 10px;\n  margin-top: 10px;\n  color: #f6aafe;\n  border: 2px solid #f6aafe;\n  padding: 5px 10px;\n  border-radius: 12px;\n}\n\n.info-description {\n  margin: 30px 0px;\n  font-size: 20px;\n  line-height: 27px;\n  letter-spacing: 1px;\n  color: #fbdcfc;\n}\n\n.info-description-title {\n  font-size: 25px;\n  color: #fce5ff;\n  margin-bottom: 10px;\n}\n\n.chapter {\n  display: flex;\n  flex-direction: row;\n  font-size: 20px;\n  color: #fbdcfc;\n  align-items: center;\n  padding: 5px 10px;\n  cursor: pointer;\n  transition: all 0.1s linear;\n}\n\n.chapter:hover {\n  background-color: #f6aafe;\n  color: #204591;\n  border-radius: 12px;\n}\n\n.chapter_no {\n  margin: 10px 10px;\n}\n", ""]);
 
 // exports
 
@@ -1590,143 +1595,153 @@ var Info = function Info(_ref) {
       categories = _ref$currentInfo.categories,
       status = _ref$currentInfo.status,
       description = _ref$currentInfo.description,
-      chapters = _ref$currentInfo.chapters;
+      chapters = _ref$currentInfo.chapters,
+      showLoader = _ref.showLoader;
   return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
     'div',
-    { className: 'info_container', __source: {
+    { className: showLoader ? 'info_container blur' : 'info_container', __source: {
         fileName: _jsxFileName,
-        lineNumber: 19
+        lineNumber: 20
       }
     },
     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
       'div',
-      { className: 'title-container', __source: {
+      {
+        __source: {
           fileName: _jsxFileName,
-          lineNumber: 20
+          lineNumber: 21
         }
       },
       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         'div',
-        { className: 'info-meta', __source: {
+        { className: 'title-container', __source: {
             fileName: _jsxFileName,
-            lineNumber: 21
+            lineNumber: 22
           }
         },
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
           'div',
-          {
-            __source: {
+          { className: 'info-meta', __source: {
               fileName: _jsxFileName,
-              lineNumber: 22
+              lineNumber: 23
             }
           },
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
             'div',
-            { className: 'info-title', __source: {
-                fileName: _jsxFileName,
-                lineNumber: 23
-              }
-            },
-            title
-          ),
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-            'div',
-            { className: 'info-meta-data', __source: {
+            {
+              __source: {
                 fileName: _jsxFileName,
                 lineNumber: 24
               }
             },
-            'Artist: ',
-            artist
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'div',
+              { className: 'info-title', __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 25
+                }
+              },
+              title
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'div',
+              { className: 'info-meta-data', __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 26
+                }
+              },
+              'Artist: ',
+              artist
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'div',
+              { className: 'info-meta-data', __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 27
+                }
+              },
+              'Author: ',
+              author
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'div',
+              { className: 'info-meta-data', __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 28
+                }
+              },
+              'No of chapters: ',
+              chapters_len
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'div',
+              { className: 'info-meta-data', __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 29
+                }
+              },
+              'Released on: ',
+              released
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'div',
+              { className: 'info-meta-data', __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 30
+                }
+              },
+              'Status: ',
+              status === 1 ? 'Ongoing' : 'Finished'
+            )
           ),
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
             'div',
-            { className: 'info-meta-data', __source: {
+            { className: 'info-tags', __source: {
                 fileName: _jsxFileName,
-                lineNumber: 25
+                lineNumber: 34
               }
             },
-            'Author: ',
-            author
-          ),
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-            'div',
-            { className: 'info-meta-data', __source: {
-                fileName: _jsxFileName,
-                lineNumber: 26
-              }
-            },
-            'No of chapters: ',
-            chapters_len
-          ),
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-            'div',
-            { className: 'info-meta-data', __source: {
-                fileName: _jsxFileName,
-                lineNumber: 27
-              }
-            },
-            'Released on: ',
-            released
-          ),
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-            'div',
-            { className: 'info-meta-data', __source: {
-                fileName: _jsxFileName,
-                lineNumber: 28
-              }
-            },
-            'Status: ',
-            status === 1 ? 'Ongoing' : 'Finished'
+            categories && categories.map(function (x) {
+              return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                'div',
+                {
+                  __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 35
+                  }
+                },
+                x
+              );
+            })
           )
         ),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
           'div',
-          { className: 'info-tags', __source: {
+          { className: 'info-title-image', __source: {
               fileName: _jsxFileName,
-              lineNumber: 32
+              lineNumber: 38
             }
           },
-          categories && categories.map(function (x) {
-            return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-              'div',
-              {
-                __source: {
-                  fileName: _jsxFileName,
-                  lineNumber: 33
-                }
-              },
-              x
-            );
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { alt: '', src: '' + BASE_URL + image, __source: {
+              fileName: _jsxFileName,
+              lineNumber: 39
+            }
           })
         )
-      ),
-      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-        'div',
-        { className: 'info-title-image', __source: {
-            fileName: _jsxFileName,
-            lineNumber: 36
-          }
-        },
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { alt: '', src: '' + BASE_URL + image, __source: {
-            fileName: _jsxFileName,
-            lineNumber: 37
-          }
-        })
       )
     ),
     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
       'div',
       { className: 'info-description', __source: {
           fileName: _jsxFileName,
-          lineNumber: 40
+          lineNumber: 43
         }
       },
       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         'div',
         { className: 'info-description-title', __source: {
             fileName: _jsxFileName,
-            lineNumber: 41
+            lineNumber: 44
           }
         },
         'Description'
@@ -1737,14 +1752,14 @@ var Info = function Info(_ref) {
       'div',
       { className: 'chapters-container', __source: {
           fileName: _jsxFileName,
-          lineNumber: 44
+          lineNumber: 47
         }
       },
       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         'div',
         { className: 'info-description-title', __source: {
             fileName: _jsxFileName,
-            lineNumber: 45
+            lineNumber: 48
           }
         },
         'Chapters'
@@ -1754,7 +1769,7 @@ var Info = function Info(_ref) {
         {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 46
+            lineNumber: 49
           }
         },
         chapters && chapters.map(function (x) {
@@ -1762,14 +1777,14 @@ var Info = function Info(_ref) {
             'div',
             { className: 'chapter', __source: {
                 fileName: _jsxFileName,
-                lineNumber: 51
+                lineNumber: 54
               }
             },
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
               'div',
               { className: 'chapter_no', __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 52
+                  lineNumber: 55
                 }
               },
               x[0]
@@ -1778,7 +1793,7 @@ var Info = function Info(_ref) {
               'div',
               { className: 'chapter_name', __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 53
+                  lineNumber: 56
                 }
               },
               x[2]

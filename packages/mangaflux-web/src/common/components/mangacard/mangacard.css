@@ -3,6 +3,7 @@
   color: #fbdaf9;
   letter-spacing: 1px;
   position: relative;
+  min-width: 200px;
 }
 
 .manga_card img {
