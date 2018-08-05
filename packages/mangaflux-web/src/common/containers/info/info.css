@@ -96,6 +96,12 @@
   transition: all 0.1s linear;
 }
 
+.back-button div:hover {
+  background-color: #f6aafe;
+  color: #204591;
+  cursor: pointer;
+}
+
 .chapter:hover {
   background-color: #f6aafe;
   color: #204591;

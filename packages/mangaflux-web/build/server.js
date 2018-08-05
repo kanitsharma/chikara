@@ -20,7 +20,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "f497512e4cc25096eb10"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "18b1adcbeeb3870957c4"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -1108,7 +1108,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, ".manga_card {\n  margin: 10px 10px;\n  color: #fbdaf9;\n  letter-spacing: 1px;\n  position: relative;\n  min-width: 200px;\n}\n\n.manga_card img {\n  width: 200px;\n  height: 300px;\n  border-radius: 10px;\n}\n\n.custom {\n  position: absolute;\n  top: 35%;\n  left: 35%;\n}\n", ""]);
+exports.push([module.i, ".manga_card {\n  margin: 10px 10px;\n  color: #fbdaf9;\n  letter-spacing: 1px;\n  position: relative;\n  min-width: 200px;\n  cursor: pointer;\n}\n\n.manga_card img {\n  width: 200px;\n  height: 300px;\n  border-radius: 10px;\n}\n\n.custom {\n  position: absolute;\n  top: 35%;\n  left: 35%;\n}\n", ""]);
 
 // exports
 
@@ -1564,7 +1564,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, ".info_container {\n  width: 70%;\n  height: 75%;\n  display: flex;\n  flex-direction: column;\n  border-radius: 10px;\n  background-color: #204591;\n  box-shadow: 5px 5px 23px rgba(0, 0, 0, 0.2);\n  margin-top: 10px;\n  padding: 25px 40px;\n  overflow-y: auto;\n}\n\n.blur {\n  filter: blur(15px);\n}\n\n.info_container::-webkit-scrollbar-track {\n  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);\n  background-color: #f5f5f5;\n}\n\n.info_container::-webkit-scrollbar {\n  width: 4px;\n  background-color: #f5f5f5;\n}\n\n.info_container::-webkit-scrollbar-thumb {\n  background-color: #cf84fd;\n}\n\n.title-container {\n  display: flex;\n  flex-direction: row;\n  width: 100%;\n  justify-content: space-between;\n}\n\n.info-title {\n  color: #fce5ff;\n  font-family: 'n';\n  font-size: 40px;\n  margin-top: 20px;\n  margin-bottom: 20px;\n}\n\n.info-meta {\n  font-size: 22px;\n  color: #fbdcfc;\n  display: flex;\n  flex-direction: column;\n  justify-content: space-between;\n}\n\n.info-meta-data {\n  margin: 5px 0px;\n}\n\n.info-tags {\n  display: flex;\n  flex-direction: row;\n  flex-wrap: wrap;\n}\n\n.info-tags div {\n  margin-right: 10px;\n  margin-top: 10px;\n  color: #f6aafe;\n  border: 2px solid #f6aafe;\n  padding: 5px 10px;\n  border-radius: 12px;\n}\n\n.info-description {\n  margin: 30px 0px;\n  font-size: 20px;\n  line-height: 27px;\n  letter-spacing: 1px;\n  color: #fbdcfc;\n}\n\n.info-description-title {\n  font-size: 25px;\n  color: #fce5ff;\n  margin-bottom: 10px;\n}\n\n.chapter {\n  display: flex;\n  flex-direction: row;\n  font-size: 20px;\n  color: #fbdcfc;\n  align-items: center;\n  padding: 5px 10px;\n  cursor: pointer;\n  transition: all 0.1s linear;\n}\n\n.chapter:hover {\n  background-color: #f6aafe;\n  color: #204591;\n  border-radius: 12px;\n}\n\n.chapter_no {\n  margin: 10px 10px;\n}\n", ""]);
+exports.push([module.i, ".info_container {\n  width: 70%;\n  height: 75%;\n  display: flex;\n  flex-direction: column;\n  border-radius: 10px;\n  background-color: #204591;\n  box-shadow: 5px 5px 23px rgba(0, 0, 0, 0.2);\n  margin-top: 10px;\n  padding: 25px 40px;\n  overflow-y: auto;\n}\n\n.blur {\n  filter: blur(15px);\n}\n\n.info_container::-webkit-scrollbar-track {\n  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);\n  background-color: #f5f5f5;\n}\n\n.info_container::-webkit-scrollbar {\n  width: 4px;\n  background-color: #f5f5f5;\n}\n\n.info_container::-webkit-scrollbar-thumb {\n  background-color: #cf84fd;\n}\n\n.title-container {\n  display: flex;\n  flex-direction: row;\n  width: 100%;\n  justify-content: space-between;\n}\n\n.info-title {\n  color: #fce5ff;\n  font-family: 'n';\n  font-size: 40px;\n  margin-top: 20px;\n  margin-bottom: 20px;\n}\n\n.info-meta {\n  font-size: 22px;\n  color: #fbdcfc;\n  display: flex;\n  flex-direction: column;\n  justify-content: space-between;\n}\n\n.info-meta-data {\n  margin: 5px 0px;\n}\n\n.info-tags {\n  display: flex;\n  flex-direction: row;\n  flex-wrap: wrap;\n}\n\n.info-tags div {\n  margin-right: 10px;\n  margin-top: 10px;\n  color: #f6aafe;\n  border: 2px solid #f6aafe;\n  padding: 5px 10px;\n  border-radius: 12px;\n}\n\n.info-description {\n  margin: 30px 0px;\n  font-size: 20px;\n  line-height: 27px;\n  letter-spacing: 1px;\n  color: #fbdcfc;\n}\n\n.info-description-title {\n  font-size: 25px;\n  color: #fce5ff;\n  margin-bottom: 10px;\n}\n\n.chapter {\n  display: flex;\n  flex-direction: row;\n  font-size: 20px;\n  color: #fbdcfc;\n  align-items: center;\n  padding: 5px 10px;\n  cursor: pointer;\n  transition: all 0.1s linear;\n}\n\n.back-button div:hover {\n  background-color: #f6aafe;\n  color: #204591;\n  cursor: pointer;\n}\n\n.chapter:hover {\n  background-color: #f6aafe;\n  color: #204591;\n  border-radius: 12px;\n}\n\n.chapter_no {\n  margin: 10px 10px;\n}\n", ""]);
 
 // exports
 
@@ -1577,9 +1577,12 @@ exports.push([module.i, ".info_container {\n  width: 70%;\n  height: 75%;\n  dis
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__("react");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__info_css__ = __webpack_require__("./src/common/containers/info/info.css");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__info_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__info_css__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_router_dom__ = __webpack_require__("react-router-dom");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_router_dom___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react_router_dom__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__info_css__ = __webpack_require__("./src/common/containers/info/info.css");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__info_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__info_css__);
 var _jsxFileName = '/home/kanitsharma/open-source/chikara/packages/mangaflux-web/src/common/containers/info/info.js';
+
 
 
 var BASE_URL = 'http://cdn.mangaeden.com/mangasimg/';
@@ -1596,12 +1599,13 @@ var Info = function Info(_ref) {
       status = _ref$currentInfo.status,
       description = _ref$currentInfo.description,
       chapters = _ref$currentInfo.chapters,
-      showLoader = _ref.showLoader;
+      showLoader = _ref.showLoader,
+      history = _ref.history;
   return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
     'div',
     { className: showLoader ? 'info_container blur' : 'info_container', __source: {
         fileName: _jsxFileName,
-        lineNumber: 20
+        lineNumber: 22
       }
     },
     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -1609,21 +1613,21 @@ var Info = function Info(_ref) {
       {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 21
+          lineNumber: 23
         }
       },
       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         'div',
         { className: 'title-container', __source: {
             fileName: _jsxFileName,
-            lineNumber: 22
+            lineNumber: 24
           }
         },
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
           'div',
           { className: 'info-meta', __source: {
               fileName: _jsxFileName,
-              lineNumber: 23
+              lineNumber: 25
             }
           },
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -1631,14 +1635,37 @@ var Info = function Info(_ref) {
             {
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 24
+                lineNumber: 26
               }
             },
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
               'div',
+              {
+                className: 'info-tags back-button',
+                onClick: function onClick(_) {
+                  return history.push('/');
+                },
+                __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 27
+                }
+              },
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                'div',
+                {
+                  __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 31
+                  }
+                },
+                'Back'
+              )
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'div',
               { className: 'info-title', __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 25
+                  lineNumber: 33
                 }
               },
               title
@@ -1647,7 +1674,7 @@ var Info = function Info(_ref) {
               'div',
               { className: 'info-meta-data', __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 26
+                  lineNumber: 34
                 }
               },
               'Artist: ',
@@ -1657,7 +1684,7 @@ var Info = function Info(_ref) {
               'div',
               { className: 'info-meta-data', __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 27
+                  lineNumber: 35
                 }
               },
               'Author: ',
@@ -1667,7 +1694,7 @@ var Info = function Info(_ref) {
               'div',
               { className: 'info-meta-data', __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 28
+                  lineNumber: 36
                 }
               },
               'No of chapters: ',
@@ -1677,7 +1704,7 @@ var Info = function Info(_ref) {
               'div',
               { className: 'info-meta-data', __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 29
+                  lineNumber: 37
                 }
               },
               'Released on: ',
@@ -1687,7 +1714,7 @@ var Info = function Info(_ref) {
               'div',
               { className: 'info-meta-data', __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 30
+                  lineNumber: 38
                 }
               },
               'Status: ',
@@ -1698,7 +1725,7 @@ var Info = function Info(_ref) {
             'div',
             { className: 'info-tags', __source: {
                 fileName: _jsxFileName,
-                lineNumber: 34
+                lineNumber: 42
               }
             },
             categories && categories.map(function (x) {
@@ -1707,7 +1734,7 @@ var Info = function Info(_ref) {
                 {
                   __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 35
+                    lineNumber: 43
                   }
                 },
                 x
@@ -1719,12 +1746,12 @@ var Info = function Info(_ref) {
           'div',
           { className: 'info-title-image', __source: {
               fileName: _jsxFileName,
-              lineNumber: 38
+              lineNumber: 46
             }
           },
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { alt: '', src: '' + BASE_URL + image, __source: {
               fileName: _jsxFileName,
-              lineNumber: 39
+              lineNumber: 47
             }
           })
         )
@@ -1734,14 +1761,14 @@ var Info = function Info(_ref) {
       'div',
       { className: 'info-description', __source: {
           fileName: _jsxFileName,
-          lineNumber: 43
+          lineNumber: 51
         }
       },
       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         'div',
         { className: 'info-description-title', __source: {
             fileName: _jsxFileName,
-            lineNumber: 44
+            lineNumber: 52
           }
         },
         'Description'
@@ -1752,14 +1779,14 @@ var Info = function Info(_ref) {
       'div',
       { className: 'chapters-container', __source: {
           fileName: _jsxFileName,
-          lineNumber: 47
+          lineNumber: 55
         }
       },
       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         'div',
         { className: 'info-description-title', __source: {
             fileName: _jsxFileName,
-            lineNumber: 48
+            lineNumber: 56
           }
         },
         'Chapters'
@@ -1769,7 +1796,7 @@ var Info = function Info(_ref) {
         {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 49
+            lineNumber: 57
           }
         },
         chapters && chapters.map(function (x) {
@@ -1777,14 +1804,14 @@ var Info = function Info(_ref) {
             'div',
             { className: 'chapter', __source: {
                 fileName: _jsxFileName,
-                lineNumber: 54
+                lineNumber: 62
               }
             },
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
               'div',
               { className: 'chapter_no', __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 55
+                  lineNumber: 63
                 }
               },
               x[0]
@@ -1793,7 +1820,7 @@ var Info = function Info(_ref) {
               'div',
               { className: 'chapter_name', __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 56
+                  lineNumber: 64
                 }
               },
               x[2]
@@ -1805,7 +1832,7 @@ var Info = function Info(_ref) {
   );
 };
 
-/* harmony default export */ __webpack_exports__["a"] = (Info);
+/* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["withRouter"])(Info));
 
 /***/ }),
 
