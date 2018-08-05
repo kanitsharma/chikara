@@ -63,7 +63,7 @@
   margin-right: 10px;
   margin-top: 10px;
   color: #f6aafe;
-  border: 1px solid #f6aafe;
+  border: 2px solid #f6aafe;
   padding: 5px 10px;
   border-radius: 12px;
 }
@@ -88,6 +88,14 @@
   font-size: 20px;
   color: #fbdcfc;
   align-items: center;
+  padding: 5px 10px;
+  width: 20%;
+  cursor: pointer;
+}
+
+.chapter:hover {
+  border: 2px solid #f6aafe;
+  border-radius: 12px;
 }
 
 .chapter_no {

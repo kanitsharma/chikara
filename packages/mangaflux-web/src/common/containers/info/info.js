@@ -45,12 +45,15 @@ const Info = ({
       <div className="info-description-title">Chapters</div>
       <div>
         {chapters &&
-          chapters.map(x => (
-            <div className="chapter">
-              <div className="chapter_no">{x[0]}</div>
-              <div className="chapter_name">{x[2]}</div>
-            </div>
-          ))}
+          chapters.map(
+            x =>
+              x[2] && (
+                <div className="chapter">
+                  <div className="chapter_no">{x[0]}</div>
+                  <div className="chapter_name">{x[2]}</div>
+                </div>
+              ),
+          )}
       </div>
     </div>
   </div>
