@@ -20,7 +20,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "268d4d47feb1c958468c"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "789769c9ea5910d2ef8f"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -1019,23 +1019,36 @@ exports.push([module.i, ".latest_container {\n  min-height: 370px;\n  width: 90%
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_router_dom__ = __webpack_require__("react-router-dom");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_router_dom___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react_router_dom__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__mangacard_css__ = __webpack_require__("./src/common/components/mangacard/mangacard.css");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__mangacard_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__mangacard_css__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__placeholder_png__ = __webpack_require__("./src/common/components/mangacard/placeholder.png");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__placeholder_png___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__placeholder_png__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_recompose__ = __webpack_require__("recompose");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_recompose___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_recompose__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__mangacard_css__ = __webpack_require__("./src/common/components/mangacard/mangacard.css");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__mangacard_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__mangacard_css__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__placeholder_png__ = __webpack_require__("./src/common/components/mangacard/placeholder.png");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__placeholder_png___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__placeholder_png__);
 var _jsxFileName = '/home/kanitsharma/open-source/chikara/packages/mangaflux-web/src/common/components/mangacard/index.js';
+
 
 
 
 
 var BASE_URL = 'http://cdn.mangaeden.com/mangasimg/';
 
+var Loader = function Loader(_) {
+  return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: 'lds-dual-ring custom', __source: {
+      fileName: _jsxFileName,
+      lineNumber: 8
+    }
+  });
+};
+
 var Mangacard = function Mangacard(_ref) {
   var imgUrl = _ref.imgUrl,
       title = _ref.title,
       id = _ref.id,
       setId = _ref.setId,
-      history = _ref.history;
+      history = _ref.history,
+      loading = _ref.loading,
+      stopLoader = _ref.stopLoader;
   return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
     'div',
     {
@@ -1046,12 +1059,26 @@ var Mangacard = function Mangacard(_ref) {
       },
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 8
+        lineNumber: 19
       }
     },
-    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { alt: '', src: imgUrl ? '' + BASE_URL + imgUrl : __WEBPACK_IMPORTED_MODULE_3__placeholder_png___default.a, __source: {
+    loading && __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(Loader, {
+      __source: {
         fileName: _jsxFileName,
-        lineNumber: 15
+        lineNumber: 26
+      }
+    }),
+    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', {
+      alt: '',
+      src: imgUrl ? '' + BASE_URL + imgUrl : __WEBPACK_IMPORTED_MODULE_4__placeholder_png___default.a,
+      onLoad: function onLoad(_) {
+        return stopLoader(function (_) {
+          return false;
+        });
+      },
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 27
       }
     }),
     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -1059,7 +1086,7 @@ var Mangacard = function Mangacard(_ref) {
       {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 16
+          lineNumber: 32
         }
       },
       title
@@ -1067,7 +1094,9 @@ var Mangacard = function Mangacard(_ref) {
   );
 };
 
-/* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["withRouter"])(Mangacard));
+var stateful = Object(__WEBPACK_IMPORTED_MODULE_2_recompose__["withState"])('loading', 'stopLoader', true);
+
+/* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_2_recompose__["compose"])(stateful, __WEBPACK_IMPORTED_MODULE_1_react_router_dom__["withRouter"])(Mangacard));
 
 /***/ }),
 
@@ -1079,7 +1108,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, ".manga_card {\n  margin: 10px 10px;\n  color: #fbdaf9;\n  letter-spacing: 1px;\n}\n\n.manga_card img {\n  width: 200px;\n  height: 300px;\n  border-radius: 10px;\n}\n", ""]);
+exports.push([module.i, ".manga_card {\n  margin: 10px 10px;\n  color: #fbdaf9;\n  letter-spacing: 1px;\n  position: relative;\n}\n\n.manga_card img {\n  width: 200px;\n  height: 300px;\n  border-radius: 10px;\n}\n\n.custom {\n  position: absolute;\n  top: 35%;\n  left: 35%;\n}\n", ""]);
 
 // exports
 
