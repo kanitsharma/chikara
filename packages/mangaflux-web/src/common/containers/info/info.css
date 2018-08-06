@@ -29,6 +29,10 @@
   background-color: #cf84fd;
 }
 
+.info-title-image {
+  align-self: center;
+}
+
 .title-container {
   display: flex;
   flex-direction: row;

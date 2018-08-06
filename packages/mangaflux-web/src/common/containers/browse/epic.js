@@ -5,12 +5,17 @@ import fetch from 'node-fetch';
 import { Chain, Action, Debounce } from '../../futils/curried';
 import actionSpreader from '../../futils/actionSpreader';
 
-const Search = 'https://mangaflux-api-sxvermmfzn.now.sh/search';
+const Search = 'https://mangaflux-api-huvqxloarg.now.sh/search';
 
 const fetchManga = url => action =>
   fetch(url, {
     method: 'POST',
-    body: JSON.stringify({ keywords: action.payload.split(' ').map(toLower) }),
+    body: JSON.stringify({
+      keywords: action.payload
+        .trim()
+        .split(' ')
+        .map(toLower),
+    }),
   })
     .then(res => res.json())
     .then(Action('FETCHED_MANGA'))

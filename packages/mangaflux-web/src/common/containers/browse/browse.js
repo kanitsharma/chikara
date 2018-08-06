@@ -1,7 +1,9 @@
 import React from 'react';
 import './browse.css';
+import NotFoundImg from './notfound.jpg';
 
-const Loader = _ => <div className="lds-dual-ring custom" />;
+const BASE_URL = 'http://cdn.mangaeden.com/mangasimg/';
+const Loader = _ => <div className="lds-dual-ring browse-loader" />;
 
 class Browse extends React.Component {
   state = {
@@ -24,11 +26,27 @@ class Browse extends React.Component {
         />
         {smallLoader && <Loader />}
         {notFound ? (
-          <div className="not_found">No Results found :(</div>
+          <div className="not_found">
+            <img src={NotFoundImg} />
+            <div>No Results found :(</div>
+          </div>
         ) : (
           fetchedManga && (
             <div className="browse_manga_container">
-              <div className="browse_title">{fetchedManga.title}</div>
+              <div className="title-container">
+                <div className="info-meta">
+                  <div>
+                    <div className="info-title">{fetchedManga.title}</div>
+                    <div className="desc">{fetchedManga.description}</div>
+                  </div>
+                  <div className="info-tags">
+                    {fetchedManga.categories.map(x => <div>{x}</div>)}
+                  </div>
+                </div>
+                <div className="info-title-image">
+                  <img alt="" src={`${BASE_URL}${fetchedManga.image}`} />
+                </div>
+              </div>
             </div>
           )
         )}

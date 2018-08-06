@@ -20,7 +20,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "d300cac877ce7c41708d"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "ed02804c67ff4f4514b1"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -914,7 +914,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, ".heading {\n  margin: 20px 0px;\n  margin-right: auto;\n  margin-left: 5%;\n  color: #f5a0fd;\n  font-size: 26px;\n  letter-spacing: 2px;\n  font-weight: bold;\n  font-family: 'n';\n}\n", ""]);
+exports.push([module.i, ".heading {\n  margin: 20px 0px;\n  margin-right: auto;\n  margin-left: 5%;\n  color: #f5a0fd;\n  font-size: 35px;\n  letter-spacing: 2px;\n  font-weight: bold;\n  font-family: 'n';\n}\n", ""]);
 
 // exports
 
@@ -1004,7 +1004,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, ".latest_container {\n  min-height: 370px;\n  width: 90%;\n  max-width: 1300px;\n  display: flex;\n  flex-direction: row;\n  overflow-y: auto;\n  border-radius: 10px;\n  background-color: #204591;\n  box-shadow: 5px 5px 23px rgba(0, 0, 0, 0.2);\n  margin: 10px 0px;\n}\n\n.latest_container::-webkit-scrollbar-track {\n  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);\n  background-color: #f5f5f5;\n}\n\n.latest_container::-webkit-scrollbar {\n  height: 4px;\n  background-color: #f5f5f5;\n}\n\n.latest_container::-webkit-scrollbar-thumb {\n  background-color: #cf84fd;\n}\n", ""]);
+exports.push([module.i, ".latest_container {\n  min-height: 370px;\n  width: 90%;\n  max-width: 1500px;\n  display: flex;\n  flex-direction: row;\n  overflow-y: auto;\n  border-radius: 10px;\n  background-color: #204591;\n  box-shadow: 5px 5px 23px rgba(0, 0, 0, 0.2);\n  margin: 10px 0px;\n}\n\n.latest_container::-webkit-scrollbar-track {\n  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);\n  background-color: #f5f5f5;\n}\n\n.latest_container::-webkit-scrollbar {\n  height: 4px;\n  background-color: #f5f5f5;\n}\n\n.latest_container::-webkit-scrollbar-thumb {\n  background-color: #cf84fd;\n}\n", ""]);
 
 // exports
 
@@ -1217,7 +1217,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, ".home_container {\n  width: 100vw;\n  height: 100%;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  overflow-x: hidden;\n  overflow-y: auto;\n}\n\n.searchbar {\n  margin-top: 20px;\n  width: 50%;\n  background-color: #fff;\n  border: 2px solid #f6aafe;\n  padding: 25px 10px;\n  border-radius: 12px;\n  font-size: 25px;\n  color: #204591;\n  height: 30px;\n  outline: none;\n  text-indent: 10px;\n}\n\n.searchbar::placeholder {\n  color: #204591;\n}\n", ""]);
+exports.push([module.i, ".home_container {\n  width: 100vw;\n  height: 100%;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  overflow-x: hidden;\n  overflow-y: auto;\n}\n\n.browse_manga_container {\n  width: 70%;\n  display: flex;\n  flex-direction: column;\n  border-radius: 10px;\n  background-color: #204591;\n  box-shadow: 5px 5px 23px rgba(0, 0, 0, 0.2);\n  margin-top: 30px;\n  padding: 25px 40px;\n  overflow-y: auto;\n}\n\n.desc {\n  margin-bottom: 10px;\n  margin-right: 10px;\n}\n\n.not_found {\n  margin: 100px;\n  text-align: center;\n  font-size: 30px;\n  color: #f6aafe;\n}\n\n.browse-loader {\n  margin: 200px;\n}\n\n.not_found img {\n  border-radius: 10px;\n}\n\n.searchbar {\n  margin-top: 20px;\n  width: 50%;\n  background-color: #fff;\n  border: 2px solid #f6aafe;\n  padding: 25px 10px;\n  border-radius: 12px;\n  font-size: 25px;\n  color: #204591;\n  height: 30px;\n  outline: none;\n  text-indent: 10px;\n}\n\n.searchbar::placeholder {\n  color: #204591;\n}\n", ""]);
 
 // exports
 
@@ -1242,6 +1242,8 @@ exports.push([module.i, ".home_container {\n  width: 100vw;\n  height: 100%;\n  
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__browse_css__ = __webpack_require__("./src/common/containers/browse/browse.css");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__browse_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__browse_css__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__notfound_jpg__ = __webpack_require__("./src/common/containers/browse/notfound.jpg");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__notfound_jpg___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__notfound_jpg__);
 
 
 
@@ -1251,10 +1253,12 @@ var _jsxFileName = '/home/kanitsharma/open-source/chikara/packages/mangaflux-web
 
 
 
+
+var BASE_URL = 'http://cdn.mangaeden.com/mangasimg/';
 var Loader = function Loader(_) {
-  return __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement('div', { className: 'lds-dual-ring custom', __source: {
+  return __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement('div', { className: 'lds-dual-ring browse-loader', __source: {
       fileName: _jsxFileName,
-      lineNumber: 4
+      lineNumber: 6
     }
   });
 };
@@ -1292,7 +1296,7 @@ var Browse = function (_React$Component) {
         'div',
         { className: 'home_container', __source: {
             fileName: _jsxFileName,
-            lineNumber: 14
+            lineNumber: 16
           }
         },
         __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement('textarea', {
@@ -1306,38 +1310,119 @@ var Browse = function (_React$Component) {
           },
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 15
+            lineNumber: 17
           }
         }),
         smallLoader && __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(Loader, {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 25
+            lineNumber: 27
           }
         }),
         notFound ? __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
           'div',
           { className: 'not_found', __source: {
               fileName: _jsxFileName,
-              lineNumber: 27
+              lineNumber: 29
             }
           },
-          'No Results found :('
-        ) : fetchedManga && __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
-          'div',
-          { className: 'browse_manga_container', __source: {
+          __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement('img', { src: __WEBPACK_IMPORTED_MODULE_7__notfound_jpg___default.a, __source: {
               fileName: _jsxFileName,
               lineNumber: 30
             }
-          },
+          }),
           __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
             'div',
-            { className: 'browse_title', __source: {
+            {
+              __source: {
                 fileName: _jsxFileName,
                 lineNumber: 31
               }
             },
-            fetchedManga.title
+            'No Results found :('
+          )
+        ) : fetchedManga && __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
+          'div',
+          { className: 'browse_manga_container', __source: {
+              fileName: _jsxFileName,
+              lineNumber: 35
+            }
+          },
+          __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
+            'div',
+            { className: 'title-container', __source: {
+                fileName: _jsxFileName,
+                lineNumber: 36
+              }
+            },
+            __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
+              'div',
+              { className: 'info-meta', __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 37
+                }
+              },
+              __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
+                'div',
+                {
+                  __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 38
+                  }
+                },
+                __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
+                  'div',
+                  { className: 'info-title', __source: {
+                      fileName: _jsxFileName,
+                      lineNumber: 39
+                    }
+                  },
+                  fetchedManga.title
+                ),
+                __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
+                  'div',
+                  { className: 'desc', __source: {
+                      fileName: _jsxFileName,
+                      lineNumber: 40
+                    }
+                  },
+                  fetchedManga.description
+                )
+              ),
+              __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
+                'div',
+                { className: 'info-tags', __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 42
+                  }
+                },
+                fetchedManga.categories.map(function (x) {
+                  return __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
+                    'div',
+                    {
+                      __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 43
+                      }
+                    },
+                    x
+                  );
+                })
+              )
+            ),
+            __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
+              'div',
+              { className: 'info-title-image', __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 46
+                }
+              },
+              __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement('img', { alt: '', src: '' + BASE_URL + fetchedManga.image, __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 47
+                }
+              })
+            )
           )
         )
       );
@@ -1375,13 +1460,15 @@ var Browse = function (_React$Component) {
 
 
 
-var Search = 'https://mangaflux-api-sxvermmfzn.now.sh/search';
+var Search = 'https://mangaflux-api-huvqxloarg.now.sh/search';
 
 var fetchManga = function fetchManga(url) {
   return function (action) {
     return __WEBPACK_IMPORTED_MODULE_4_node_fetch___default()(url, {
       method: 'POST',
-      body: __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_json_stringify___default()({ keywords: action.payload.split(' ').map(__WEBPACK_IMPORTED_MODULE_1_ramda__["toLower"]) })
+      body: __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_json_stringify___default()({
+        keywords: action.payload.trim().split(' ').map(__WEBPACK_IMPORTED_MODULE_1_ramda__["toLower"])
+      })
     }).then(function (res) {
       return res.json();
     }).then(Object(__WEBPACK_IMPORTED_MODULE_5__futils_curried__["a" /* Action */])('FETCHED_MANGA')).catch(function (_) {
@@ -1429,6 +1516,13 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
 };
 
 /* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_1_react_redux__["connect"])(mapStateToProps, mapDispatchToProps)(__WEBPACK_IMPORTED_MODULE_3__browse__["a" /* default */]));
+
+/***/ }),
+
+/***/ "./src/common/containers/browse/notfound.jpg":
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "static/media/notfound.d38e43e1.jpg";
 
 /***/ }),
 
@@ -1754,7 +1848,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, ".info_container {\n  width: 70%;\n  height: 75%;\n  display: flex;\n  flex-direction: column;\n  border-radius: 10px;\n  background-color: #204591;\n  box-shadow: 5px 5px 23px rgba(0, 0, 0, 0.2);\n  margin-top: 10px;\n  padding: 25px 40px;\n  overflow-y: auto;\n}\n\n.blur {\n  filter: blur(15px);\n}\n\n.info_container::-webkit-scrollbar-track {\n  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);\n  background-color: #f5f5f5;\n}\n\n.info_container::-webkit-scrollbar {\n  width: 4px;\n  background-color: #f5f5f5;\n}\n\n.info_container::-webkit-scrollbar-thumb {\n  background-color: #cf84fd;\n}\n\n.title-container {\n  display: flex;\n  flex-direction: row;\n  width: 100%;\n  justify-content: space-between;\n}\n\n.info-title {\n  color: #fce5ff;\n  font-family: 'n';\n  font-size: 40px;\n  margin-top: 20px;\n  margin-bottom: 20px;\n}\n\n.info-meta {\n  font-size: 22px;\n  color: #fbdcfc;\n  display: flex;\n  flex-direction: column;\n  justify-content: space-between;\n}\n\n.info-meta-data {\n  margin: 5px 0px;\n}\n\n.info-tags {\n  display: flex;\n  flex-direction: row;\n  flex-wrap: wrap;\n}\n\n.info-tags div {\n  margin-right: 10px;\n  margin-top: 10px;\n  color: #f6aafe;\n  border: 2px solid #f6aafe;\n  padding: 5px 10px;\n  border-radius: 12px;\n}\n\n.info-description {\n  margin: 30px 0px;\n  font-size: 20px;\n  line-height: 27px;\n  letter-spacing: 1px;\n  color: #fbdcfc;\n}\n\n.info-description-title {\n  font-size: 25px;\n  color: #fce5ff;\n  margin-bottom: 10px;\n}\n\n.chapter {\n  display: flex;\n  flex-direction: row;\n  font-size: 20px;\n  color: #fbdcfc;\n  align-items: center;\n  padding: 5px 10px;\n  cursor: pointer;\n  transition: all 0.1s linear;\n}\n\n.back-button div:hover {\n  background-color: #f6aafe;\n  color: #204591;\n  cursor: pointer;\n}\n\n.chapter:hover {\n  background-color: #f6aafe;\n  color: #204591;\n  border-radius: 12px;\n}\n\n.chapter_no {\n  margin: 10px 10px;\n}\n", ""]);
+exports.push([module.i, ".info_container {\n  width: 70%;\n  height: 75%;\n  display: flex;\n  flex-direction: column;\n  border-radius: 10px;\n  background-color: #204591;\n  box-shadow: 5px 5px 23px rgba(0, 0, 0, 0.2);\n  margin-top: 10px;\n  padding: 25px 40px;\n  overflow-y: auto;\n}\n\n.blur {\n  filter: blur(15px);\n}\n\n.info_container::-webkit-scrollbar-track {\n  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);\n  background-color: #f5f5f5;\n}\n\n.info_container::-webkit-scrollbar {\n  width: 4px;\n  background-color: #f5f5f5;\n}\n\n.info_container::-webkit-scrollbar-thumb {\n  background-color: #cf84fd;\n}\n\n.info-title-image {\n  align-self: center;\n}\n\n.title-container {\n  display: flex;\n  flex-direction: row;\n  width: 100%;\n  justify-content: space-between;\n}\n\n.info-title {\n  color: #fce5ff;\n  font-family: 'n';\n  font-size: 40px;\n  margin-top: 20px;\n  margin-bottom: 20px;\n}\n\n.info-meta {\n  font-size: 22px;\n  color: #fbdcfc;\n  display: flex;\n  flex-direction: column;\n  justify-content: space-between;\n}\n\n.info-meta-data {\n  margin: 5px 0px;\n}\n\n.info-tags {\n  display: flex;\n  flex-direction: row;\n  flex-wrap: wrap;\n}\n\n.info-tags div {\n  margin-right: 10px;\n  margin-top: 10px;\n  color: #f6aafe;\n  border: 2px solid #f6aafe;\n  padding: 5px 10px;\n  border-radius: 12px;\n}\n\n.info-description {\n  margin: 30px 0px;\n  font-size: 20px;\n  line-height: 27px;\n  letter-spacing: 1px;\n  color: #fbdcfc;\n}\n\n.info-description-title {\n  font-size: 25px;\n  color: #fce5ff;\n  margin-bottom: 10px;\n}\n\n.chapter {\n  display: flex;\n  flex-direction: row;\n  font-size: 20px;\n  color: #fbdcfc;\n  align-items: center;\n  padding: 5px 10px;\n  cursor: pointer;\n  transition: all 0.1s linear;\n}\n\n.back-button div:hover {\n  background-color: #f6aafe;\n  color: #204591;\n  cursor: pointer;\n}\n\n.chapter:hover {\n  background-color: #f6aafe;\n  color: #204591;\n  border-radius: 12px;\n}\n\n.chapter_no {\n  margin: 10px 10px;\n}\n", ""]);
 
 // exports
 
