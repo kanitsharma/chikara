@@ -38,7 +38,10 @@ const searchManga = keys =>
   new Promise(resolve => {
     const cursor = global.db
       .collection("detailedList")
-      .find({ title_kw: keys }, { title: 1, description: 1, title_kw: 1 });
+      .find(
+        { title_kw: keys },
+        { title: 1, description: 1, categories: 1, image: 1 }
+      );
     resolve(cursor.next());
   });
 

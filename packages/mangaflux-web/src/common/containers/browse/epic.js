@@ -1,8 +1,8 @@
 import { compose, identity, __ as _, toLower } from 'ramda';
 import { select } from 'redux-most';
-import { fromPromise, of } from 'most';
+import { fromPromise } from 'most';
 import fetch from 'node-fetch';
-import { Chain, Action, Concat, Map, Debounce } from '../../futils/curried';
+import { Chain, Action, Debounce } from '../../futils/curried';
 import actionSpreader from '../../futils/actionSpreader';
 
 const Search = 'https://mangaflux-api-sxvermmfzn.now.sh/search';
