@@ -4,7 +4,7 @@ import Browse from './browse';
 import actionSpreader from '../../futils/actionSpreader';
 
 const mapStateToProps = state => ({
-  ...pick(['fetchedManga'], state.browse),
+  ...pick(['fetchedManga', 'smallLoader', 'notFound'], state.browse),
 });
 
 const mapDispatchToProps = dispatch => ({

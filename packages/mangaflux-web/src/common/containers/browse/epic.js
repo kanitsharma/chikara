@@ -1,36 +1,29 @@
-import { compose, __, identity } from 'ramda';
+import { compose, identity, __ as _, toLower } from 'ramda';
 import { select } from 'redux-most';
-import { fromPromise } from 'most';
+import { fromPromise, of } from 'most';
 import fetch from 'node-fetch';
-import { Chain, Action } from '../../futils/curried';
+import { Chain, Action, Concat, Map, Debounce } from '../../futils/curried';
+import actionSpreader from '../../futils/actionSpreader';
 
 const Search = 'https://mangaflux-api-sxvermmfzn.now.sh/search';
-
-const debounce = (func, wait) => {
-  let timeout;
-  return args =>
-    new Promise(resolve => {
-      clearTimeout(timeout);
-      timeout = setTimeout(() => resolve(func(args)), wait);
-    });
-};
 
 const fetchManga = url => action =>
   fetch(url, {
     method: 'POST',
-    body: JSON.stringify({ keywords: action.payload.split(' ') }),
+    body: JSON.stringify({ keywords: action.payload.split(' ').map(toLower) }),
   })
     .then(res => res.json())
     .then(Action('FETCHED_MANGA'))
-    .catch(identity);
+    .catch(_ => actionSpreader('NOT_FOUND'));
 
 const manga$ = compose(
   fromPromise,
-  debounce(fetchManga(Search), 500),
+  fetchManga(Search),
 );
 
 const fetchData = compose(
   Chain(manga$),
+  Debounce(500),
   select('SEARCH_MANGA'),
 );
 

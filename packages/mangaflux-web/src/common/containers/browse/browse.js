@@ -1,12 +1,15 @@
 import React from 'react';
 import './browse.css';
 
+const Loader = _ => <div className="lds-dual-ring custom" />;
+
 class Browse extends React.Component {
   state = {
     searchText: '',
   };
 
   render() {
+    const { smallLoader, notFound, fetchedManga } = this.props;
     return (
       <div className="home_container">
         <textarea
@@ -19,7 +22,16 @@ class Browse extends React.Component {
             });
           }}
         />
-        <div>{JSON.stringify(this.props.fetchedManga)}</div>
+        {smallLoader && <Loader />}
+        {notFound ? (
+          <div className="not_found">No Results found :(</div>
+        ) : (
+          fetchedManga && (
+            <div className="browse_manga_container">
+              <div className="browse_title">{fetchedManga.title}</div>
+            </div>
+          )
+        )}
       </div>
     );
   }
