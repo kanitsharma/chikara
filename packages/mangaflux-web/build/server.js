@@ -20,7 +20,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "52f2eebc9c29ac8101b0"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "892ac6915761799f5901"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -1228,20 +1228,23 @@ exports.push([module.i, ".home_container {\n  width: 100vw;\n  height: 100%;\n  
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_object_get_prototype_of__ = __webpack_require__("babel-runtime/core-js/object/get-prototype-of");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_object_get_prototype_of___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_object_get_prototype_of__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_classCallCheck__ = __webpack_require__("babel-runtime/helpers/classCallCheck");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_classCallCheck___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_classCallCheck__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_createClass__ = __webpack_require__("babel-runtime/helpers/createClass");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_createClass___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_createClass__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_possibleConstructorReturn__ = __webpack_require__("babel-runtime/helpers/possibleConstructorReturn");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_possibleConstructorReturn___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_possibleConstructorReturn__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_inherits__ = __webpack_require__("babel-runtime/helpers/inherits");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_inherits___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_inherits__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_react__ = __webpack_require__("react");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__browse_css__ = __webpack_require__("./src/common/containers/browse/browse.css");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__browse_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__browse_css__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_json_stringify__ = __webpack_require__("babel-runtime/core-js/json/stringify");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_json_stringify___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_json_stringify__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_core_js_object_get_prototype_of__ = __webpack_require__("babel-runtime/core-js/object/get-prototype-of");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_core_js_object_get_prototype_of___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_babel_runtime_core_js_object_get_prototype_of__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_classCallCheck__ = __webpack_require__("babel-runtime/helpers/classCallCheck");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_classCallCheck___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_classCallCheck__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_createClass__ = __webpack_require__("babel-runtime/helpers/createClass");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_createClass___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_createClass__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_possibleConstructorReturn__ = __webpack_require__("babel-runtime/helpers/possibleConstructorReturn");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_possibleConstructorReturn___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_possibleConstructorReturn__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_babel_runtime_helpers_inherits__ = __webpack_require__("babel-runtime/helpers/inherits");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_babel_runtime_helpers_inherits___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_babel_runtime_helpers_inherits__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_react__ = __webpack_require__("react");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__browse_css__ = __webpack_require__("./src/common/containers/browse/browse.css");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__browse_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__browse_css__);
+
 
 
 
@@ -1252,37 +1255,37 @@ var _jsxFileName = '/home/kanitsharma/open-source/chikara/packages/mangaflux-web
 
 
 var Browse = function (_React$Component) {
-  __WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_inherits___default()(Browse, _React$Component);
+  __WEBPACK_IMPORTED_MODULE_5_babel_runtime_helpers_inherits___default()(Browse, _React$Component);
 
   function Browse() {
     var _ref;
 
     var _temp, _this, _ret;
 
-    __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_classCallCheck___default()(this, Browse);
+    __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_classCallCheck___default()(this, Browse);
 
     for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
       args[_key] = arguments[_key];
     }
 
-    return _ret = (_temp = (_this = __WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_possibleConstructorReturn___default()(this, (_ref = Browse.__proto__ || __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_object_get_prototype_of___default()(Browse)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
+    return _ret = (_temp = (_this = __WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_possibleConstructorReturn___default()(this, (_ref = Browse.__proto__ || __WEBPACK_IMPORTED_MODULE_1_babel_runtime_core_js_object_get_prototype_of___default()(Browse)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
       searchText: ''
-    }, _temp), __WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_possibleConstructorReturn___default()(_this, _ret);
+    }, _temp), __WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_possibleConstructorReturn___default()(_this, _ret);
   }
 
-  __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_createClass___default()(Browse, [{
+  __WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_createClass___default()(Browse, [{
     key: 'render',
     value: function render() {
       var _this2 = this;
 
-      return __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
+      return __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
         'div',
         { className: 'home_container', __source: {
             fileName: _jsxFileName,
             lineNumber: 11
           }
         },
-        __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement('textarea', {
+        __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement('textarea', {
           className: 'searchbar',
           placeholder: 'Search Manga',
           value: this.state.searchText,
@@ -1295,15 +1298,83 @@ var Browse = function (_React$Component) {
             fileName: _jsxFileName,
             lineNumber: 12
           }
-        })
+        }),
+        __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
+          'div',
+          {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 22
+            }
+          },
+          __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_json_stringify___default()(this.props.fetchedManga)
+        )
       );
     }
   }]);
 
   return Browse;
-}(__WEBPACK_IMPORTED_MODULE_5_react___default.a.Component);
+}(__WEBPACK_IMPORTED_MODULE_6_react___default.a.Component);
 
 /* harmony default export */ __webpack_exports__["a"] = (Browse);
+
+/***/ }),
+
+/***/ "./src/common/containers/browse/epic.js":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_json_stringify__ = __webpack_require__("babel-runtime/core-js/json/stringify");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_json_stringify___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_json_stringify__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_core_js_promise__ = __webpack_require__("babel-runtime/core-js/promise");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_core_js_promise___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_babel_runtime_core_js_promise__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ramda__ = __webpack_require__("ramda");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ramda___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_ramda__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_redux_most__ = __webpack_require__("redux-most");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_redux_most___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_redux_most__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_most__ = __webpack_require__("most");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_most___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_most__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_node_fetch__ = __webpack_require__("node-fetch");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_node_fetch___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_node_fetch__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__futils_curried__ = __webpack_require__("./src/common/futils/curried.js");
+
+
+
+
+
+
+
+
+var Search = 'https://mangaflux-api-sxvermmfzn.now.sh/search';
+
+var debounce = function debounce(func, wait) {
+  var timeout = void 0;
+  return function (args) {
+    return new __WEBPACK_IMPORTED_MODULE_1_babel_runtime_core_js_promise___default.a(function (resolve) {
+      clearTimeout(timeout);
+      timeout = setTimeout(function () {
+        return resolve(func(args));
+      }, wait);
+    });
+  };
+};
+
+var fetchManga = function fetchManga(url) {
+  return function (action) {
+    return __WEBPACK_IMPORTED_MODULE_5_node_fetch___default()(url, {
+      method: 'POST',
+      body: __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_json_stringify___default()({ keywords: action.payload.split(' ') })
+    }).then(function (res) {
+      return res.json();
+    }).then(Object(__WEBPACK_IMPORTED_MODULE_6__futils_curried__["a" /* Action */])('FETCHED_MANGA')).catch(__WEBPACK_IMPORTED_MODULE_2_ramda__["identity"]);
+  };
+};
+
+var manga$ = Object(__WEBPACK_IMPORTED_MODULE_2_ramda__["compose"])(__WEBPACK_IMPORTED_MODULE_4_most__["fromPromise"], debounce(fetchManga(Search), 500));
+
+var fetchData = Object(__WEBPACK_IMPORTED_MODULE_2_ramda__["compose"])(Object(__WEBPACK_IMPORTED_MODULE_6__futils_curried__["b" /* Chain */])(manga$), Object(__WEBPACK_IMPORTED_MODULE_3_redux_most__["select"])('SEARCH_MANGA'));
+
+/* harmony default export */ __webpack_exports__["a"] = (fetchData);
 
 /***/ }),
 
@@ -1311,27 +1382,57 @@ var Browse = function (_React$Component) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react_redux__ = __webpack_require__("react-redux");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react_redux___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react_redux__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__browse__ = __webpack_require__("./src/common/containers/browse/browse.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__futils_actionSpreader__ = __webpack_require__("./src/common/futils/actionSpreader.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_object_assign__ = __webpack_require__("babel-runtime/core-js/object/assign");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_object_assign___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_object_assign__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_redux__ = __webpack_require__("react-redux");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_redux___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react_redux__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ramda__ = __webpack_require__("ramda");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ramda___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_ramda__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__browse__ = __webpack_require__("./src/common/containers/browse/browse.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__futils_actionSpreader__ = __webpack_require__("./src/common/futils/actionSpreader.js");
 
 
 
 
-var mapStateToProps = function mapStateToProps(_state) {
-  return {};
+
+
+var mapStateToProps = function mapStateToProps(state) {
+  return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_object_assign___default()({}, Object(__WEBPACK_IMPORTED_MODULE_2_ramda__["pick"])(['fetchedManga'], state.browse));
 };
 
 var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   return {
     searchManga: function searchManga(text) {
-      return dispatch(Object(__WEBPACK_IMPORTED_MODULE_2__futils_actionSpreader__["a" /* default */])('SEARCH_MANGA', text));
+      return dispatch(Object(__WEBPACK_IMPORTED_MODULE_4__futils_actionSpreader__["a" /* default */])('SEARCH_MANGA', text));
     }
   };
 };
 
-/* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_0_react_redux__["connect"])(mapStateToProps, mapDispatchToProps)(__WEBPACK_IMPORTED_MODULE_1__browse__["a" /* default */]));
+/* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_1_react_redux__["connect"])(mapStateToProps, mapDispatchToProps)(__WEBPACK_IMPORTED_MODULE_3__browse__["a" /* default */]));
+
+/***/ }),
+
+/***/ "./src/common/containers/browse/reducer.js":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_object_assign__ = __webpack_require__("babel-runtime/core-js/object/assign");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_object_assign___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_object_assign__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__futils_createreducer__ = __webpack_require__("./src/common/futils/createreducer.js");
+
+
+
+var ACTION_HANDLERS = {
+  FETCHED_MANGA: function FETCHED_MANGA(s, a) {
+    return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_object_assign___default()({}, s, { fetchedManga: a.payload });
+  }
+};
+
+var initialState = {
+  fetchedManga: null
+};
+
+/* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_1__futils_createreducer__["a" /* default */])(initialState, ACTION_HANDLERS));
 
 /***/ }),
 
@@ -1356,8 +1457,8 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
 
 
 
-var Latest = 'https://mangaflux-api.herokuapp.com/latest/0/20';
-var Popular = 'https://mangaflux-api.herokuapp.com/list/0/20';
+var Latest = 'https://mangaflux-api-sxvermmfzn.now.sh/latest/0/20';
+var Popular = 'https://mangaflux-api-sxvermmfzn.now.sh/list/0/20';
 
 var fetchManga = function fetchManga(url) {
   return __WEBPACK_IMPORTED_MODULE_3_node_fetch___default()(url).then(function (res) {
@@ -1377,7 +1478,7 @@ var latest$ = manga$('FETCHED_LATEST');
 var popular$ = manga$('FETCHED_POPULAR');
 
 var sendAction$ = function sendAction$(l, p) {
-  return Object(__WEBPACK_IMPORTED_MODULE_0_ramda__["compose"])(Object(__WEBPACK_IMPORTED_MODULE_4__futils_curried__["c" /* Concat */])(__WEBPACK_IMPORTED_MODULE_0_ramda__["__"], createAction$('LOADER_OFF')), Object(__WEBPACK_IMPORTED_MODULE_4__futils_curried__["e" /* Merge */])(latest$(l)), Object(__WEBPACK_IMPORTED_MODULE_0_ramda__["always"])(popular$(p)));
+  return Object(__WEBPACK_IMPORTED_MODULE_0_ramda__["compose"])(Object(__WEBPACK_IMPORTED_MODULE_4__futils_curried__["c" /* Concat */])(__WEBPACK_IMPORTED_MODULE_0_ramda__["__"], createAction$('LOADER_OFF')), Object(__WEBPACK_IMPORTED_MODULE_4__futils_curried__["e" /* Merge */])(latest$(l)), Object(__WEBPACK_IMPORTED_MODULE_4__futils_curried__["c" /* Concat */])(__WEBPACK_IMPORTED_MODULE_0_ramda__["__"], popular$(p)), Object(__WEBPACK_IMPORTED_MODULE_0_ramda__["always"])(createAction$('LOADER_ON')));
 };
 
 var fetchData = Object(__WEBPACK_IMPORTED_MODULE_0_ramda__["compose"])(Object(__WEBPACK_IMPORTED_MODULE_4__futils_curried__["b" /* Chain */])(sendAction$(Latest, Popular)), Object(__WEBPACK_IMPORTED_MODULE_1_redux_most__["select"])('FETCH_INIT'));
@@ -1531,7 +1632,7 @@ var ACTION_HANDLERS = {
 var initialState = {
   latestList: [],
   popularList: [],
-  showLoader: true
+  showLoader: false
 };
 
 /* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_1__futils_createreducer__["a" /* default */])(initialState, ACTION_HANDLERS));
@@ -1559,7 +1660,7 @@ var initialState = {
 
 
 
-var InfoAPI = 'https://www.mangaeden.com/api/manga/';
+var InfoAPI = 'https://mangaflux-api-sxvermmfzn.now.sh/mangaInfo/';
 
 var fetchInfo = function fetchInfo(_ref) {
   var payload = _ref.payload;
@@ -2064,11 +2165,13 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_redux_most___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_redux_most__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__containers_home_epic__ = __webpack_require__("./src/common/containers/home/epic.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__containers_info_epic__ = __webpack_require__("./src/common/containers/info/epic.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__containers_browse_epic__ = __webpack_require__("./src/common/containers/browse/epic.js");
 
 
 
 
-var rootEpic = Object(__WEBPACK_IMPORTED_MODULE_0_redux_most__["combineEpics"])([__WEBPACK_IMPORTED_MODULE_1__containers_home_epic__["a" /* default */], __WEBPACK_IMPORTED_MODULE_2__containers_info_epic__["a" /* default */]]);
+
+var rootEpic = Object(__WEBPACK_IMPORTED_MODULE_0_redux_most__["combineEpics"])([__WEBPACK_IMPORTED_MODULE_1__containers_home_epic__["a" /* default */], __WEBPACK_IMPORTED_MODULE_2__containers_info_epic__["a" /* default */], __WEBPACK_IMPORTED_MODULE_3__containers_browse_epic__["a" /* default */]]);
 
 /* harmony default export */ __webpack_exports__["a"] = (rootEpic);
 
@@ -2133,13 +2236,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_redux___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_redux__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__containers_home_reducer__ = __webpack_require__("./src/common/containers/home/reducer.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__containers_info_reducer__ = __webpack_require__("./src/common/containers/info/reducer.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__containers_browse_reducer__ = __webpack_require__("./src/common/containers/browse/reducer.js");
+
 
 
 
 
 var rootReducer = Object(__WEBPACK_IMPORTED_MODULE_0_redux__["combineReducers"])({
   home: __WEBPACK_IMPORTED_MODULE_1__containers_home_reducer__["a" /* default */],
-  info: __WEBPACK_IMPORTED_MODULE_2__containers_info_reducer__["a" /* default */]
+  info: __WEBPACK_IMPORTED_MODULE_2__containers_info_reducer__["a" /* default */],
+  browse: __WEBPACK_IMPORTED_MODULE_3__containers_browse_reducer__["a" /* default */]
 });
 
 /* harmony default export */ __webpack_exports__["default"] = (rootReducer);
@@ -2320,6 +2426,13 @@ module.exports = __webpack_require__("./src/index.js");
 
 /***/ }),
 
+/***/ "babel-runtime/core-js/json/stringify":
+/***/ (function(module, exports) {
+
+module.exports = require("babel-runtime/core-js/json/stringify");
+
+/***/ }),
+
 /***/ "babel-runtime/core-js/object/assign":
 /***/ (function(module, exports) {
 
@@ -2331,6 +2444,13 @@ module.exports = require("babel-runtime/core-js/object/assign");
 /***/ (function(module, exports) {
 
 module.exports = require("babel-runtime/core-js/object/get-prototype-of");
+
+/***/ }),
+
+/***/ "babel-runtime/core-js/promise":
+/***/ (function(module, exports) {
+
+module.exports = require("babel-runtime/core-js/promise");
 
 /***/ }),
 

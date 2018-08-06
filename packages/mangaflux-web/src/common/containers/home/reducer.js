@@ -18,7 +18,7 @@ const ACTION_HANDLERS = {
 const initialState = {
   latestList: [],
   popularList: [],
-  showLoader: true,
+  showLoader: false,
 };
 
 export default reducer(initialState, ACTION_HANDLERS);

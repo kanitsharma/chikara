@@ -19,6 +19,7 @@ class Browse extends React.Component {
             });
           }}
         />
+        <div>{JSON.stringify(this.props.fetchedManga)}</div>
       </div>
     );
   }

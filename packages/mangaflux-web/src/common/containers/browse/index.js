@@ -1,8 +1,11 @@
 import { connect } from 'react-redux';
+import { pick } from 'ramda';
 import Browse from './browse';
 import actionSpreader from '../../futils/actionSpreader';
 
-const mapStateToProps = _state => ({});
+const mapStateToProps = state => ({
+  ...pick(['fetchedManga'], state.browse),
+});
 
 const mapDispatchToProps = dispatch => ({
   searchManga: text => dispatch(actionSpreader('SEARCH_MANGA', text)),

@@ -5,8 +5,8 @@ import fetch from 'node-fetch';
 import { Map, Chain, Action, Concat, Merge } from '../../futils/curried';
 import actionSpreader from '../../futils/actionSpreader';
 
-const Latest = 'https://mangaflux-api.herokuapp.com/latest/0/20';
-const Popular = 'https://mangaflux-api.herokuapp.com/list/0/20';
+const Latest = 'https://mangaflux-api-sxvermmfzn.now.sh/latest/0/20';
+const Popular = 'https://mangaflux-api-sxvermmfzn.now.sh/list/0/20';
 
 const fetchManga = url => fetch(url).then(res => res.json());
 
@@ -26,7 +26,8 @@ const sendAction$ = (l, p) =>
   compose(
     Concat(__, createAction$('LOADER_OFF')),
     Merge(latest$(l)),
-    always(popular$(p)),
+    Concat(__, popular$(p)),
+    always(createAction$('LOADER_ON')),
   );
 
 const fetchData = compose(
