@@ -1,27 +1,29 @@
 {
-  "name": "@chikara/node",
+  "name": "mangaflux-api",
   "version": "1.0.0",
-  "description": "",
+  "description": "Mangadatabase",
   "main": "index.js",
   "scripts": {
-    "start": "NODE_ENV=development node index.js",
-    "start:prod": "NODE_ENV=production node index.js",
-    "heroku": "NODE_ENV=production node index.js",
+    "start": "micro -p ${PORT:-3000}",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "NODE_ENV=production node scripts/build.js",
-    "flow": "flow"
+    "dev": "micro-dev"
   },
-  "author": "Rajat Sharma",
-  "license": "MIT",
+  "author": "Kanit Sharma",
+  "repository": "https://github.com/kanitsharma/mangaflux-api",
+  "license": "ISC",
   "dependencies": {
-    "@elementary/proper": "0.2.2",
-    "@lectro/enhancer-commonutils": "1.1.0",
-    "@lectro/enhancer-flowruntime": "1.1.0",
-    "body-parser": "1.18.2",
-    "compression": "1.7.1",
-    "express": "4.16.2",
-    "mongoose": "^5.0.10",
-    "winston": "2.4.0",
-    "winston-daily-rotate-file": "1.7.2"
+    "cheerio": "^1.0.0-rc.2",
+    "micro": "^9.3.2",
+    "micro-cors": "0.0.4",
+    "microrouter": "^2.2.3",
+    "mongodb": "^2.2.33",
+    "request": "^2.83.0",
+    "request-promise": "^4.2.2"
+  },
+  "engines": {
+    "node": "^8.5.0"
+  },
+  "devDependencies": {
+    "micro-dev": "^3.0.0"
   }
 }

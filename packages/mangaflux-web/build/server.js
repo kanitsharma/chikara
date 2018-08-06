@@ -20,7 +20,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "613aca98f6435cadee5c"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "52f2eebc9c29ac8101b0"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -1217,7 +1217,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, ".home_container {\n  width: 100vw;\n  height: 100%;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  overflow-x: hidden;\n  overflow-y: auto;\n}\n\n.searchbar {\n  margin-top: 20px;\n  width: 50%;\n  background-color: transparent;\n  border: 2px solid #f6aafe;\n  padding: 25px 10px;\n  border-radius: 12px;\n  font-size: 25px;\n  color: #f6aafe;\n  height: 30px;\n  outline: none;\n  text-indent: 10px;\n}\n\n.searchbar::placeholder {\n  color: #f6aafe;\n}\n", ""]);
+exports.push([module.i, ".home_container {\n  width: 100vw;\n  height: 100%;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  overflow-x: hidden;\n  overflow-y: auto;\n}\n\n.searchbar {\n  margin-top: 20px;\n  width: 50%;\n  background-color: #fff;\n  border: 2px solid #f6aafe;\n  padding: 25px 10px;\n  border-radius: 12px;\n  font-size: 25px;\n  color: #204591;\n  height: 30px;\n  outline: none;\n  text-indent: 10px;\n}\n\n.searchbar::placeholder {\n  color: #204591;\n}\n", ""]);
 
 // exports
 

@@ -11,17 +11,17 @@
 .searchbar {
   margin-top: 20px;
   width: 50%;
-  background-color: transparent;
+  background-color: #fff;
   border: 2px solid #f6aafe;
   padding: 25px 10px;
   border-radius: 12px;
   font-size: 25px;
-  color: #f6aafe;
+  color: #204591;
   height: 30px;
   outline: none;
   text-indent: 10px;
 }
 
 .searchbar::placeholder {
-  color: #f6aafe;
+  color: #204591;
 }

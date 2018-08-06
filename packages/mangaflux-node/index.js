@@ -1,8 +1,26 @@
-if (process.env.NODE_ENV === 'development') {
-  require('./scripts/start');
-}
+const { router, get, post } = require("microrouter");
+const microCors = require("micro-cors");
+const cors = microCors({ allowMethods: ["GET"] });
 
-if (process.env.NODE_ENV === 'production') {
-  // eslint-disable-next-line import/no-unresolved
-  require('./build/main');
-}
+const {
+  Home,
+  List,
+  Latest,
+  MangaInfo,
+  Chapters,
+  Search
+} = require("./endpoints/endpoints");
+const connectMiddleware = require("./sideEffects/connectMiddleware");
+
+connectMiddleware();
+
+module.exports = cors(
+  router(
+    get("/", Home),
+    get("/list/:start/:limit", List),
+    get("/latest/:start/:limit", Latest),
+    get("/mangaInfo/:mangaId", MangaInfo),
+    get("/chapter/:chapterId", Chapters),
+    post("/search", Search)
+  )
+);
