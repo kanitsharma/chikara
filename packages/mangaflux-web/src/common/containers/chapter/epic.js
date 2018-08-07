@@ -5,13 +5,13 @@ import fetch from 'node-fetch';
 import { Map, Chain, Action, Merge, Concat } from '../../futils/curried';
 import actionSpreader from '../../futils/actionSpreader';
 
-const InfoAPI = 'https://mangaflux-api-sxvermmfzn.now.sh/mangaInfo/';
+const InfoAPI = 'https://mangaflux-api-sxvermmfzn.now.sh/chapter/';
 
 const fetchInfo = ({ payload }) =>
   fetch(InfoAPI + payload).then(res => res.json());
 
-const info$ = compose(
-  Map(Action('FETCHED_INFO')),
+const chapter$ = compose(
+  Map(Action('FETCHED_CHAPTER')),
   fromPromise,
   fetchInfo,
 );
@@ -19,12 +19,12 @@ const info$ = compose(
 const sendAction$ = compose(
   Concat(__, of(actionSpreader('LOADER_OFF'))),
   Merge(__, of(actionSpreader('LOADER_ON'))),
-  info$,
+  chapter$,
 );
 
 const fetchData = compose(
   Chain(sendAction$),
-  select('FETCH_INFO'),
+  select('FETCH_CHAPTER'),
 );
 
 export default fetchData;

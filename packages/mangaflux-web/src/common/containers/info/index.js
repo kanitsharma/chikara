@@ -7,7 +7,9 @@ const mapStateToProps = state => ({
   ...pick(['showLoader'], state.home),
 });
 
-const mapDispatchToProps = _dispatch => ({});
+const mapDispatchToProps = dispatch => ({
+  fetchInfo: id => dispatch({ type: 'FETCH_INFO', payload: id }),
+});
 
 export default connect(
   mapStateToProps,

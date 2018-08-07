@@ -7,22 +7,8 @@ const BASE_URL = 'http://cdn.mangaeden.com/mangasimg/';
 
 const Loader = _ => <div className="lds-dual-ring custom" />;
 
-const Mangacard = ({
-  imgUrl,
-  title,
-  id,
-  setId,
-  history,
-  loading,
-  stopLoader,
-}) => (
-  <div
-    className="manga_card"
-    onClick={_ => {
-      setId(id);
-      history.replace('/info');
-    }}
-  >
+const Mangacard = ({ imgUrl, title, id, history, loading, stopLoader }) => (
+  <div className="manga_card" onClick={_ => history.replace(`/info/${id}`)}>
     {loading && <Loader />}
     <img
       alt=""

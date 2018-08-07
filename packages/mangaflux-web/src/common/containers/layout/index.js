@@ -5,6 +5,7 @@ import Home from '../home';
 import Browse from '../browse';
 import Info from '../info';
 import Loader from '../loader';
+import Chapter from '../chapter';
 import './layout.css';
 
 const Layout = _props => (
@@ -14,7 +15,8 @@ const Layout = _props => (
     <Switch>
       <Route exact path="/" component={Home} />
       <Route exact path="/browse" component={Browse} />
-      <Route exact path="/info" component={Info} />
+      <Route exact path="/info/:mangaId" component={Info} />
+      <Route exact path="/chapter/:chapterId" component={Chapter} />
     </Switch>
   </div>
 );

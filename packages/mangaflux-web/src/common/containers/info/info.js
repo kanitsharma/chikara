@@ -1,5 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
+import { lifecycle, compose } from 'recompose';
 import './info.css';
 const BASE_URL = 'http://cdn.mangaeden.com/mangasimg/';
 
@@ -59,7 +60,10 @@ const Info = ({
           chapters.map(
             x =>
               x[2] && (
-                <div className="chapter">
+                <div
+                  className="chapter"
+                  onClick={_ => history.push(`/chapter/${x[3]}`)}
+                >
                   <div className="chapter_no">{x[0]}</div>
                   <div className="chapter_name">{x[2]}</div>
                 </div>
@@ -70,4 +74,13 @@ const Info = ({
   </div>
 );
 
-export default withRouter(Info);
+const withLifeCycle = lifecycle({
+  componentWillMount() {
+    this.props.fetchInfo(this.props.match.params.mangaId);
+  },
+});
+
+export default compose(
+  withLifeCycle,
+  withRouter,
+)(Info);

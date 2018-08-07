@@ -14,9 +14,9 @@ const withInitData = lifecycle({
 const Home = props => (
   <div className="home_container">
     <Heading title="Latest" />
-    <List list={props.latestList} setId={props.setId} />
+    <List list={props.latestList} />
     <Heading title="Popular" />
-    <List list={props.popularList} setId={props.setId} />
+    <List list={props.popularList} />
   </div>
 );
 
