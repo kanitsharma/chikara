@@ -20,7 +20,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "cf153117b7b52c4c3e0e"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "93f4e5f94413d0ef9237"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -1872,22 +1872,22 @@ var Home = function Home(props) {
         lineNumber: 15
       }
     },
-    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__components_heading__["a" /* default */], { title: 'Latest', __source: {
+    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__components_heading__["a" /* default */], { title: 'Popular', __source: {
         fileName: _jsxFileName,
         lineNumber: 16
       }
     }),
-    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__components_list__["a" /* default */], { list: props.latestList, __source: {
+    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__components_list__["a" /* default */], { list: props.popularList, __source: {
         fileName: _jsxFileName,
         lineNumber: 17
       }
     }),
-    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__components_heading__["a" /* default */], { title: 'Popular', __source: {
+    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__components_heading__["a" /* default */], { title: 'Latest', __source: {
         fileName: _jsxFileName,
         lineNumber: 18
       }
     }),
-    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__components_list__["a" /* default */], { list: props.popularList, __source: {
+    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__components_list__["a" /* default */], { list: props.latestList, __source: {
         fileName: _jsxFileName,
         lineNumber: 19
       }
@@ -2291,7 +2291,7 @@ var Info = function Info(_ref) {
           }
         },
         chapters && chapters.map(function (x) {
-          return !(Number(x[0]) === x[0] && x[0] % 1 !== 0) && __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          return x[2] && __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
             'div',
             {
               className: 'chapter',

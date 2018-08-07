@@ -59,7 +59,7 @@ const Info = ({
         {chapters &&
           chapters.map(
             x =>
-              !(Number(x[0]) === x[0] && x[0] % 1 !== 0) && (
+              x[2] && (
                 <div
                   className="chapter"
                   onClick={_ => history.push(`/chapter/${x[3]}`)}
