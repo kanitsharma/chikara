@@ -20,7 +20,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "61afe65db6bb49bf9f87"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "cf153117b7b52c4c3e0e"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -765,414 +765,6 @@ function toComment(sourceMap) {
 	return '/*# ' + data + ' */';
 }
 
-
-/***/ }),
-
-/***/ "./node_modules/react-intersection-observer/dist/react-intersection-observer.esm.js":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__("react");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_invariant__ = __webpack_require__("invariant");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_invariant___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_invariant__);
-
-
-
-var INSTANCE_MAP = new Map();
-var OBSERVER_MAP = new Map();
-
-/**
- * Monitor element, and trigger callback when element becomes visible
- * @param element {HTMLElement}
- * @param callback {Function} Called with inView
- * @param options {Object} InterSection observer options
- * @param options.threshold {Number} Number between 0 and 1, indicating how much of the element should be visible before triggering
- * @param options.root {HTMLElement} It should have a unique id or data-intersection-id in order for the Observer to reused.
- * @param options.rootMargin {String} The CSS margin to apply to the root element.
- * @param rootId {String} Unique identifier for the root element, to enable reusing the IntersectionObserver
- */
-function observe(element, callback) {
-  var options = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {
-    threshold: 0
-  };
-  var rootId = arguments[3];
-  var root = options.root,
-      rootMargin = options.rootMargin;
-
-  var threshold = options.threshold || 0;
-  if (!element || !callback) return;
-  var observerId = rootMargin ? threshold.toString() + "_" + rootMargin : "" + threshold.toString();
-
-  if (root) {
-    observerId = rootId ? rootId + "_" + observerId : null;
-  }
-
-  var observerInstance = observerId ? OBSERVER_MAP.get(observerId) : null;
-  if (!observerInstance) {
-    observerInstance = new IntersectionObserver(onChange, options);
-    if (observerId) OBSERVER_MAP.set(observerId, observerInstance);
-  }
-
-  var instance = {
-    callback: callback,
-    visible: false,
-    options: options,
-    observerId: observerId,
-    observer: !observerId ? observerInstance : undefined
-  };
-
-  INSTANCE_MAP.set(element, instance);
-
-  observerInstance.observe(element);
-
-  return instance;
-}
-
-/**
- * Stop observing an element. If an element is removed from the DOM or otherwise destroyed,
- * make sure to call this method.
- * @param element {HTMLElement}
- */
-function unobserve(element) {
-  if (!element) return;
-  var instance = INSTANCE_MAP.get(element);
-
-  if (instance) {
-    var _observerId = instance.observerId,
-        _observer = instance.observer;
-
-    var observerInstance = _observerId ? OBSERVER_MAP.get(_observerId) : _observer;
-
-    if (observerInstance) {
-      observerInstance.unobserve(element);
-    }
-
-    // Check if we are still observing any elements with the same threshold.
-    var itemsLeft = false;
-    if (_observerId) {
-      INSTANCE_MAP.forEach(function (item, key) {
-        if (item && item.observerId === _observerId && key !== element) {
-          itemsLeft = true;
-        }
-      });
-    }
-
-    if (observerInstance && !itemsLeft) {
-      // No more elements to observe for threshold, disconnect observer
-      observerInstance.disconnect();
-      OBSERVER_MAP.delete(_observerId);
-    }
-
-    // Remove reference to element
-    INSTANCE_MAP.delete(element);
-  }
-}
-
-function onChange(changes) {
-  changes.forEach(function (intersection) {
-    var isIntersecting = intersection.isIntersecting,
-        intersectionRatio = intersection.intersectionRatio,
-        target = intersection.target;
-
-    var instance = INSTANCE_MAP.get(target);
-
-    // Firefox can report a negative intersectionRatio when scrolling.
-    if (instance && intersectionRatio >= 0) {
-      var _options = instance.options;
-
-      var _inView = false;
-
-      if (Array.isArray(_options.threshold)) {
-        // If threshold is an array, check if any of them intersects. This just triggers the onChange event multiple times.
-        _inView = _options.threshold.some(function (threshold) {
-          return instance.visible ? intersectionRatio > threshold : intersectionRatio >= threshold;
-        });
-      } else if (_options.threshold !== undefined) {
-        // Trigger on 0 ratio only when not visible. This is fallback for browsers without isIntersecting support
-        _inView = instance.visible ? intersectionRatio > _options.threshold : intersectionRatio >= _options.threshold;
-      }
-
-      if (isIntersecting !== undefined) {
-        // If isIntersecting is defined, ensure that the element is actually intersecting.
-        // Otherwise it reports a threshold of 0
-        _inView = _inView && isIntersecting;
-      }
-
-      instance.visible = _inView;
-      instance.callback(_inView);
-    }
-  });
-}
-
-var classCallCheck = function (instance, Constructor) {
-  if (!(instance instanceof Constructor)) {
-    throw new TypeError("Cannot call a class as a function");
-  }
-};
-
-var _extends = Object.assign || function (target) {
-  for (var i = 1; i < arguments.length; i++) {
-    var source = arguments[i];
-
-    for (var key in source) {
-      if (Object.prototype.hasOwnProperty.call(source, key)) {
-        target[key] = source[key];
-      }
-    }
-  }
-
-  return target;
-};
-
-var inherits = function (subClass, superClass) {
-  if (typeof superClass !== "function" && superClass !== null) {
-    throw new TypeError("Super expression must either be null or a function, not " + typeof superClass);
-  }
-
-  subClass.prototype = Object.create(superClass && superClass.prototype, {
-    constructor: {
-      value: subClass,
-      enumerable: false,
-      writable: true,
-      configurable: true
-    }
-  });
-  if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
-};
-
-var objectWithoutProperties = function (obj, keys) {
-  var target = {};
-
-  for (var i in obj) {
-    if (keys.indexOf(i) >= 0) continue;
-    if (!Object.prototype.hasOwnProperty.call(obj, i)) continue;
-    target[i] = obj[i];
-  }
-
-  return target;
-};
-
-var possibleConstructorReturn = function (self, call) {
-  if (!self) {
-    throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
-  }
-
-  return call && (typeof call === "object" || typeof call === "function") ? call : self;
-};
-
-/**
- * Monitors scroll, and triggers the children function with updated props
- *
- <Observer>
- {({inView, ref}) => (
-   <h1 ref={ref}>{`${inView}`}</h1>
- )}
- </Observer>
- */
-var Observer = function (_React$Component) {
-  inherits(Observer, _React$Component);
-
-  function Observer() {
-    var _temp, _this, _ret;
-
-    classCallCheck(this, Observer);
-
-    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
-    }
-
-    return _ret = (_temp = (_this = possibleConstructorReturn(this, _React$Component.call.apply(_React$Component, [this].concat(args))), _this), _this.state = {
-      inView: false
-    }, _this.node = null, _this.handleNode = function (node) {
-      if (_this.node) unobserve(_this.node);
-      _this.node = node;
-      _this.observeNode();
-    }, _this.handleChange = function (inView) {
-      _this.setState({ inView: inView });
-      if (_this.props.onChange) {
-        _this.props.onChange(inView);
-      }
-    }, _temp), possibleConstructorReturn(_this, _ret);
-  }
-
-  Observer.prototype.componentDidMount = function componentDidMount() {
-    if (true) {
-      if (this.props.hasOwnProperty('render')) {
-        console.warn('react-intersection-observer: "render" is deprecated, and should be replaced with "children"', this.node);
-      }
-      __WEBPACK_IMPORTED_MODULE_1_invariant___default()(this.node, 'react-intersection-observer: No DOM node found. Make sure you forward "ref" to the root DOM element you want to observe.');
-    }
-  };
-
-  Observer.prototype.componentDidUpdate = function componentDidUpdate(prevProps, prevState) {
-    // If a IntersectionObserver option changed, reinit the observer
-    if (prevProps.rootMargin !== this.props.rootMargin || prevProps.root !== this.props.root || prevProps.threshold !== this.props.threshold) {
-      unobserve(this.node);
-      this.observeNode();
-    }
-
-    if (prevState.inView !== this.state.inView) {
-      if (this.state.inView && this.props.triggerOnce) {
-        unobserve(this.node);
-        this.node = null;
-      }
-    }
-  };
-
-  Observer.prototype.componentWillUnmount = function componentWillUnmount() {
-    if (this.node) {
-      unobserve(this.node);
-      this.node = null;
-    }
-  };
-
-  Observer.prototype.observeNode = function observeNode() {
-    if (!this.node) return;
-    var _props = this.props,
-        threshold = _props.threshold,
-        root = _props.root,
-        rootMargin = _props.rootMargin,
-        rootId = _props.rootId;
-
-    observe(this.node, this.handleChange, {
-      threshold: threshold,
-      root: root,
-      rootMargin: rootMargin
-    }, rootId);
-  };
-
-  Observer.prototype.render = function render() {
-    var _props2 = this.props,
-        children = _props2.children,
-        render = _props2.render,
-        tag = _props2.tag,
-        triggerOnce = _props2.triggerOnce,
-        threshold = _props2.threshold,
-        root = _props2.root,
-        rootId = _props2.rootId,
-        rootMargin = _props2.rootMargin,
-        props = objectWithoutProperties(_props2, ['children', 'render', 'tag', 'triggerOnce', 'threshold', 'root', 'rootId', 'rootMargin']);
-    var inView = this.state.inView;
-
-    var renderMethod = children || render;
-
-    if (typeof renderMethod === 'function') {
-      return renderMethod({ inView: inView, ref: this.handleNode });
-    }
-
-    return Object(__WEBPACK_IMPORTED_MODULE_0_react__["createElement"])(tag || 'div', _extends({ ref: this.handleNode }, props), children);
-  };
-
-  return Observer;
-}(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
-
-Observer.defaultProps = {
-  threshold: 0,
-  triggerOnce: false
-};
-
-/* harmony default export */ __webpack_exports__["a"] = (Observer);
-
-
-/***/ }),
-
-/***/ "./node_modules/react-lazy-images/dist/react-lazy-images.es.js":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return h; });
-/* unused harmony export ImageState */
-/* unused harmony export LazyImageFull */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__("react");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_intersection_observer__ = __webpack_require__("./node_modules/react-intersection-observer/dist/react-intersection-observer.esm.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_unionize__ = __webpack_require__("./node_modules/unionize/lib/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_unionize___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_unionize__);
-var o=function(e,t){return(o=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(e,t){e.__proto__=t}||function(e,t){for(var n in t)t.hasOwnProperty(n)&&(e[n]=t[n])})(e,t)};var a,i=function(){return(i=Object.assign||function(e){for(var t,n=1,r=arguments.length;n<r;n++)for(var o in t=arguments[n])Object.prototype.hasOwnProperty.call(t,o)&&(e[o]=t[o]);return e}).apply(this,arguments)};function c(e,t){var n={};for(var r in e)Object.prototype.hasOwnProperty.call(e,r)&&t.indexOf(r)<0&&(n[r]=e[r]);if(null!=e&&"function"==typeof Object.getOwnPropertySymbols){var o=0;for(r=Object.getOwnPropertySymbols(e);o<r.length;o++)t.indexOf(r[o])<0&&(n[r[o]]=e[r[o]])}return n}!function(e){e.NotAsked="NotAsked",e.Loading="Loading",e.LoadSuccess="LoadSuccess",e.LoadError="LoadError"}(a||(a={}));var u=Object(__WEBPACK_IMPORTED_MODULE_2_unionize__["unionize"])({NotAsked:{},Buffering:{},Loading:{},LoadSuccess:{},LoadError:Object(__WEBPACK_IMPORTED_MODULE_2_unionize__["ofType"])()}),s=Object(__WEBPACK_IMPORTED_MODULE_2_unionize__["unionize"])({ViewChanged:Object(__WEBPACK_IMPORTED_MODULE_2_unionize__["ofType"])(),BufferingEnded:{},LoadSuccess:{},LoadError:Object(__WEBPACK_IMPORTED_MODULE_2_unionize__["ofType"])()}),d=function(e,t){return function(n){var r=g(l(e,t));r.promise.then(function(e){return n.update(s.LoadSuccess({}))}).catch(function(e){e.isCanceled||n.update(s.LoadError({msg:"Failed to load"}))}),n.promiseCache.loading=r}},f=function(e){e.promiseCache.buffering.cancel()},p=function(n){function r(e){var t=n.call(this,e)||this;return t.promiseCache={},t.initialState=u.NotAsked(),t.state=t.initialState,t.update=t.update.bind(t),t}return function(e,t){function n(){this.constructor=e}o(e,t),e.prototype=null===t?Object.create(t):(n.prototype=t.prototype,new n)}(r,n),r.reducer=function(e,t,n){return s.match(e,{ViewChanged:function(e){return!0===e.inView?n.src?u.match(t,{NotAsked:function(){return n.debounceDurationMs?{nextState:u.Buffering(),cmd:(e=n.debounceDurationMs,function(t){var n=g(m(e));n.promise.then(function(){return t.update(s.BufferingEnded())}).catch(function(e){}),t.promiseCache.buffering=n})}:{nextState:u.Loading(),cmd:d(n,n.experimentalDecode)};var e},default:function(){return{nextState:t}}}):{nextState:u.LoadSuccess()}:u.match(t,{Buffering:function(){return{nextState:u.NotAsked(),cmd:f}},default:function(){return{nextState:t}}})},BufferingEnded:function(){return{nextState:u.Loading(),cmd:d(n,n.experimentalDecode)}},LoadSuccess:function(){return{nextState:u.LoadSuccess()}},LoadError:function(e){return{nextState:u.LoadError(e)}}})},r.prototype.update=function(e){var t=this,n=r.reducer(e,this.state,this.props),o=n.nextState,a=n.cmd;this.props.debugActions&&("production"==="development"&&console.warn('You are running LazyImage with debugActions="true" in production. This might have performance implications.'),console.log({action:e,prevState:this.state,nextState:o})),this.setState(o,function(){return a&&a(t)})},r.prototype.componentWillUnmount=function(){this.promiseCache.loading&&this.promiseCache.loading.cancel(),this.promiseCache.buffering&&this.promiseCache.buffering.cancel(),this.promiseCache={}},r.prototype.render=function(){var n=this,r=this.props,o=r.children,d=r.loadEagerly,f=r.observerProps,p=c(r,["children","loadEagerly","observerProps","experimentalDecode","debounceDurationMs","debugActions"]);return d?o({imageState:u.LoadSuccess().tag,imageProps:p}):__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_react_intersection_observer__["a" /* default */],i({rootMargin:"50px 0px",threshold:.01},f,{onChange:function(e){return n.update(s.ViewChanged({inView:e}))}}),function(e){return o({imageState:"Buffering"===n.state.tag?a.Loading:n.state.tag,imageProps:p,ref:e.ref})})},r.displayName="LazyImageFull",r}(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Component),l=function(e,t){var n=e.src,r=e.srcSet,o=e.alt,a=e.sizes;return void 0===t&&(t=!1),new Promise(function(e,i){var c=new Image;if(r&&(c.srcset=r),o&&(c.alt=o),a&&(c.sizes=a),c.src=n,t&&"decode"in c)return c.decode().then(function(t){return e(t)}).catch(function(e){return i(e)});c.onload=e,c.onerror=i})},m=function(e){return new Promise(function(t){return setTimeout(t,e)})},g=function(e){var t=!1;return{promise:new Promise(function(n,r){e.then(function(e){return t?r({isCanceled:!0}):n(e)}),e.catch(function(e){return r(t?{isCanceled:!0}:e)})}),cancel:function(){t=!0}}},h=function(t){var n=t.actual,r=t.placeholder,o=t.loading,u=t.error,s=c(t,["actual","placeholder","loading","error"]);return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(p,i({},s),function(e){var t=e.imageProps,i=e.ref;switch(e.imageState){case a.NotAsked:return!!r&&r({imageProps:t,ref:i});case a.Loading:return o?o():!!r&&r({imageProps:t,ref:i});case a.LoadSuccess:return n({imageProps:t});case a.LoadError:return u?u():n({imageProps:t})}})};h.displayName="LazyImage";
-//# sourceMappingURL=react-lazy-images.es.js.map
-
-
-/***/ }),
-
-/***/ "./node_modules/unionize/lib/index.js":
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __assign = (this && this.__assign) || Object.assign || function(t) {
-    for (var s, i = 1, n = arguments.length; i < n; i++) {
-        s = arguments[i];
-        for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
-            t[p] = s[p];
-    }
-    return t;
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-function unionize(record, config) {
-    var _a = config || {}, _b = _a.value, valProp = _b === void 0 ? undefined : _b, _c = _a.tag, tagProp = _c === void 0 ? 'tag' : _c;
-    var creators = {};
-    var _loop_1 = function (tag) {
-        creators[tag] = (function (value) {
-            if (value === void 0) { value = {}; }
-            return valProp ? (_a = {}, _a[tagProp] = tag, _a[valProp] = value, _a) : __assign({}, value, (_b = {}, _b[tagProp] = tag, _b));
-            var _a, _b;
-        });
-    };
-    for (var tag in record) {
-        _loop_1(tag);
-    }
-    var is = {};
-    var _loop_2 = function (tag) {
-        is[tag] = (function (variant) { return variant[tagProp] === tag; });
-    };
-    for (var tag in record) {
-        _loop_2(tag);
-    }
-    function evalMatch(variant, cases, defaultCase) {
-        if (defaultCase === void 0) { defaultCase = cases.default; }
-        var handler = cases[variant[tagProp]];
-        return handler ? handler(valProp ? variant[valProp] : variant) : defaultCase(variant);
-    }
-    var match = function (first, second) {
-        return second ? evalMatch(first, second) : function (variant) { return evalMatch(variant, first); };
-    };
-    var identity = function (x) { return x; };
-    var transform = function (first, second) {
-        return second
-            ? evalMatch(first, second, identity)
-            : function (variant) { return evalMatch(variant, first, identity); };
-    };
-    var as = {};
-    var _loop_3 = function (expectedTag) {
-        as[expectedTag] = match((_a = {},
-            _a[expectedTag] = function (x) { return x; },
-            _a.default = function (val) {
-                throw new Error("Attempted to cast " + val[tagProp] + " as " + expectedTag);
-            },
-            _a));
-        var _a;
-    };
-    for (var expectedTag in record) {
-        _loop_3(expectedTag);
-    }
-    return Object.assign({
-        is: is,
-        as: as,
-        match: match,
-        transform: transform,
-        _Record: record,
-    }, creators);
-}
-exports.unionize = unionize;
-/**
- * Creates a pseudo-witness of a given type. That is, it pretends to return a value of
- * type `T` for any `T`, but it's really just returning `undefined`. This white lie
- * allows convenient expression of the value types in the record you pass to `unionize`.
- */
-exports.ofType = function () { return undefined; };
-exports.default = unionize;
-//# sourceMappingURL=index.js.map
 
 /***/ }),
 
@@ -1979,7 +1571,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, ".chapter_image {\n  margin: 30px 0px;\n  width: 90%;\n}\n\n.chapter_image img {\n  width: 100%;\n  height: 100%;\n}\n", ""]);
+exports.push([module.i, ".chapter_image {\n  margin: 30px 0px;\n  width: 90%;\n  text-align: center;\n}\n\n.chapter_image img {\n  width: 100%;\n  height: 100%;\n}\n", ""]);
 
 // exports
 
@@ -1998,7 +1590,8 @@ exports.push([module.i, ".chapter_image {\n  margin: 30px 0px;\n  width: 90%;\n}
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_recompose___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_recompose__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_react_router_dom__ = __webpack_require__("react-router-dom");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_react_router_dom___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_react_router_dom__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_react_lazy_images__ = __webpack_require__("./node_modules/react-lazy-images/dist/react-lazy-images.es.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_react_lazy_images__ = __webpack_require__("react-lazy-images");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_react_lazy_images___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_react_lazy_images__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__chapter_css__ = __webpack_require__("./src/common/containers/chapter/chapter.css");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__chapter_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__chapter_css__);
 
@@ -2019,10 +1612,11 @@ var Loader = function Loader(_) {
 };
 
 var Chapter = function Chapter(_ref) {
-  var images = _ref.images;
+  var images = _ref.images,
+      showLoader = _ref.showLoader;
   return __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
     'div',
-    { className: 'home_container', __source: {
+    { className: showLoader ? 'home_container blur' : 'home_container', __source: {
         fileName: _jsxFileName,
         lineNumber: 11
       }
@@ -2035,15 +1629,14 @@ var Chapter = function Chapter(_ref) {
             lineNumber: 13
           }
         },
-        __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4_react_lazy_images__["a" /* LazyImage */], {
+        __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4_react_lazy_images__["LazyImage"], {
           src: '' + BASE_URL + x[1],
           alt: 'Image not available',
           placeholder: function placeholder(_ref2) {
-            var imageProps = _ref2.imageProps,
-                ref = _ref2.ref;
-            return __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement('img', { ref: ref, alt: imageProps.alt, style: { width: '100%' }, __source: {
+            var ref = _ref2.ref;
+            return __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement('div', { ref: ref, className: 'lds-dual-ring', __source: {
                 fileName: _jsxFileName,
-                lineNumber: 18
+                lineNumber: 17
               }
             });
           },
@@ -2052,17 +1645,9 @@ var Chapter = function Chapter(_ref) {
             var imageProps = _ref3.imageProps;
             return __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement('img', __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends___default()({}, imageProps, { style: { width: '100%' }, __source: {
                 fileName: _jsxFileName,
-                lineNumber: 22
+                lineNumber: 20
               }
             }));
-          },
-          loading: function loading(_) {
-            return __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(Loader, {
-              __source: {
-                fileName: _jsxFileName,
-                lineNumber: 24
-              }
-            });
           },
           __source: {
             fileName: _jsxFileName,
@@ -2128,28 +1713,33 @@ var fetchData = Object(__WEBPACK_IMPORTED_MODULE_0_ramda__["compose"])(Object(__
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react_redux__ = __webpack_require__("react-redux");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react_redux___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react_redux__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ramda__ = __webpack_require__("ramda");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ramda___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_ramda__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__futils_actionSpreader__ = __webpack_require__("./src/common/futils/actionSpreader.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__chapter__ = __webpack_require__("./src/common/containers/chapter/chapter.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_object_assign__ = __webpack_require__("babel-runtime/core-js/object/assign");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_object_assign___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_object_assign__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_redux__ = __webpack_require__("react-redux");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_redux___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react_redux__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ramda__ = __webpack_require__("ramda");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ramda___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_ramda__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__futils_actionSpreader__ = __webpack_require__("./src/common/futils/actionSpreader.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__chapter__ = __webpack_require__("./src/common/containers/chapter/chapter.js");
 
 
 
 
 
-var mapStateToProps = Object(__WEBPACK_IMPORTED_MODULE_1_ramda__["prop"])('chapter');
+
+var mapStateToProps = function mapStateToProps(state) {
+  return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_object_assign___default()({}, Object(__WEBPACK_IMPORTED_MODULE_2_ramda__["pick"])(['images'], state.chapter), Object(__WEBPACK_IMPORTED_MODULE_2_ramda__["pick"])(['showLoader'], state.home));
+};
 
 var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   return {
     fetchChapter: function fetchChapter(id) {
-      return dispatch(Object(__WEBPACK_IMPORTED_MODULE_2__futils_actionSpreader__["a" /* default */])('FETCH_CHAPTER', id));
+      return dispatch(Object(__WEBPACK_IMPORTED_MODULE_3__futils_actionSpreader__["a" /* default */])('FETCH_CHAPTER', id));
     }
   };
 };
 
-/* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_0_react_redux__["connect"])(mapStateToProps, mapDispatchToProps)(__WEBPACK_IMPORTED_MODULE_3__chapter__["a" /* default */]));
+/* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_1_react_redux__["connect"])(mapStateToProps, mapDispatchToProps)(__WEBPACK_IMPORTED_MODULE_4__chapter__["a" /* default */]));
 
 /***/ }),
 
@@ -3269,13 +2859,6 @@ module.exports = require("express");
 
 /***/ }),
 
-/***/ "invariant":
-/***/ (function(module, exports) {
-
-module.exports = require("invariant");
-
-/***/ }),
-
 /***/ "most":
 /***/ (function(module, exports) {
 
@@ -3315,6 +2898,13 @@ module.exports = require("react");
 /***/ (function(module, exports) {
 
 module.exports = require("react-dom/server");
+
+/***/ }),
+
+/***/ "react-lazy-images":
+/***/ (function(module, exports) {
+
+module.exports = require("react-lazy-images");
 
 /***/ }),
 
