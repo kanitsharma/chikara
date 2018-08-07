@@ -5,7 +5,7 @@ import fetch from 'node-fetch';
 import { Map, Chain, Action, Merge, Concat } from '../../futils/curried';
 import actionSpreader from '../../futils/actionSpreader';
 
-const InfoAPI = 'https://mangaflux-api-sxvermmfzn.now.sh/chapter/';
+const InfoAPI = 'https://mangaflux-api-yrqjezvkxz.now.sh/chapter/';
 
 const fetchInfo = ({ payload }) =>
   fetch(InfoAPI + payload).then(res => res.json());
