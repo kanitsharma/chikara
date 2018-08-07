@@ -4,6 +4,7 @@ const requestData = require("../sideEffects/requestData");
 const { mangaInfoURL, chapterURL } = require("../sideEffects/urls");
 const getListFromDB = require("../promises/getList");
 const getLatestFromDb = require("../promises/getLatest");
+const { searchManga } = require("../promises/searchManga");
 const { json } = require("micro");
 
 const Home = _ => "Welcome to mangaflux-api";
@@ -33,16 +34,5 @@ const Search = async (req, res) => {
   const b = await searchManga(a.keywords);
   return responseGenerator(res, b);
 };
-
-const searchManga = keys =>
-  new Promise(resolve => {
-    const cursor = global.db
-      .collection("detailedList")
-      .find(
-        { title_kw: keys },
-        { title: 1, description: 1, categories: 1, image: 1 }
-      );
-    resolve(cursor.next());
-  });
 
 module.exports = { Home, List, Latest, MangaInfo, Chapters, Search };
