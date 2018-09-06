@@ -8,3 +8,6 @@
 $ yarn
 $ lerna bootstrap
 ```
+### TODO
+- Add flow types
+- Remove SSR
