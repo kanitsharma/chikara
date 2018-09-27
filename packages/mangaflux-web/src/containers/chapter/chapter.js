@@ -1,6 +1,5 @@
 import React from "react";
 import { lifecycle, compose } from "recompose";
-import { withRouter } from "react-router-dom";
 import { LazyImage } from "react-lazy-images";
 import "./chapter.css";
 
@@ -31,7 +30,4 @@ const withLifeCycle = lifecycle({
   }
 });
 
-export default compose(
-  withLifeCycle,
-  withRouter
-)(Chapter);
+export default compose(withLifeCycle)(Chapter);

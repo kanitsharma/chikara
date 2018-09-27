@@ -65,7 +65,7 @@ const Info = ({
                 x[2] && (
                   <div
                     className="chapter"
-                    onClick={_ => history.push(`/chapter/${x[3]}`)}
+                    onClick={_ => navigate(`/chapter/${x[3]}`)}
                   >
                     <div className="chapter_no">{x[0]}</div>
                     <div className="chapter_name">{x[2]}</div>
