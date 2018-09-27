@@ -2,12 +2,37 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
 import { Router } from "@reach/router";
+import Loadable from "react-loadable";
 import Nav from "../components/nav";
 import Loader from "../containers/loader";
 import Home from "../containers/home";
-import Browse from "../containers/browse";
-import Info from "../containers/info";
-import Chapter from "../containers/chapter";
+
+const Browse = Loadable({
+  loader: () => import("../containers/browse"),
+  loading: () => (
+    <div className="main_layout">
+      <Loader />
+    </div>
+  )
+});
+
+const Info = Loadable({
+  loader: () => import("../containers/info"),
+  loading: () => (
+    <div className="main_layout">
+      <Loader />
+    </div>
+  )
+});
+
+const Chapter = Loadable({
+  loader: () => import("../containers/chapter"),
+  loading: () => (
+    <div className="main_layout">
+      <Loader />
+    </div>
+  )
+});
 
 export const Core = Store => {
   const render = () => {
