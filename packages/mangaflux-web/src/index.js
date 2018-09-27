@@ -1,21 +1,15 @@
-import express from 'express';
-import app from './server';
+import "./critical.scss";
+import renderLoader from "./futils/renderloader";
 
-if (module.hot) {
-  module.hot.accept('./server', function() {
-    console.log('🔁  HMR Reloading `./server`...');
-  });
-  console.info('✅  Server-side HMR Enabled!');
-}
+renderLoader().then(({ render, remove }) => {
+  // Render a loader here without react
+  render();
 
-const port = process.env.PORT || 3000;
-
-export default express()
-  .use((req, res) => app.handle(req, res))
-  .listen(port, function(err) {
-    if (err) {
-      console.error(err);
-      return;
-    }
-    console.log(`> Started on port ${port}`);
-  });
+  // Meanwhile loading other chunks
+  Promise.all([
+    import(/* webpackChunkName: "core" */ "./core"),
+    import(/* webpackChunkName: "store" */ "./store")
+  ])
+    .then(([{ Core }, { Store }]) => Core(Store))
+    .then(() => remove());
+});
