@@ -5,6 +5,9 @@ import { Router } from "@reach/router";
 import Nav from "../components/nav";
 import Loader from "../containers/loader";
 import Home from "../containers/home";
+import Browse from "../containers/browse";
+import Info from "../containers/info";
+import Chapter from "../containers/chapter";
 
 export const Core = Store => {
   const render = () => {
@@ -15,10 +18,10 @@ export const Core = Store => {
           <Loader />
           <Router>
             <Home path="/" />
+            <Browse path="/browse" />
+            <Info path="/info/:mangaId" />
+            <Chapter path="/chapter/:chapterId" />
           </Router>
-          {/* <Route exact path="/browse" component={Browse} />
-            <Route exact path="/info/:mangaId" component={Info} />
-            <Route exact path="/chapter/:chapterId" component={Chapter} /> */}
         </div>
       </Provider>,
       document.getElementById("root")

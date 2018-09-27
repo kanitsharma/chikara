@@ -1,3 +1,11 @@
+.outer_info {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .info_container {
   width: 70%;
   height: 75%;
@@ -42,7 +50,7 @@
 
 .info-title {
   color: #fce5ff;
-  font-family: 'n';
+  font-family: "n";
   font-size: 40px;
   margin-top: 20px;
   margin-bottom: 20px;
